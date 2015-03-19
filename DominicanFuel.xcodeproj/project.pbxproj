@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA721ABA657C007740B0 /* AppDelegate.swift */; };
 		9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */; };
-		9057CA781ABA657C007740B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA771ABA657C007740B0 /* ViewController.swift */; };
 		9057CA7B1ABA657C007740B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA791ABA657C007740B0 /* Main.storyboard */; };
 		9057CA7D1ABA657C007740B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA7C1ABA657C007740B0 /* Images.xcassets */; };
 		9057CA801ABA657C007740B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA7E1ABA657C007740B0 /* LaunchScreen.xib */; };
@@ -31,7 +30,6 @@
 		9057CA711ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9057CA721ABA657C007740B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9057CA751ABA657C007740B0 /* DominicanFuel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DominicanFuel.xcdatamodel; sourceTree = "<group>"; };
-		9057CA771ABA657C007740B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9057CA7A1ABA657C007740B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9057CA7C1ABA657C007740B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9057CA7F1ABA657C007740B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -80,11 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
-				9057CA771ABA657C007740B0 /* ViewController.swift */,
 				9057CA791ABA657C007740B0 /* Main.storyboard */,
-				9057CA7C1ABA657C007740B0 /* Images.xcassets */,
 				9057CA7E1ABA657C007740B0 /* LaunchScreen.xib */,
-				9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */,
 				9057CA701ABA657C007740B0 /* Supporting Files */,
 			);
 			path = DominicanFuel;
@@ -93,6 +88,8 @@
 		9057CA701ABA657C007740B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9057CA7C1ABA657C007740B0 /* Images.xcassets */,
+				9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */,
 				9057CA711ABA657C007740B0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -215,7 +212,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9057CA781ABA657C007740B0 /* ViewController.swift in Sources */,
 				9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */,
 				9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */,
 			);
