@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA721ABA657C007740B0 /* AppDelegate.swift */; };
+		9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */; };
+		9057CA781ABA657C007740B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA771ABA657C007740B0 /* ViewController.swift */; };
+		9057CA7B1ABA657C007740B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA791ABA657C007740B0 /* Main.storyboard */; };
+		9057CA7D1ABA657C007740B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA7C1ABA657C007740B0 /* Images.xcassets */; };
+		9057CA801ABA657C007740B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA7E1ABA657C007740B0 /* LaunchScreen.xib */; };
+		9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9057CA861ABA657C007740B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9057CA651ABA657B007740B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9057CA6C1ABA657C007740B0;
+			remoteInfo = DominicanFuel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9057CA6D1ABA657C007740B0 /* DominicanFuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DominicanFuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9057CA711ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9057CA721ABA657C007740B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9057CA751ABA657C007740B0 /* DominicanFuel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DominicanFuel.xcdatamodel; sourceTree = "<group>"; };
+		9057CA771ABA657C007740B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9057CA7A1ABA657C007740B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9057CA7C1ABA657C007740B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9057CA7F1ABA657C007740B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		9057CA851ABA657C007740B0 /* DominicanFuelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DominicanFuelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9057CA8A1ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominicanFuelTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9057CA6A1ABA657C007740B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9057CA821ABA657C007740B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9057CA641ABA657B007740B0 = {
+			isa = PBXGroup;
+			children = (
+				9057CA6F1ABA657C007740B0 /* DominicanFuel */,
+				9057CA881ABA657C007740B0 /* DominicanFuelTests */,
+				9057CA6E1ABA657C007740B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9057CA6E1ABA657C007740B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9057CA6D1ABA657C007740B0 /* DominicanFuel.app */,
+				9057CA851ABA657C007740B0 /* DominicanFuelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9057CA6F1ABA657C007740B0 /* DominicanFuel */ = {
+			isa = PBXGroup;
+			children = (
+				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
+				9057CA771ABA657C007740B0 /* ViewController.swift */,
+				9057CA791ABA657C007740B0 /* Main.storyboard */,
+				9057CA7C1ABA657C007740B0 /* Images.xcassets */,
+				9057CA7E1ABA657C007740B0 /* LaunchScreen.xib */,
+				9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */,
+				9057CA701ABA657C007740B0 /* Supporting Files */,
+			);
+			path = DominicanFuel;
+			sourceTree = "<group>";
+		};
+		9057CA701ABA657C007740B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9057CA711ABA657C007740B0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9057CA881ABA657C007740B0 /* DominicanFuelTests */ = {
+			isa = PBXGroup;
+			children = (
+				9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */,
+				9057CA891ABA657C007740B0 /* Supporting Files */,
+			);
+			path = DominicanFuelTests;
+			sourceTree = "<group>";
+		};
+		9057CA891ABA657C007740B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9057CA8A1ABA657C007740B0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9057CA6C1ABA657C007740B0 /* DominicanFuel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9057CA8F1ABA657C007740B0 /* Build configuration list for PBXNativeTarget "DominicanFuel" */;
+			buildPhases = (
+				9057CA691ABA657C007740B0 /* Sources */,
+				9057CA6A1ABA657C007740B0 /* Frameworks */,
+				9057CA6B1ABA657C007740B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DominicanFuel;
+			productName = DominicanFuel;
+			productReference = 9057CA6D1ABA657C007740B0 /* DominicanFuel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9057CA841ABA657C007740B0 /* DominicanFuelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9057CA921ABA657C007740B0 /* Build configuration list for PBXNativeTarget "DominicanFuelTests" */;
+			buildPhases = (
+				9057CA811ABA657C007740B0 /* Sources */,
+				9057CA821ABA657C007740B0 /* Frameworks */,
+				9057CA831ABA657C007740B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9057CA871ABA657C007740B0 /* PBXTargetDependency */,
+			);
+			name = DominicanFuelTests;
+			productName = DominicanFuelTests;
+			productReference = 9057CA851ABA657C007740B0 /* DominicanFuelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9057CA651ABA657B007740B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Julian Tejera";
+				TargetAttributes = {
+					9057CA6C1ABA657C007740B0 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					9057CA841ABA657C007740B0 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 9057CA6C1ABA657C007740B0;
+					};
+				};
+			};
+			buildConfigurationList = 9057CA681ABA657B007740B0 /* Build configuration list for PBXProject "DominicanFuel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9057CA641ABA657B007740B0;
+			productRefGroup = 9057CA6E1ABA657C007740B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9057CA6C1ABA657C007740B0 /* DominicanFuel */,
+				9057CA841ABA657C007740B0 /* DominicanFuelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9057CA6B1ABA657C007740B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9057CA7B1ABA657C007740B0 /* Main.storyboard in Resources */,
+				9057CA801ABA657C007740B0 /* LaunchScreen.xib in Resources */,
+				9057CA7D1ABA657C007740B0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9057CA831ABA657C007740B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9057CA691ABA657C007740B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9057CA781ABA657C007740B0 /* ViewController.swift in Sources */,
+				9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */,
+				9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9057CA811ABA657C007740B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9057CA871ABA657C007740B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9057CA6C1ABA657C007740B0 /* DominicanFuel */;
+			targetProxy = 9057CA861ABA657C007740B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9057CA791ABA657C007740B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9057CA7A1ABA657C007740B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9057CA7E1ABA657C007740B0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9057CA7F1ABA657C007740B0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9057CA8D1ABA657C007740B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9057CA8E1ABA657C007740B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9057CA901ABA657C007740B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DominicanFuel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9057CA911ABA657C007740B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DominicanFuel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9057CA931ABA657C007740B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DominicanFuelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
+			};
+			name = Debug;
+		};
+		9057CA941ABA657C007740B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = DominicanFuelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9057CA681ABA657B007740B0 /* Build configuration list for PBXProject "DominicanFuel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9057CA8D1ABA657C007740B0 /* Debug */,
+				9057CA8E1ABA657C007740B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9057CA8F1ABA657C007740B0 /* Build configuration list for PBXNativeTarget "DominicanFuel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9057CA901ABA657C007740B0 /* Debug */,
+				9057CA911ABA657C007740B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9057CA921ABA657C007740B0 /* Build configuration list for PBXNativeTarget "DominicanFuelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9057CA931ABA657C007740B0 /* Debug */,
+				9057CA941ABA657C007740B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9057CA751ABA657C007740B0 /* DominicanFuel.xcdatamodel */,
+			);
+			currentVersion = 9057CA751ABA657C007740B0 /* DominicanFuel.xcdatamodel */;
+			path = DominicanFuel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9057CA651ABA657B007740B0 /* Project object */;
+}
