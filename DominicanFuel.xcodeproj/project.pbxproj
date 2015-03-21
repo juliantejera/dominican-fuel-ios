@@ -16,6 +16,16 @@
 		9057CA971ABA6896007740B0 /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA961ABA6896007740B0 /* Fuel.swift */; };
 		9057CA9B1ABA6B29007740B0 /* Fuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA961ABA6896007740B0 /* Fuel.swift */; };
 		9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */; };
+		9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */; };
+		9057CAA51ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */; };
+		9057CAA61ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */; };
+		9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */; };
+		9057CAA81ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */; };
+		9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */; };
+		9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA21ABDB0D8007740B0 /* RestRepository.swift */; };
+		9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA21ABDB0D8007740B0 /* RestRepository.swift */; };
+		9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
+		9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +51,11 @@
 		9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominicanFuelTests.swift; sourceTree = "<group>"; };
 		9057CA961ABA6896007740B0 /* Fuel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fuel.swift; sourceTree = "<group>"; };
 		9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTests.swift; sourceTree = "<group>"; };
+		9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMapping.swift; sourceTree = "<group>"; };
+		9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
+		9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepositoryProtocol.swift; sourceTree = "<group>"; };
+		9057CAA21ABDB0D8007740B0 /* RestRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepository.swift; sourceTree = "<group>"; };
+		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +97,7 @@
 		9057CA6F1ABA657C007740B0 /* DominicanFuel */ = {
 			isa = PBXGroup;
 			children = (
+				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
 				9057CA951ABA6878007740B0 /* Models */,
 				9057CA9A1ABA6A19007740B0 /* View Models */,
 				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
@@ -133,6 +149,18 @@
 			children = (
 			);
 			name = "View Models";
+			sourceTree = "<group>";
+		};
+		9057CAAE1ABDB0F8007740B0 /* JTRestRepository */ = {
+			isa = PBXGroup;
+			children = (
+				9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */,
+				9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */,
+				9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */,
+				9057CAA21ABDB0D8007740B0 /* RestRepository.swift */,
+				9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */,
+			);
+			name = JTRestRepository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +263,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
+				9057CAA61ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
+				9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
 				9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */,
 				9057CA971ABA6896007740B0 /* Fuel.swift in Sources */,
 				9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */,
+				9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
+				9057CAA81ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,9 +278,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
+				9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
+				9057CAA51ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
 				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
 				9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */,
 				9057CA9B1ABA6B29007740B0 /* Fuel.swift in Sources */,
+				9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
+				9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +471,7 @@
 				9057CA911ABA657C007740B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9057CA921ABA657C007740B0 /* Build configuration list for PBXNativeTarget "DominicanFuelTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +480,7 @@
 				9057CA941ABA657C007740B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
