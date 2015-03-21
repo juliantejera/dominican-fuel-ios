@@ -28,6 +28,7 @@
 		9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 		906CE7C51ABDD07C00B45CCF /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C41ABDD07C00B45CCF /* AppClient.swift */; };
 		906CE7C61ABDD07C00B45CCF /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C41ABDD07C00B45CCF /* AppClient.swift */; };
+		906CE7C81ABDDD4200B45CCF /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		9057CAA21ABDB0D8007740B0 /* RestRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepository.swift; sourceTree = "<group>"; };
 		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
 		906CE7C41ABDD07C00B45CCF /* AppClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppClient.swift; sourceTree = "<group>"; };
+		906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				9057CA961ABA6896007740B0 /* Fuel.swift */,
 				906CE7C41ABDD07C00B45CCF /* AppClient.swift */,
+				906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			files = (
 				9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				9057CAA61ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
+				906CE7C81ABDDD4200B45CCF /* GlobalFunctions.swift in Sources */,
 				9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
 				906CE7C51ABDD07C00B45CCF /* AppClient.swift in Sources */,
 				9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */,
