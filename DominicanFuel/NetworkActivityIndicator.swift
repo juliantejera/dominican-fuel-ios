@@ -10,7 +10,11 @@ import UIKit
 private let networkActivityIndicator = NetworkActivityIndicator()
 class NetworkActivityIndicator: NSObject {
     
-    private var count = 0
+    private var count: Int = 0 {
+        didSet {
+            updateIndicator()
+        }
+    }
     
     class func sharedInstance() -> NetworkActivityIndicator {
         return networkActivityIndicator
@@ -18,12 +22,10 @@ class NetworkActivityIndicator: NSObject {
     
     func addConnection() {
         count++
-        updateIndicator()
     }
     
     func removeConnection() {
         count--
-        updateIndicator()
     }
     
     func updateIndicator() {
