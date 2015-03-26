@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
+		903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
+		903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */; };
 		9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA721ABA657C007740B0 /* AppDelegate.swift */; };
 		9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */; };
 		9057CA7B1ABA657C007740B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA791ABA657C007740B0 /* Main.storyboard */; };
@@ -29,6 +32,8 @@
 		906CE7C51ABDD07C00B45CCF /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C41ABDD07C00B45CCF /* AppClient.swift */; };
 		906CE7C61ABDD07C00B45CCF /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C41ABDD07C00B45CCF /* AppClient.swift */; };
 		906CE7C81ABDDD4200B45CCF /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */; };
+		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
+		906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModel.swift; sourceTree = "<group>"; };
+		903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelTests.swift; sourceTree = "<group>"; };
 		9057CA6D1ABA657C007740B0 /* DominicanFuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DominicanFuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9057CA711ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9057CA721ABA657C007740B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +68,7 @@
 		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
 		906CE7C41ABDD07C00B45CCF /* AppClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppClient.swift; sourceTree = "<group>"; };
 		906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,7 @@
 				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
 				9057CA951ABA6878007740B0 /* Models */,
 				9057CA9A1ABA6A19007740B0 /* View Models */,
+				906CE7C91ABDDE6000B45CCF /* Controllers */,
 				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
 				9057CA791ABA657C007740B0 /* Main.storyboard */,
 				9057CA7E1ABA657C007740B0 /* LaunchScreen.xib */,
@@ -129,6 +138,7 @@
 				9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */,
 				9057CA891ABA657C007740B0 /* Supporting Files */,
 				9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */,
+				903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */,
 			);
 			path = DominicanFuelTests;
 			sourceTree = "<group>";
@@ -154,6 +164,7 @@
 		9057CA9A1ABA6A19007740B0 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -168,6 +179,14 @@
 				9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */,
 			);
 			name = JTRestRepository;
+			sourceTree = "<group>";
+		};
+		906CE7C91ABDDE6000B45CCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +291,7 @@
 			files = (
 				9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				9057CAA61ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
+				903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				906CE7C81ABDDD4200B45CCF /* GlobalFunctions.swift in Sources */,
 				9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
 				906CE7C51ABDD07C00B45CCF /* AppClient.swift in Sources */,
@@ -280,6 +300,7 @@
 				9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */,
 				9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				9057CAA81ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
+				906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,13 +308,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
+				903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */,
 				9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
 				9057CAA51ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
 				906CE7C61ABDD07C00B45CCF /* AppClient.swift in Sources */,
 				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
 				9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */,
 				9057CA9B1ABA6B29007740B0 /* Fuel.swift in Sources */,
+				906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */,
 				9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
 			);
