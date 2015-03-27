@@ -1,0 +1,12 @@
+# Xcode
+.DS_Store
+
+xcuserdata
+profile
+DerivedData
+*.xccheckout
+Podfile.lock
+*.xcworkspace
+
+# CocoaPods
+Pods
