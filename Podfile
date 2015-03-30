@@ -6,9 +6,6 @@ target 'DominicanFuel' do
 end
 
 target 'DominicanFuelTests' do
-  use_frameworks!
   pod 'PNChart'
-  pod 'Quick'
-  pod 'Nimble'
 end
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05600C053555838F6E61E0DC /* Pods_DominicanFuelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FACD6B02D4796AC53ADAF8C6 /* Pods_DominicanFuelTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8B03FB44D76994044AF7D56A /* libPods-DominicanFuelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */; };
 		903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
 		903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
 		903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */; };
@@ -35,6 +35,7 @@
 		906CE7C81ABDDD4200B45CCF /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */; };
 		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 		906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
+		90B695681AC4F45100BC8B7B /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartsViewController.swift */; };
 		AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */; };
 /* End PBXBuildFile section */
 
@@ -73,9 +74,11 @@
 		906CE7C41ABDD07C00B45CCF /* AppClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppClient.swift; sourceTree = "<group>"; };
 		906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelsTableViewController.swift; sourceTree = "<group>"; };
+		90B695671AC4F45100BC8B7B /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		90B695691AC56A9F00BC8B7B /* DominicanFuel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DominicanFuel-Bridging-Header.h"; sourceTree = "<group>"; };
 		944AA7BC5C89A49589B2E2DE /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
+		A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DominicanFuelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7524CAA300D5DBD1311CD27 /* Pods-DominicanFuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.debug.xcconfig"; sourceTree = "<group>"; };
-		FACD6B02D4796AC53ADAF8C6 /* Pods_DominicanFuelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DominicanFuelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFBBE4C694049954BE45151 /* Pods-DominicanFuelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05600C053555838F6E61E0DC /* Pods_DominicanFuelTests.framework in Frameworks */,
+				8B03FB44D76994044AF7D56A /* libPods-DominicanFuelTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +143,7 @@
 				9057CA7C1ABA657C007740B0 /* Images.xcassets */,
 				9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */,
 				9057CA711ABA657C007740B0 /* Info.plist */,
+				90B695691AC56A9F00BC8B7B /* DominicanFuel-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -197,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
+				90B695671AC4F45100BC8B7B /* ChartsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -216,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */,
-				FACD6B02D4796AC53ADAF8C6 /* Pods_DominicanFuelTests.framework */,
+				A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,7 +257,6 @@
 				9057CA821ABA657C007740B0 /* Frameworks */,
 				9057CA831ABA657C007740B0 /* Resources */,
 				D50B96BFA1905848670A90CE /* Copy Pods Resources */,
-				E1C155CFF4E0E248AC7D048A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,21 +371,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1C155CFF4E0E248AC7D048A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FE88B80A7F2866720FFF7DAC /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B695681AC4F45100BC8B7B /* ChartsViewController.swift in Sources */,
 				9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				9057CAA61ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
 				903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
@@ -552,9 +542,12 @@
 			baseConfigurationReference = B7524CAA300D5DBD1311CD27 /* Pods-DominicanFuel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -563,9 +556,11 @@
 			baseConfigurationReference = 944AA7BC5C89A49589B2E2DE /* Pods-DominicanFuel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 			};
 			name = Release;
 		};

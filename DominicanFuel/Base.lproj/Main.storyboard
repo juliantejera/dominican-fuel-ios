@@ -16,6 +16,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="VBT-10-3Jf" kind="relationship" relationship="viewControllers" id="iNh-wI-Fq4"/>
+                        <segue destination="BXt-In-whR" kind="relationship" relationship="viewControllers" id="2Ol-Fw-0RR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esc-Ef-Gq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,6 +82,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKc-TX-Hb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="923" y="299"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="OeP-mI-2IL">
+            <objects>
+                <viewController id="BXt-In-whR" customClass="ChartsViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MuF-ab-jfZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="UqT-ir-b40"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qyj-qo-UoX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="SO4-VN-Wyi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xtq-O2-Utf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="923" y="1021"/>
         </scene>
     </scenes>
 </document>
