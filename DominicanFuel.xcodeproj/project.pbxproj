@@ -131,11 +131,7 @@
 		902EF56F1ACB872B00661600 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				902EF5701ACB878900661600 /* FuelFilter.swift */,
-				902EF5761ACB97E300661600 /* FuelFilterExtension.swift */,
 				902EF5731ACB899100661600 /* ManagedDocumentCoordinator.swift */,
-				902EF5791ACC070700661600 /* DominicanFuelManagedDocumentCoordinator.swift */,
-				902EF5811ACCDF1E00661600 /* CoreDataSeeder.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -163,6 +159,7 @@
 		9057CA6F1ABA657C007740B0 /* DominicanFuel */ = {
 			isa = PBXGroup;
 			children = (
+				902EF56F1ACB872B00661600 /* CoreData */,
 				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
 				9057CA951ABA6878007740B0 /* Models */,
 				9057CA9A1ABA6A19007740B0 /* View Models */,
@@ -209,11 +206,14 @@
 		9057CA951ABA6878007740B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				902EF56F1ACB872B00661600 /* CoreData */,
 				9057CA961ABA6896007740B0 /* Fuel.swift */,
 				902EF5631ACA43E000661600 /* FuelType.swift */,
 				906CE7C41ABDD07C00B45CCF /* AppClient.swift */,
 				906CE7C71ABDDD4200B45CCF /* GlobalFunctions.swift */,
+				902EF5701ACB878900661600 /* FuelFilter.swift */,
+				902EF5761ACB97E300661600 /* FuelFilterExtension.swift */,
+				902EF5791ACC070700661600 /* DominicanFuelManagedDocumentCoordinator.swift */,
+				902EF5811ACCDF1E00661600 /* CoreDataSeeder.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
