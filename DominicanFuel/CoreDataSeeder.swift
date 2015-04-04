@@ -18,7 +18,7 @@ class CoreDataSeeder: ManagedDocumentCoordinatorDelegate {
         coordinator.setupDocument()
     }
     
-    func seed() {
+    private func seed() {
         if let context = document?.managedObjectContext {
             FuelSeeder.seed(context)
             FuelFilterSeeder.seed(context)
