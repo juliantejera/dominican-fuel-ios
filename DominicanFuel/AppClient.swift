@@ -12,9 +12,9 @@ private let appClient = AppClient()
 class AppClient {
     
     let baseURL = NSURL(string: "http://localhost:3000")!
-    var fuelRepository: RestRepository<Fuel>
+    //var fuelRepository: RestRepository<Fuel>
     init() {
-        fuelRepository = RestRepository<Fuel>(endPoint: baseURL.URLByAppendingPathComponent("/fuels"))
+        //fuelRepository = RestRepository<Fuel>(endPoint: baseURL.URLByAppendingPathComponent("/fuels"))
     }
     
     class func sharedInstance() -> AppClient {

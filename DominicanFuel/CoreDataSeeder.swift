@@ -19,25 +19,9 @@ class CoreDataSeeder: ManagedDocumentCoordinatorDelegate {
     }
     
     func seed() {
-        seedFuelFilters()
-    }
-    
-    func seedFuelFilters() {
         if let context = document?.managedObjectContext {
-            let request = NSFetchRequest(entityName: FuelFilter.entityName())
-            var error: NSError? = nil
-            var count = context.countForFetchRequest(request, error: &error)
-            if error == nil && count == 0 {
-                let types = ["Gasolina Premium", "Gasolina Regular", "Gasoil Premium", "Gasoil Regular", "Gas Licuado de Petróleo (GLP)", "Kerosene", "Gas Natural", "Gas Natural Vehicular (GNV)"]
-                
-                for var i = 0; i < types.count; i++ {
-                    if let fuelFilter = NSEntityDescription.insertNewObjectForEntityForName(FuelFilter.entityName(), inManagedObjectContext: context) as? FuelFilter {
-                        fuelFilter.id = i + 1
-                        fuelFilter.type = types[i]
-                        fuelFilter.isSelected = true
-                    }
-                }
-            }
+            FuelSeeder.seed(context)
+            FuelFilterSeeder.seed(context)
         }
     }
     

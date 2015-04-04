@@ -17,7 +17,7 @@ class FuelViewModel {
         let numberFormatter = NSNumberFormatter()
         numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         let dateFormatter = NSDateFormatter()
-        self.name = fuel.name
+        self.name = fuel.type
         self.price = numberFormatter.stringFromNumber(fuel.price) ?? "$0.00"
         self.publishedAt = fuel.publishedAt != nil ? dateFormatter.stringFromDate(fuel.publishedAt!) : ""
     }

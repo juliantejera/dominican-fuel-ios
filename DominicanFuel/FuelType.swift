@@ -12,7 +12,7 @@ enum FuelType: String {
     case PremiumGasoline = "Gasolina Premium"
     case RegularGasoline = "Gasolina Regular"
     case PremiumDiesel = "Gasoil Premium"
-    case RegularDiesel = "Gasolil Regular"
+    case RegularDiesel = "Gasoil Regular"
     case GLP = "Gas Licuado de Petróleo"
     case Kerosene = "Kerosene"
     case NaturalGas = "Natural Gas"

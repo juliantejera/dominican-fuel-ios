@@ -1,17 +1,15 @@
 //
-//  FuelFilterExtension.swift
+//  FuelExtension.swift
 //  DominicanFuel
 //
-//  Created by Julian Tejera on 3/31/15.
+//  Created by Julian Tejera on 4/4/15.
 //  Copyright (c) 2015 Julian Tejera. All rights reserved.
 //
 
 import Foundation
-import CoreData
 
-extension FuelFilter {
-    
+extension Fuel {
     class func entityName() -> String {
-        return "FuelFilter"
+        return "Fuel"
     }
 }

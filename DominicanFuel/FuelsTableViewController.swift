@@ -29,12 +29,12 @@ class FuelsTableViewController: UITableViewController, UIPopoverPresentationCont
     }
     
     func refresh() {
-        AppClient.sharedInstance().fuelRepository.findAll { (items, error) -> Void in
-            if let items = items {
-                self.fuels = items.map { FuelViewModel(fuel: $0)}
-                self.tableView.reloadData()
-            }
-        }
+//        AppClient.sharedInstance().fuelRepository.findAll { (items, error) -> Void in
+//            if let items = items {
+//                self.fuels = items.map { FuelViewModel(fuel: $0)}
+//                self.tableView.reloadData()
+//            }
+//        }
     }
 
     // MARK: - Table view data source
