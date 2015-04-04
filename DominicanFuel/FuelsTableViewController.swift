@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FuelsTableViewController: UITableViewController {
+class FuelsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
     
     var fuels = [FuelViewModel]()
     
@@ -97,14 +97,23 @@ class FuelsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "FilterSegue" {
+            if let controller = segue.destinationViewController as? UIViewController {
+                controller.popoverPresentationController?.delegate = self
+            }
+        }
     }
-    */
 
+    // MARK: - UIPopoverPresentationControllerDelegate
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
 }

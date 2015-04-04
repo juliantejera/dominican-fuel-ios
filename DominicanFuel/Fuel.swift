@@ -52,4 +52,8 @@ class Fuel: DictionaryMapping {
     class func kName() -> String { return "name" }
     class func kPrice() -> String { return "price" }
     class func kPublishedAt() -> String { return "publishedAt" }
+    
+    class func fuelNames() -> [String] {
+        return ["Gasolina Premium", "Gasolina Regular", "Gasoil Premium", "Gasoil Regular", "Kerosene", "Gas Natural", "Gas Licuado de Petróleo (GLP)", "Gas Natural Vehicular (GNV)"]
+    }
 }
