@@ -745,7 +745,7 @@
 				902EF5841ACCECBC00661600 /* DominicanFuel 2.xcdatamodel */,
 				9057CA751ABA657C007740B0 /* DominicanFuel.xcdatamodel */,
 			);
-			currentVersion = 9057CA751ABA657C007740B0 /* DominicanFuel.xcdatamodel */;
+			currentVersion = 902EF5841ACCECBC00661600 /* DominicanFuel 2.xcdatamodel */;
 			path = DominicanFuel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

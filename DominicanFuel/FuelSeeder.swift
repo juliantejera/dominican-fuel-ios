@@ -28,7 +28,6 @@ class FuelSeeder {
                             if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
                                 if let date = dictionary["published_at"] as? String {
                                     fuel.publishedAt = formatter.dateFromString(date)
-                                    println("\(date) -- \(fuel.publishedAt)")
                                 }
                                 
                                 if let type = dictionary["type"] as? String {
@@ -37,6 +36,10 @@ class FuelSeeder {
                                 
                                 if let price = dictionary["price"] as? Double {
                                     fuel.price = price
+                                }
+                                
+                                if let delta = dictionary["delta"] as? Double {
+                                    fuel.delta = delta
                                 }
                             }
                         }
