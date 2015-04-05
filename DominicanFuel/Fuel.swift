@@ -14,7 +14,5 @@ class Fuel: NSManagedObject {
     
     @NSManaged var type: String
     @NSManaged var price: Double
-    @NSManaged var publishedAt: NSDate?
-    @NSManaged var effectiveUntil: NSDate?
-    
+    @NSManaged var publishedAt: NSDate?    
 }

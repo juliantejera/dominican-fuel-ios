@@ -8,56 +8,68 @@
 
 import UIKit
 
-class FuelsTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoordinatorDelegate, UIPopoverPresentationControllerDelegate {
     
-    var fuels = [FuelViewModel]()
+    let dateFormatter = NSDateFormatter()
+    let numberFormatter = NSNumberFormatter()
+    var document: UIManagedDocument?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         
-        refresh()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
+        documentCoordinator.delegate = self
+        documentCoordinator.setupDocument()
     }
     
-    func refresh() {
-//        AppClient.sharedInstance().fuelRepository.findAll { (items, error) -> Void in
-//            if let items = items {
-//                self.fuels = items.map { FuelViewModel(fuel: $0)}
-//                self.tableView.reloadData()
-//            }
-//        }
+    
+    // MARK: - Managed Document Coordinator Delegate
+    
+    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
+        self.document = document
+        
+        if let managedObjectContext = document.managedObjectContext {
+            let request = NSFetchRequest(entityName: Fuel.entityName())
+            var publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
+            var typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
+            request.sortDescriptors = [publishedAtDescending, typeAscending]
+            self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "publishedAt", cacheName: nil)
+        }
     }
+    
+    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
+        // Handle error
+        println("Error: \(error)")
+    }
+    
 
     // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return 1
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sectionInfo = self.fetchedResultsController.sections?[section] as? NSFetchedResultsSectionInfo {
+            if let fuel = sectionInfo.objects.first as? Fuel {
+                if let date = fuel.publishedAt {
+                    var effectiveUntil = NSDate(timeInterval: 60*60*24*6, sinceDate: date)
+                    return "\(dateFormatter.stringFromDate(date)) - \(dateFormatter.stringFromDate(effectiveUntil))"
+                }
+            }
+        }
+        return nil
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        return fuels.count
-    }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FuelCell", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        let fuelViewModel = fuels[indexPath.row]
-        cell.textLabel?.text = fuelViewModel.name
-        cell.detailTextLabel?.text = fuelViewModel.price
-
+        
+        if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
+            cell.textLabel?.text = fuel.type
+            cell.detailTextLabel?.text = numberFormatter.stringFromNumber(fuel.price)
+        }
+        
         return cell
     }
     
