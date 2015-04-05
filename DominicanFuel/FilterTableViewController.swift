@@ -8,35 +8,19 @@
 
 import UIKit
 import CoreData
-class FilterTableViewController: CoreDataTableViewController, ManagedDocumentCoordinatorDelegate {
+class FilterTableViewController: CoreDataTableViewController {
 
     var document: UIManagedDocument?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
-        documentCoordinator.delegate = self
-        documentCoordinator.setupDocument()
-    }
-    
-    // MARK: - Managed Document Coordinator Delegate
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
-        self.document = document
-        
-        if let managedObjectContext = document.managedObjectContext {
+        if let managedObjectContext = document?.managedObjectContext {
             let request = NSFetchRequest(entityName: FuelFilter.entityName())
             request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true, selector: "compare:")]
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         }
     }
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
-        // Handle error
-        println("Error: \(error)")
-    }
-    
     
     // MARK: = Table view delegate
     
@@ -52,6 +36,8 @@ class FilterTableViewController: CoreDataTableViewController, ManagedDocumentCoo
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter {        filter.isSelected = !filter.isSelected
             cell?.accessoryType = filter.isSelected ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+            
+            document?.saveToURL(document!.fileURL, forSaveOperation: UIDocumentSaveOperation.ForOverwriting, completionHandler: nil)
         }
     }
     
@@ -65,7 +51,6 @@ class FilterTableViewController: CoreDataTableViewController, ManagedDocumentCoo
             cell.accessoryType = filter.isSelected ? .Checkmark : .None
         }
         
-
         return cell
     }
 

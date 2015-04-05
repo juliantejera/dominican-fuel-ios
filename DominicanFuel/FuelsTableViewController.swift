@@ -25,14 +25,21 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
         documentCoordinator.setupDocument()
     }
     
-    
     // MARK: - Managed Document Coordinator Delegate
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
         self.document = document
-        
-        if let managedObjectContext = document.managedObjectContext {
+        reloadFetchedResultsController()
+    }
+    
+    func reloadFetchedResultsController() {
+        if let managedObjectContext = document?.managedObjectContext {
             let request = NSFetchRequest(entityName: Fuel.entityName())
+            var selectedFuelFiltersTypes = selectedFuelFilters().map({ $0.type })
+            if selectedFuelFiltersTypes.count > 0 {
+                request.predicate = NSPredicate(format: "type IN %@", selectedFuelFiltersTypes)
+            }
+            
             var publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
             var typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
             request.sortDescriptors = [publishedAtDescending, typeAscending]
@@ -40,6 +47,22 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
         }
     }
     
+    func selectedFuelFilters() -> [FuelFilter] {
+        if let managedObjectContext = document?.managedObjectContext {
+            let request = NSFetchRequest(entityName: FuelFilter.entityName())
+            request.predicate = NSPredicate(format: "isSelected == 1", argumentArray: nil)
+            var error: NSError? = nil
+            
+            if let fuelFilters = managedObjectContext.executeFetchRequest(request, error: &error) as? [FuelFilter] {
+                return fuelFilters
+            } else {
+                println("Error: \(error)")
+            }
+        }
+        
+        return [FuelFilter]()
+    }
+ 
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
         // Handle error
         println("Error: \(error)")
@@ -108,7 +131,6 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
         return true
     }
     */
-
     
     // MARK: - Navigation
 
@@ -117,7 +139,8 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         if segue.identifier == "FilterSegue" {
-            if let controller = segue.destinationViewController as? UIViewController {
+            if let controller = segue.destinationViewController as? FilterTableViewController {
+                controller.document = self.document
                 controller.popoverPresentationController?.delegate = self
             }
         }
@@ -127,5 +150,13 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return UIModalPresentationStyle.None
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        UIView.transitionWithView(self.tableView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+            self.reloadFetchedResultsController()
+        }) { (success) -> Void in
+            // TODO
+        }
     }
 }

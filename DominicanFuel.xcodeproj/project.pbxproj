@@ -160,6 +160,13 @@
 			name = "Core Data Seeders";
 			sourceTree = "<group>";
 		};
+		902EF5981AD0C44E00661600 /* Fetch Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Fetch Requests";
+			sourceTree = "<group>";
+		};
 		9057CA641ABA657B007740B0 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +196,7 @@
 				9057CA9A1ABA6A19007740B0 /* View Models */,
 				906CE7C91ABDDE6000B45CCF /* Controllers */,
 				902EF58B1AD0270800661600 /* Core Data Seeders */,
+				902EF5981AD0C44E00661600 /* Fetch Requests */,
 				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
 				9057CA791ABA657C007740B0 /* Main.storyboard */,
 				9057CA7E1ABA657C007740B0 /* LaunchScreen.xib */,
