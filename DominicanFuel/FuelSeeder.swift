@@ -20,27 +20,12 @@ class FuelSeeder {
             if let url = NSBundle.mainBundle().URLForResource("fuels", withExtension: "json") {
                 if let data = NSData(contentsOfURL: url) {
                     var error: NSError? = nil
+                    
                     if let array = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as? [[String: AnyObject]] {
                         
-                        var formatter = NSDateFormatter()
-                        formatter.dateFormat = "yyyy-MM-dd"
                         for dictionary in array {
                             if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
-                                if let date = dictionary["published_at"] as? String {
-                                    fuel.publishedAt = formatter.dateFromString(date)
-                                }
-                                
-                                if let type = dictionary["type"] as? String {
-                                    fuel.type = type
-                                }
-                                
-                                if let price = dictionary["price"] as? Double {
-                                    fuel.price = price
-                                }
-                                
-                                if let delta = dictionary["delta"] as? Double {
-                                    fuel.delta = delta
-                                }
+                                fuel.populateWithDictionary(dictionary)
                             }
                         }
                     }
