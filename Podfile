@@ -2,10 +2,10 @@
 # platform :ios, '6.0'
 
 target 'DominicanFuel' do
-  pod 'PNChart'
+  pod 'GraphKit'
 end
 
 target 'DominicanFuelTests' do
-  pod 'PNChart'
+  pod 'GraphKit'
 end
 
