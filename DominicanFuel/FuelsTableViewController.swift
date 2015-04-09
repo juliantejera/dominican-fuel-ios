@@ -8,36 +8,28 @@
 
 import UIKit
 
-class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoordinatorDelegate, UIPopoverPresentationControllerDelegate {
+class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate {
     
     let dateFormatter = NSDateFormatter()
     let numberFormatter = NSNumberFormatter()
     var document: UIManagedDocument?
-
+    var selectedDate = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
         numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         
-        let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
-        documentCoordinator.delegate = self
-        documentCoordinator.setupDocument()
-    }
-    
-    // MARK: - Managed Document Coordinator Delegate
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
-        self.document = document
         reloadFetchedResultsController()
     }
+    
     
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
             let request = NSFetchRequest(entityName: Fuel.entityName())
             var selectedFuelFiltersTypes = selectedFuelFilters().map({ $0.type })
             if selectedFuelFiltersTypes.count > 0 {
-                request.predicate = NSPredicate(format: "type IN %@", selectedFuelFiltersTypes)
+                request.predicate = NSPredicate(format: "publishedAt = %@ AND type IN %@", selectedDate, selectedFuelFiltersTypes)
             }
             
             var publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
@@ -63,10 +55,6 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
         return [FuelFilter]()
     }
  
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
-        // Handle error
-        println("Error: \(error)")
-    }
     
 
     // MARK: - Table view data source
