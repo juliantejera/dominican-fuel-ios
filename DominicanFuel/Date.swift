@@ -18,7 +18,7 @@ extension NSDate {
     class func lastSaturday(date: NSDate = NSDate()) -> NSDate {
         let saturday = 7
         
-        if NSCalendar.currentCalendar().component(NSCalendarUnit.WeekdayCalendarUnit, fromDate: date) == saturday {
+        if date.weekday == saturday {
             return date
         }
         
