@@ -201,6 +201,7 @@
 		9057CA6F1ABA657C007740B0 /* DominicanFuel */ = {
 			isa = PBXGroup;
 			children = (
+				90AD3B431AD7D26E00785573 /* Enum */,
 				90AD3B3A1AD61B0700785573 /* Extensions */,
 				902EF56F1ACB872B00661600 /* CoreData */,
 				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
@@ -300,10 +301,17 @@
 			isa = PBXGroup;
 			children = (
 				902EF5951AD0B09700661600 /* DateFormatter.swift */,
-				90AD3B3E1AD69F2800785573 /* Date.swift */,
 				90AD3B3B1AD61B1D00785573 /* ViewController.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		90AD3B431AD7D26E00785573 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				90AD3B3E1AD69F2800785573 /* Date.swift */,
+			);
+			name = Enum;
 			sourceTree = "<group>";
 		};
 		D048E441D1B89F2D686BD006 /* Pods */ = {
