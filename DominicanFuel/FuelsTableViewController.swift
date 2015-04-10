@@ -8,36 +8,43 @@
 
 import UIKit
 
-class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoordinatorDelegate, UIPopoverPresentationControllerDelegate {
+class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate {
     
-    let dateFormatter = NSDateFormatter()
-    let numberFormatter = NSNumberFormatter()
     var document: UIManagedDocument?
-
+    
+    var selectedDate: NSDate = NSDate.lastSaturday() {
+        didSet {
+            reloadFetchedResultsController()
+        }
+    }
+    
+    lazy var dateFormatter: NSDateFormatter = {
+        var formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        return formatter
+    }()
+    
+    lazy var numberFormatter: NSNumberFormatter = {
+        var formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         
         let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
         documentCoordinator.delegate = self
         documentCoordinator.setupDocument()
     }
     
-    // MARK: - Managed Document Coordinator Delegate
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
-        self.document = document
-        reloadFetchedResultsController()
-    }
     
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
             let request = NSFetchRequest(entityName: Fuel.entityName())
             var selectedFuelFiltersTypes = selectedFuelFilters().map({ $0.type })
             if selectedFuelFiltersTypes.count > 0 {
-                request.predicate = NSPredicate(format: "type IN %@", selectedFuelFiltersTypes)
+                request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt <= %@) AND type IN %@", selectedDate.beginningOfDay, selectedDate.endOfDay, selectedFuelFiltersTypes)
             }
             
             var publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
@@ -63,11 +70,17 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
         return [FuelFilter]()
     }
  
+    // MARK: - Managed Document Coordinator Delegate
+    
+    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
+        self.document = document
+        reloadFetchedResultsController()
+    }
+    
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
         // Handle error
         println("Error: \(error)")
     }
-    
 
     // MARK: - Table view data source
     
@@ -75,7 +88,8 @@ class FuelsTableViewController: CoreDataTableViewController, ManagedDocumentCoor
         if let sectionInfo = self.fetchedResultsController.sections?[section] as? NSFetchedResultsSectionInfo {
             if let fuel = sectionInfo.objects.first as? Fuel {
                 if let date = fuel.publishedAt {
-                    var effectiveUntil = NSDate(timeInterval: 60*60*24*6, sinceDate: date)
+                    let sixDaysInSeconds: NSTimeInterval = 60*60*24*6
+                    var effectiveUntil = NSDate(timeInterval: sixDaysInSeconds, sinceDate: date)
                     return "\(dateFormatter.stringFromDate(date)) - \(dateFormatter.stringFromDate(effectiveUntil))"
                 }
             }

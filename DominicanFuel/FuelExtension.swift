@@ -20,19 +20,19 @@ extension Fuel {
     class func kDelta() -> String { return "delta" }
     
     func populateWithDictionary(dictionary: [String: AnyObject]) {
-        if let date = dictionary["published_at"] as? String {
+        if let date = dictionary[Fuel.kPublishedAt()] as? String {
             self.publishedAt = NSDateFormatter.sharedISO8601DateFormatter().dateFromString(date)
         }
         
-        if let type = dictionary["type"] as? String {
+        if let type = dictionary[Fuel.kType()] as? String {
             self.type = type
         }
         
-        if let price = dictionary["price"] as? Double {
+        if let price = dictionary[Fuel.kPrice()] as? Double {
             self.price = price
         }
         
-        if let delta = dictionary["delta"] as? Double {
+        if let delta = dictionary[Fuel.kDelta()] as? Double {
             self.delta = delta
         }
     }
