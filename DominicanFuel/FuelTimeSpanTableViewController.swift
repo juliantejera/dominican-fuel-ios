@@ -69,6 +69,14 @@ class FuelTimeSpanTableViewController: UITableViewController, UIPopoverPresentat
                     }
                 }
             }
+        } else if segue.identifier == "ChartsSegue" {
+            if let vc = segue.destinationViewController.contentViewController as? ChartsViewController {
+                if let cell = sender as? UITableViewCell {
+                    if let indexPath = self.tableView.indexPathForCell(cell) {
+                        vc.selectedDate = self.dates[indexPath.row]
+                    }
+                }
+            }
         }
     }
 

@@ -10,6 +10,12 @@ import UIKit
 
 class ChartsViewController: UIViewController {
 
+    var selectedDate: NSDate = NSDate.lastSaturday() {
+        didSet {
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

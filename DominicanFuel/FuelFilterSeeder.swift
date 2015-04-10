@@ -24,8 +24,10 @@ class FuelFilterSeeder {
                     fuelFilter.isSelected = true
                 }
             }
-        } else {
+        } else if error != nil {
             println("Couldn't perform fetch request: \(error)")
+        } else if count > 0 {
+            println("Database was already seeded")
         }
     }
     
