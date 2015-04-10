@@ -70,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="1781" y="-481"/>
         </scene>
-        <!--Combustibles-->
+        <!--Precios-->
         <scene sceneID="DKj-DS-abl">
             <objects>
                 <tableViewController id="yrM-V6-HVg" customClass="FuelsTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,7 +106,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Combustibles" id="HoZ-Uc-OGB">
+                    <navigationItem key="navigationItem" title="Precios" id="HoZ-Uc-OGB">
                         <barButtonItem key="rightBarButtonItem" title="Filter" id="WyZ-NG-HoZ">
                             <connections>
                                 <segue destination="gp5-gP-kmK" kind="popoverPresentation" identifier="FilterSegue" popoverAnchorBarButtonItem="WyZ-NG-HoZ" id="Zrq-Yu-maE">

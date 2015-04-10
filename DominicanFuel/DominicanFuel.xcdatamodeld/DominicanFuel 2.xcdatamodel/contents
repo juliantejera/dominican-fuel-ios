@@ -7,12 +7,12 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="FuelFilter" representedClassName="FuelFilter" syncable="YES">
-        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="isSelected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Fuel" positionX="-45" positionY="18" width="128" height="103"/>
-        <element name="FuelFilter" positionX="-18" positionY="72" width="128" height="88"/>
+        <element name="FuelFilter" positionX="-18" positionY="72" width="128" height="90"/>
     </elements>
 </model>
