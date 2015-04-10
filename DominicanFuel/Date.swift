@@ -16,9 +16,7 @@ extension NSDate {
     }
     
     class func lastSaturday(date: NSDate = NSDate()) -> NSDate {
-        let saturday = 7
-        
-        if date.weekday == saturday {
+        if date.weekday == Weekday.Saturday.rawValue {
             return date
         }
         
