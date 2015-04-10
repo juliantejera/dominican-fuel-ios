@@ -10,11 +10,6 @@ import Foundation
 
 extension NSDate {
     
-    class func dateWithoutTime() {
-        
-        var date = NSDate()
-    }
-    
     class func lastSaturday(date: NSDate = NSDate()) -> NSDate {
         if date.weekday == Weekday.Saturday.rawValue {
             return date
