@@ -44,7 +44,7 @@ class FilterTableViewController: CoreDataTableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FilterCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("FilterCell", forIndexPath: indexPath) as! UITableViewCell
         
         if let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter {
             cell.textLabel?.text = filter.type

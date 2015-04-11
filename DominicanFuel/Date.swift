@@ -19,7 +19,7 @@ extension NSDate {
     }
     
     var beginningOfDay: NSDate {
-        var flags = NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit | NSCalendarUnit.HourCalendarUnit | NSCalendarUnit.MinuteCalendarUnit | NSCalendarUnit.SecondCalendarUnit
+        var flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
         var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
         components.hour = 0
         components.minute = 0
@@ -28,7 +28,7 @@ extension NSDate {
     }
     
     var endOfDay: NSDate {
-        var flags = NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit | NSCalendarUnit.HourCalendarUnit | NSCalendarUnit.MinuteCalendarUnit | NSCalendarUnit.SecondCalendarUnit
+        var flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
         var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
         components.hour = 23
         components.minute = 59
@@ -37,31 +37,31 @@ extension NSDate {
     }
     
     var weekday: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.WeekdayCalendarUnit, fromDate: self)
+        return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitWeekday, fromDate: self)
     }
     
     var year: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.YearCalendarUnit, fromDate: self)
+        return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitYear, fromDate: self)
     }
     
     var month: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.MonthCalendarUnit, fromDate: self)
+        return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitMonth, fromDate: self)
     }
     
     var day: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.DayCalendarUnit, fromDate: self)
+        return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitDay, fromDate: self)
     }
     
     var hour: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.HourCalendarUnit, fromDate: self)
+        return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitHour, fromDate: self)
     }
     
     var minute: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.MinuteCalendarUnit, fromDate: self)
+        return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitMinute, fromDate: self)
     }
     
     var second: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.SecondCalendarUnit, fromDate: self)
+        return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitSecond, fromDate: self)
     }
     
     var yesterday: NSDate {

@@ -98,7 +98,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FuelCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("FuelCell", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         

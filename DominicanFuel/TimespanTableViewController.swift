@@ -45,7 +45,7 @@ class TimespanTableViewController: UITableViewController, UIPopoverPresentationC
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TimespanCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TimespanCell", forIndexPath: indexPath) as! UITableViewCell
        
         var date = dates[indexPath.row]
         let sixDaysInSeconds: NSTimeInterval = 60*60*24*6
