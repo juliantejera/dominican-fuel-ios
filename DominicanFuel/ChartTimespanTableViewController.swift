@@ -53,7 +53,7 @@ class ChartTimespanTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ChartsSegue" {
-            if let vc = segue.destinationViewController.contentViewController as? ChartsViewController {
+            if let vc = segue.destinationViewController.contentViewController as? ChartViewController {
                 if let cell = sender as? UITableViewCell {
                     if let indexPath = self.tableView.indexPathForCell(cell) {
                         vc.selectedDate = self.dates[indexPath.row]
