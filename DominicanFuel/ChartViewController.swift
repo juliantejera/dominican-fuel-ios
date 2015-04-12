@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChartsViewController: UIViewController {
+class ChartViewController: UIViewController {
 
     var selectedDate: NSDate = NSDate.lastSaturday() {
         didSet {

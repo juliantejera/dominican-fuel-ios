@@ -179,10 +179,10 @@
             </objects>
             <point key="canvasLocation" x="149" y="-1273"/>
         </scene>
-        <!--Charts View Controller-->
+        <!--Chart View Controller-->
         <scene sceneID="kmf-Bp-xCo">
             <objects>
-                <viewController id="5AZ-ze-bqC" customClass="ChartsViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5AZ-ze-bqC" customClass="ChartViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FPX-gq-fdc"/>
                         <viewControllerLayoutGuide type="bottom" id="i70-CO-bqw"/>
