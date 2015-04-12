@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yl9-CG-k2U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Yl9-CG-k2U">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Item-->
@@ -198,16 +198,16 @@
             </objects>
             <point key="canvasLocation" x="969" y="1083"/>
         </scene>
-        <!--Períodos-->
+        <!--Gráficas-->
         <scene sceneID="3Xl-Ys-ioc">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="v8V-FJ-T0W" customClass="TimespanTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="v8V-FJ-T0W" customClass="ChartTimespanTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="L0t-nI-sjw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TimespanCell" textLabel="qy0-OT-JwM" style="IBUITableViewCellStyleDefault" id="AMf-ci-Vfz">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ChartTimespanCell" textLabel="qy0-OT-JwM" style="IBUITableViewCellStyleDefault" id="AMf-ci-Vfz">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AMf-ci-Vfz" id="jws-BY-tUX">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -230,7 +230,7 @@
                             <outlet property="delegate" destination="v8V-FJ-T0W" id="iT6-cK-d7V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Períodos" id="v7X-0x-Ger"/>
+                    <navigationItem key="navigationItem" title="Gráficas" id="v7X-0x-Ger"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOy-Tg-9nF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

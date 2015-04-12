@@ -18,7 +18,18 @@ extension NSDate {
         return self.lastSaturday(date: date.yesterday)
     }
     
+    var dateComponents: NSDateComponents {
+        get {
+            var flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond | NSCalendarUnit.CalendarUnitTimeZone
+            return NSCalendar.currentCalendar().components(flags, fromDate: self)
+        }
+    }
+    
     var beginningOfDay: NSDate {
+        if NSCalendar.currentCalendar().respondsToSelector("startOfDayForDate:") {
+            return NSCalendar.currentCalendar().startOfDayForDate(self)
+        }
+        
         var flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
         var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
         components.hour = 0
