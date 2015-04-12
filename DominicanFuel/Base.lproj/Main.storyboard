@@ -125,7 +125,7 @@
         <!--Períodos-->
         <scene sceneID="IiH-rY-2ln">
             <objects>
-                <tableViewController id="Pnt-jX-Zml" customClass="TimespanTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Pnt-jX-Zml" customClass="FuelTimespanTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="O41-9W-MU7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

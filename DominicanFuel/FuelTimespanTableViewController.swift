@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimespanTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
 
     var dates = [NSDate]()
     
