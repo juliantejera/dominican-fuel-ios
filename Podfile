@@ -2,10 +2,8 @@
 # platform :ios, '6.0'
 
 target 'DominicanFuel' do
-  pod 'GraphKit'
 end
 
 target 'DominicanFuelTests' do
-  pod 'GraphKit'
 end
 
