@@ -103,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="1007" y="-481"/>
         </scene>
-        <!--Períodos-->
+        <!--Semanas-->
         <scene sceneID="IiH-rY-2ln">
             <objects>
                 <tableViewController id="Pnt-jX-Zml" customClass="FuelTimespanTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,7 +135,7 @@
                             <outlet property="delegate" destination="Pnt-jX-Zml" id="hqR-UW-1np"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Períodos" id="CH5-Ud-z6F"/>
+                    <navigationItem key="navigationItem" title="Semanas" id="CH5-Ud-z6F"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-Ka-2x0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
