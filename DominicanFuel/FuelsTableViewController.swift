@@ -42,7 +42,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
             let request = NSFetchRequest(entityName: Fuel.entityName())
-            var selectedFuelFiltersTypes = selectedFuelFilters().map({ $0.type })
+            var selectedFuelFiltersTypes = FuelFilter.selectedFuelFilters(managedObjectContext).map({ $0.type })
             if selectedFuelFiltersTypes.count > 0 {
                 request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt <= %@) AND type IN %@", selectedDate.beginningOfDay, selectedDate.endOfDay, selectedFuelFiltersTypes)
             }
@@ -53,22 +53,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "publishedAt", cacheName: nil)
         }
     }
-    
-    func selectedFuelFilters() -> [FuelFilter] {
-        if let managedObjectContext = document?.managedObjectContext {
-            let request = NSFetchRequest(entityName: FuelFilter.entityName())
-            request.predicate = NSPredicate(format: "isSelected == 1", argumentArray: nil)
-            var error: NSError? = nil
-            
-            if let fuelFilters = managedObjectContext.executeFetchRequest(request, error: &error) as? [FuelFilter] {
-                return fuelFilters
-            } else {
-                println("Error: \(error)")
-            }
-        }
-        
-        return [FuelFilter]()
-    }
+
  
     // MARK: - Managed Document Coordinator Delegate
     
