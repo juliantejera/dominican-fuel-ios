@@ -78,7 +78,7 @@
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="equal" id="X7n-h4-EeA">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="equal_sign" id="X7n-h4-EeA">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -288,7 +288,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="equal" width="22" height="22"/>
+        <image name="equal_sign" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Osj-HV-bEn"/>
