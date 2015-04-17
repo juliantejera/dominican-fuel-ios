@@ -12,6 +12,17 @@ class FilterTableViewController: CoreDataTableViewController {
 
     var document: UIManagedDocument?
     
+    let tableViewRowDefaultHeight: CGFloat = 44
+    let maxNumberOfRows: CGFloat = 7
+    override var preferredContentSize: CGSize {
+        get {
+            return CGSize(width: super.preferredContentSize.width, height: tableViewRowDefaultHeight * maxNumberOfRows)
+        }
+        set {
+            super.preferredContentSize = newValue
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
