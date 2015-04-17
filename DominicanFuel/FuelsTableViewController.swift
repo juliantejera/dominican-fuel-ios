@@ -30,6 +30,10 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         return formatter
     }()
     
+    lazy var upArrow = UIImage(named: "up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
+    lazy var downArrow = UIImage(named: "down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
+    lazy var equalSign = UIImage(named: "equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,17 +92,19 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         // Configure the cell...
         
         if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
-            var deltaIcon = ""
             if fuel.delta > 0 {
-                deltaIcon = "😱‼️"
+                cell.imageView?.tintColor = UIColor.redColor()
+                cell.imageView?.image = upArrow
             } else if fuel.delta < 0 {
-                deltaIcon = "😁"
+                cell.imageView?.tintColor = UIColor.greenColor()
+                cell.imageView?.image = downArrow
             } else {
-                deltaIcon = "✅"
+                cell.imageView?.tintColor = UIColor.orangeColor()
+                cell.imageView?.image = equalSign
             }
             
             
-            cell.textLabel?.text = "\(deltaIcon) \(fuel.type)"
+            cell.textLabel?.text = fuel.type
             cell.detailTextLabel?.text = numberFormatter.stringFromNumber(fuel.price)
         }
         
