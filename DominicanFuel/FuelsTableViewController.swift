@@ -33,6 +33,9 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     lazy var upArrow = UIImage(named: "up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
     lazy var downArrow = UIImage(named: "down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
     lazy var equalSign = UIImage(named: "equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
+    lazy var upArrowTintColor = UIColor.redColor()
+    lazy var downArrowTintColor = UIColor.greenColor()
+    lazy var equalSignTintColor = UIColor.orangeColor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,23 +95,28 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         // Configure the cell...
         
         if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
-            if fuel.delta > 0 {
-                cell.imageView?.tintColor = UIColor.redColor()
-                cell.imageView?.image = upArrow
-            } else if fuel.delta < 0 {
-                cell.imageView?.tintColor = UIColor.greenColor()
-                cell.imageView?.image = downArrow
-            } else {
-                cell.imageView?.tintColor = UIColor.orangeColor()
-                cell.imageView?.image = equalSign
-            }
-            
-            
             cell.textLabel?.text = fuel.type
             cell.detailTextLabel?.text = numberFormatter.stringFromNumber(fuel.price)
+            
+            if let imageView = cell.imageView {
+                updateImageView(imageView, delta: fuel.delta)
+            }
         }
         
         return cell
+    }
+    
+    func updateImageView(imageView: UIImageView, delta: Double) {
+        if delta > 0 {
+            imageView.tintColor = upArrowTintColor
+            imageView.image = upArrow
+        } else if delta < 0 {
+            imageView.tintColor = downArrowTintColor
+            imageView.image = downArrow
+        } else {
+            imageView.tintColor = equalSignTintColor
+            imageView.image = equalSign
+        }
     }
     
     // MARK: - Navigation
@@ -121,6 +129,14 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             if let controller = segue.destinationViewController as? FilterTableViewController {
                 controller.document = self.document
                 controller.popoverPresentationController?.delegate = self
+            }
+        } else if segue.identifier == "FuelDetailsSegue" {
+            if let controller = segue.destinationViewController as? FuelDetailsTableViewController {
+                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell) {
+                    if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
+                        controller.fuel = fuel
+                    }
+                }
             }
         }
     }
