@@ -17,19 +17,8 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             reloadFetchedResultsController()
         }
     }
-    
-    lazy var dateFormatter: NSDateFormatter = {
-        var formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        return formatter
-    }()
-    
-    lazy var numberFormatter: NSNumberFormatter = {
-        var formatter = NSNumberFormatter()
-        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        return formatter
-    }()
-    
+
+    lazy var factory = FuelViewModelFactory()
     lazy var upArrow = UIImage(named: "up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
     lazy var downArrow = UIImage(named: "down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
     lazy var equalSign = UIImage(named: "equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
@@ -44,7 +33,6 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         documentCoordinator.delegate = self
         documentCoordinator.setupDocument()
     }
-    
     
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
@@ -79,11 +67,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let sectionInfo = self.fetchedResultsController.sections?[section] as? NSFetchedResultsSectionInfo {
             if let fuel = sectionInfo.objects.first as? Fuel {
-                if let date = fuel.publishedAt {
-                    let sixDaysInSeconds: NSTimeInterval = 60*60*24*6
-                    var effectiveUntil = NSDate(timeInterval: sixDaysInSeconds, sinceDate: date)
-                    return "\(dateFormatter.stringFromDate(date)) - \(dateFormatter.stringFromDate(effectiveUntil))"
-                }
+                return factory.mapToViewModel(fuel).timespan
             }
         }
         return nil
@@ -95,8 +79,9 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         // Configure the cell...
         
         if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
-            cell.textLabel?.text = fuel.type
-            cell.detailTextLabel?.text = numberFormatter.stringFromNumber(fuel.price)
+            let fuelViewModel = factory.mapToViewModel(fuel)
+            cell.textLabel?.text = fuelViewModel.type
+            cell.detailTextLabel?.text = fuelViewModel.price
             
             if let imageView = cell.imageView {
                 updateImageView(imageView, delta: fuel.delta)
@@ -123,8 +108,6 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
         if segue.identifier == "FilterSegue" {
             if let controller = segue.destinationViewController as? FilterTableViewController {
                 controller.document = self.document
