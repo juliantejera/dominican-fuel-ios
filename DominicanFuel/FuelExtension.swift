@@ -15,7 +15,7 @@ extension Fuel {
     }
     
     class func kPublishedAt() -> String { return "published_at" }
-    class func kType() -> String { return "type" }
+    class func kType() -> String { return "fuel_type" }
     class func kPrice() -> String { return "price" }
     class func kDelta() -> String { return "delta" }
     
