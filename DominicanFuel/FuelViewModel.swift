@@ -8,17 +8,25 @@
 
 import Foundation
 
-class FuelViewModel {
-    var name = ""
+class FuelViewModel: Printable {
+    var type = ""
     var price = ""
-    var publishedAt = ""
+    var delta = ""
+    var timespan = ""
     
-    init(fuel: Fuel) {
-        let numberFormatter = NSNumberFormatter()
-        numberFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        let dateFormatter = NSDateFormatter()
-        self.name = fuel.type
-        self.price = numberFormatter.stringFromNumber(fuel.price) ?? "$0.00"
-        self.publishedAt = fuel.publishedAt != nil ? dateFormatter.stringFromDate(fuel.publishedAt!) : ""
+    convenience init(fuel: Fuel, numberFormatter: NSNumberFormatter, dateFormatter: NSDateFormatter) {
+        self.init()
+        self.type = fuel.type
+        self.price = numberFormatter.stringFromNumber(fuel.price) ?? ""
+        self.delta = numberFormatter.stringFromNumber(fuel.delta) ?? ""
+        if let date = fuel.publishedAt {
+            let sixDaysInSeconds: NSTimeInterval = 60*60*24*6
+            var effectiveUntil = NSDate(timeInterval: sixDaysInSeconds, sinceDate: date)
+            self.timespan = "\(dateFormatter.stringFromDate(date)) - \(dateFormatter.stringFromDate(effectiveUntil))"
+        }
+    }
+    
+    var description: String {
+        return "\(type) durante la semana de \(timespan). El precio fue \(price), para una diferencia de \(delta) con respecto a la semana anterior"
     }
 }
