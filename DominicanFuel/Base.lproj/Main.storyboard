@@ -61,20 +61,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="SvQ-H5-3lz">
-                            <rect key="frame" x="0.0" y="64" width="600" height="220"/>
+                            <rect key="frame" x="0.0" y="64" width="600" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="T6N-BA-UhK">
-                                    <rect key="frame" x="200" y="10" width="200" height="200"/>
+                                    <rect key="frame" x="220" y="10" width="160" height="160"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="200" id="YJf-uS-lML"/>
+                                        <constraint firstAttribute="width" constant="160" id="BAa-Gr-zVy"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="T6N-BA-UhK" firstAttribute="centerX" secondItem="SvQ-H5-3lz" secondAttribute="centerX" id="Gtb-l8-Maf"/>
-                                <constraint firstItem="T6N-BA-UhK" firstAttribute="top" secondItem="SvQ-H5-3lz" secondAttribute="top" constant="10" id="kkj-Ct-D5h"/>
-                                <constraint firstItem="T6N-BA-UhK" firstAttribute="centerY" secondItem="SvQ-H5-3lz" secondAttribute="centerY" id="qCj-KK-t0d"/>
+                                <constraint firstItem="T6N-BA-UhK" firstAttribute="top" secondItem="SvQ-H5-3lz" secondAttribute="top" constant="10" id="K71-QZ-BCc"/>
+                                <constraint firstItem="T6N-BA-UhK" firstAttribute="centerX" secondItem="SvQ-H5-3lz" secondAttribute="centerX" id="Pw5-YI-buS"/>
+                                <constraint firstItem="T6N-BA-UhK" firstAttribute="centerY" secondItem="SvQ-H5-3lz" secondAttribute="centerY" id="ZBO-j0-UaL"/>
                             </constraints>
                         </view>
                         <sections>
