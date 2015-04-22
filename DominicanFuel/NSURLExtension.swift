@@ -10,21 +10,21 @@ import Foundation
 
 extension NSURL {
     
-    func URLByAppendingParameters(parameters: Dictionary<String, String>?) -> NSURL{
+    func URLByAppendingParameters(parameters: [String: String]?) -> NSURL{
         
         if parameters == nil {
             return self
         }
         
-        var array = Array<String>()
+        var array = [String]()
         for (key, value) in parameters! {
-            array.append("\(key.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding))=\(value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding))")
+            if let escapedKey = key.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding), let escapedValue = value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
+                array.append("\(escapedKey)=\(escapedValue)")
+            }
         }
         
-        var queryString = array.reduce("", combine: { (x, y) -> String in
-            return "\(x)&\(y)";
-        })
-    
-        return NSURL(string: "\(self.absoluteString)?\(queryString)")!
+        var queryString = array.reduce("") { "\($0)&\($1)" }
+        
+        return NSURL(string: "\(self.absoluteString!)?\(queryString)")!
     }
 }

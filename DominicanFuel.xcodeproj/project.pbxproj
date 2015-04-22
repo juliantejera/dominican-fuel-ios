@@ -59,8 +59,6 @@
 		9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 		906093131AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
 		906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
-		906CE7C51ABDD07C00B45CCF /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C41ABDD07C00B45CCF /* AppClient.swift */; };
-		906CE7C61ABDD07C00B45CCF /* AppClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7C41ABDD07C00B45CCF /* AppClient.swift */; };
 		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 		906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 		90A7FF901AE2052700A8597C /* FuelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */; };
@@ -72,6 +70,8 @@
 		90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */; };
 		90AD3B441AD7D43B00785573 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartViewController.swift */; };
 		90B695681AC4F45100BC8B7B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartViewController.swift */; };
+		90BA14481AE74451007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
+		90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
 		90CBBC0A1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */; };
 		90CBBC0B1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */; };
 		AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */; };
@@ -127,7 +127,6 @@
 		9057CAA21ABDB0D8007740B0 /* RestRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepository.swift; sourceTree = "<group>"; };
 		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
 		906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelFactory.swift; sourceTree = "<group>"; };
-		906CE7C41ABDD07C00B45CCF /* AppClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppClient.swift; sourceTree = "<group>"; };
 		906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelsTableViewController.swift; sourceTree = "<group>"; };
 		90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewController.swift; sourceTree = "<group>"; };
 		90AD3B3B1AD61B1D00785573 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +134,7 @@
 		90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
 		90B695671AC4F45100BC8B7B /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		90B695691AC56A9F00BC8B7B /* DominicanFuel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DominicanFuel-Bridging-Header.h"; sourceTree = "<group>"; };
+		90BA14471AE74451007BB5F9 /* FuelRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepository.swift; sourceTree = "<group>"; };
 		90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTimespanTableViewController.swift; sourceTree = "<group>"; };
 		944AA7BC5C89A49589B2E2DE /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
 		A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DominicanFuelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,10 +267,10 @@
 				902EF5851AD0235200661600 /* Fuel.swift */,
 				902EF5631ACA43E000661600 /* FuelType.swift */,
 				902EF5881AD0242400661600 /* FuelExtension.swift */,
-				906CE7C41ABDD07C00B45CCF /* AppClient.swift */,
 				902EF5701ACB878900661600 /* FuelFilter.swift */,
 				902EF5761ACB97E300661600 /* FuelFilterExtension.swift */,
 				902EF5791ACC070700661600 /* DominicanFuelManagedDocumentCoordinator.swift */,
+				90BA14471AE74451007BB5F9 /* FuelRepository.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -534,11 +534,11 @@
 				902EF5891AD0242400661600 /* FuelExtension.swift in Sources */,
 				902EF5961AD0B09700661600 /* DateFormatter.swift in Sources */,
 				90AD3B3C1AD61B1D00785573 /* ViewController.swift in Sources */,
+				90BA14481AE74451007BB5F9 /* FuelRepository.swift in Sources */,
 				903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				902EF5901AD027CC00661600 /* FuelSeeder.swift in Sources */,
 				902EF5861AD0235200661600 /* Fuel.swift in Sources */,
 				9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
-				906CE7C51ABDD07C00B45CCF /* AppClient.swift in Sources */,
 				9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */,
 				901685491ADA1664000BD502 /* ChartTimespanTableViewController.swift in Sources */,
 				902EF5821ACCDF1E00661600 /* CoreDataSeeder.swift in Sources */,
@@ -568,6 +568,7 @@
 				903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				902EF5751ACB899100661600 /* ManagedDocumentCoordinator.swift in Sources */,
 				9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
+				90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */,
 				9016854A1ADA1664000BD502 /* ChartTimespanTableViewController.swift in Sources */,
 				903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */,
 				9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
@@ -582,7 +583,6 @@
 				902EF58E1AD0273E00661600 /* FuelFilterSeeder.swift in Sources */,
 				90CBBC0B1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */,
 				902EF5651ACA43E000661600 /* FuelType.swift in Sources */,
-				906CE7C61ABDD07C00B45CCF /* AppClient.swift in Sources */,
 				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
 				902EF5781ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
 				9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */,
