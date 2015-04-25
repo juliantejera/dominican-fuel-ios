@@ -39,7 +39,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             let request = NSFetchRequest(entityName: Fuel.entityName())
             var selectedFuelFiltersTypes = FuelFilter.selectedFuelFilters(managedObjectContext).map({ $0.type })
             if selectedFuelFiltersTypes.count > 0 {
-                request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt <= %@) AND type IN %@", selectedDate.beginningOfDay, selectedDate.endOfDay, selectedFuelFiltersTypes)
+                request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt < %@) AND type IN %@", selectedDate.beginningOfDay, selectedDate.tomorrow.beginningOfDay, selectedFuelFiltersTypes)
             }
             
             var publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")

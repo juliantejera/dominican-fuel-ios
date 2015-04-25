@@ -26,27 +26,9 @@ extension NSDate {
     }
     
     var beginningOfDay: NSDate {
-        if NSCalendar.currentCalendar().respondsToSelector("startOfDayForDate:") {
-            return NSCalendar.currentCalendar().startOfDayForDate(self)
-        }
+        return NSCalendar.currentCalendar().startOfDayForDate(self)
+    }
         
-        var flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
-        var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
-        components.hour = 0
-        components.minute = 0
-        components.second = 0
-        return NSCalendar.currentCalendar().dateFromComponents(components)!
-    }
-    
-    var endOfDay: NSDate {
-        var flags = NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay | NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond
-        var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
-        components.hour = 23
-        components.minute = 59
-        components.second = 59
-        return NSCalendar.currentCalendar().dateFromComponents(components)!
-    }
-    
     var weekday: Int {
         return NSCalendar.currentCalendar().component(NSCalendarUnit.CalendarUnitWeekday, fromDate: self)
     }
@@ -76,11 +58,13 @@ extension NSDate {
     }
     
     var yesterday: NSDate {
-        return NSDate(timeInterval: -1*60*60*24, sinceDate: self)
+        let oneDayInSeconds: NSTimeInterval = 60*60*24
+        return NSDate(timeInterval: -oneDayInSeconds, sinceDate: self)
     }
     
     var tomorrow: NSDate {
-        return NSDate(timeInterval: 60*60*24, sinceDate: self)
+        let oneDayInSeconds: NSTimeInterval = 60*60*24
+        return NSDate(timeInterval: oneDayInSeconds, sinceDate: self)
     }
 }
 
