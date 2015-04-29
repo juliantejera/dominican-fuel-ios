@@ -8,12 +8,6 @@
 
 import Foundation
 
-
-enum NetworkResponse {
-    case Failure(NSError)
-    case Success([[NSObject: AnyObject]])
-}
-
 class FuelRepository: NSObject, NSURLSessionDelegate {
     let kAcceptHeaderKey = "Accept"
     let kContentTypeKey = "Content-Type"
@@ -31,7 +25,7 @@ class FuelRepository: NSObject, NSURLSessionDelegate {
         self.session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
     }
     
-    func findAll(parameters: [String: String]?, callback: (response: NetworkResponse) -> Void) {
+    func findAll(parameters: [String: String]?, callback: (response: MultipleItemsNetworkResponse) -> Void) {
         var request = NSMutableURLRequest(URL: self.endPoint.URLByAppendingParameters(parameters))
         request.HTTPMethod = "GET"
         println("Request: \(request)")

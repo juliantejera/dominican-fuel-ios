@@ -51,7 +51,7 @@ class FuelSeeder {
             if let date = result.publishedAt?.description {
                 let parameters = ["published_at": date]
                 
-                repository.findAll(parameters) { (response: NetworkResponse) -> Void in
+                repository.findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
                     switch response {
                     case .Failure(let error):
                         println("Error: \(error)")

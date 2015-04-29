@@ -57,6 +57,10 @@
 		9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA21ABDB0D8007740B0 /* RestRepository.swift */; };
 		9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 		9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
+		905FE8C61AEC6C6400745D97 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */; };
+		905FE8C71AEC6C6400745D97 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */; };
+		905FE8C91AEC73BA00745D97 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */; };
+		905FE8CA1AEC73BA00745D97 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */; };
 		906093131AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
 		906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
 		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
@@ -126,6 +130,8 @@
 		9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepositoryProtocol.swift; sourceTree = "<group>"; };
 		9057CAA21ABDB0D8007740B0 /* RestRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepository.swift; sourceTree = "<group>"; };
 		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
+		905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractFactory.swift; sourceTree = "<group>"; };
+		905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelFactory.swift; sourceTree = "<group>"; };
 		906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelsTableViewController.swift; sourceTree = "<group>"; };
 		90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +298,8 @@
 				9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */,
 				9057CAA21ABDB0D8007740B0 /* RestRepository.swift */,
 				9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */,
+				905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */,
+				905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */,
 			);
 			name = JTRestRepository;
 			sourceTree = "<group>";
@@ -408,9 +416,11 @@
 				TargetAttributes = {
 					9057CA6C1ABA657C007740B0 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = VDYWQG4YL7;
 					};
 					9057CA841ABA657C007740B0 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = VDYWQG4YL7;
 						TestTargetID = 9057CA6C1ABA657C007740B0;
 					};
 				};
@@ -533,9 +543,11 @@
 				9057CAA61ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
 				902EF5891AD0242400661600 /* FuelExtension.swift in Sources */,
 				902EF5961AD0B09700661600 /* DateFormatter.swift in Sources */,
+				905FE8C91AEC73BA00745D97 /* NetworkResponse.swift in Sources */,
 				90AD3B3C1AD61B1D00785573 /* ViewController.swift in Sources */,
 				90BA14481AE74451007BB5F9 /* FuelRepository.swift in Sources */,
 				903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
+				905FE8C61AEC6C6400745D97 /* AbstractFactory.swift in Sources */,
 				902EF5901AD027CC00661600 /* FuelSeeder.swift in Sources */,
 				902EF5861AD0235200661600 /* Fuel.swift in Sources */,
 				9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
@@ -569,6 +581,7 @@
 				902EF5751ACB899100661600 /* ManagedDocumentCoordinator.swift in Sources */,
 				9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */,
+				905FE8CA1AEC73BA00745D97 /* NetworkResponse.swift in Sources */,
 				9016854A1ADA1664000BD502 /* ChartTimespanTableViewController.swift in Sources */,
 				903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */,
 				9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
@@ -589,6 +602,7 @@
 				902EF5621AC9692100661600 /* FilterTableViewController.swift in Sources */,
 				902EF5831ACCDF1E00661600 /* CoreDataSeeder.swift in Sources */,
 				906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */,
+				905FE8C71AEC6C6400745D97 /* AbstractFactory.swift in Sources */,
 				9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
 				902EF58A1AD0242400661600 /* FuelExtension.swift in Sources */,
@@ -662,6 +676,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "d13a2f93-0881-422a-bae4-aea4bc1e9107";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -698,6 +713,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "d13a2f93-0881-422a-bae4-aea4bc1e9107";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -710,9 +726,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -724,9 +743,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 			};
 			name = Release;
@@ -737,6 +759,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -748,6 +772,7 @@
 				INFOPLIST_FILE = DominicanFuelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
@@ -760,6 +785,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -767,6 +794,7 @@
 				INFOPLIST_FILE = DominicanFuelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
 			};

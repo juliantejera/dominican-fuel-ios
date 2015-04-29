@@ -57,6 +57,7 @@ class FuelDetailsTableViewController: UITableViewController {
         if let fuelViewModel = self.fuelViewModel {
             let textToShare = fuelViewModel.description
             let controller = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+            controller.popoverPresentationController?.barButtonItem = sender
             self.presentViewController(controller, animated: true, completion: nil)
         }
     }
