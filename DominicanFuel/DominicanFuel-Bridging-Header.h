@@ -3,3 +3,5 @@
 //
 
 #import "CoreDataTableViewController.h"
+@import GoogleMobileAds;
+

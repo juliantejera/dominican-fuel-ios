@@ -2,8 +2,10 @@
 # platform :ios, '6.0'
 
 target 'DominicanFuel' do
+  pod 'Google-Mobile-Ads-SDK', '~> 7.0'
 end
 
 target 'DominicanFuelTests' do
+  pod 'Google-Mobile-Ads-SDK', '~> 7.0'
 end
 

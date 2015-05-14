@@ -65,6 +65,16 @@
 		906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
 		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 		906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
+		9095874F1B044F1000E30362 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095874E1B044F1000E30362 /* AudioToolbox.framework */; };
+		909587511B044F1600E30362 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587501B044F1600E30362 /* AdSupport.framework */; };
+		909587531B044F1B00E30362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587521B044F1B00E30362 /* CoreGraphics.framework */; };
+		909587551B044F2100E30362 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587541B044F2100E30362 /* CoreTelephony.framework */; };
+		909587581B044F2800E30362 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587561B044F2800E30362 /* EventKit.framework */; };
+		909587591B044F2800E30362 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587571B044F2800E30362 /* EventKitUI.framework */; };
+		9095875B1B044F2E00E30362 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095875A1B044F2E00E30362 /* MessageUI.framework */; };
+		9095875D1B044F3200E30362 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095875C1B044F3200E30362 /* StoreKit.framework */; };
+		9095875F1B044F3900E30362 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095875E1B044F3900E30362 /* SystemConfiguration.framework */; };
+		909587611B04530500E30362 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587601B04530500E30362 /* iAd.framework */; };
 		90A7FF901AE2052700A8597C /* FuelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */; };
 		90A7FF951AE20D6A00A8597C /* FuelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */; };
 		90AD3B3C1AD61B1D00785573 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3B1AD61B1D00785573 /* ViewController.swift */; };
@@ -134,6 +144,16 @@
 		905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelFactory.swift; sourceTree = "<group>"; };
 		906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelsTableViewController.swift; sourceTree = "<group>"; };
+		9095874E1B044F1000E30362 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		909587501B044F1600E30362 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		909587521B044F1B00E30362 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		909587541B044F2100E30362 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		909587561B044F2800E30362 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		909587571B044F2800E30362 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		9095875A1B044F2E00E30362 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9095875C1B044F3200E30362 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		9095875E1B044F3900E30362 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		909587601B04530500E30362 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewController.swift; sourceTree = "<group>"; };
 		90AD3B3B1AD61B1D00785573 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90AD3B3E1AD69F2800785573 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -153,6 +173,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				909587611B04530500E30362 /* iAd.framework in Frameworks */,
+				9095875F1B044F3900E30362 /* SystemConfiguration.framework in Frameworks */,
+				9095875D1B044F3200E30362 /* StoreKit.framework in Frameworks */,
+				9095875B1B044F2E00E30362 /* MessageUI.framework in Frameworks */,
+				909587581B044F2800E30362 /* EventKit.framework in Frameworks */,
+				909587591B044F2800E30362 /* EventKitUI.framework in Frameworks */,
+				909587551B044F2100E30362 /* CoreTelephony.framework in Frameworks */,
+				909587531B044F1B00E30362 /* CoreGraphics.framework in Frameworks */,
+				909587511B044F1600E30362 /* AdSupport.framework in Frameworks */,
+				9095874F1B044F1000E30362 /* AudioToolbox.framework in Frameworks */,
 				AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +387,16 @@
 		E152F87E5070B29D99557FC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				909587601B04530500E30362 /* iAd.framework */,
+				9095875E1B044F3900E30362 /* SystemConfiguration.framework */,
+				9095875C1B044F3200E30362 /* StoreKit.framework */,
+				9095875A1B044F2E00E30362 /* MessageUI.framework */,
+				909587561B044F2800E30362 /* EventKit.framework */,
+				909587571B044F2800E30362 /* EventKitUI.framework */,
+				909587541B044F2100E30362 /* CoreTelephony.framework */,
+				909587521B044F1B00E30362 /* CoreGraphics.framework */,
+				909587501B044F1600E30362 /* AdSupport.framework */,
+				9095874E1B044F1000E30362 /* AudioToolbox.framework */,
 				6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */,
 				A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */,
 			);

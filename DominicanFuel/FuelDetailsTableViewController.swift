@@ -8,8 +8,9 @@
 
 import UIKit
 import QuartzCore
+import iAd
 
-class FuelDetailsTableViewController: UITableViewController {
+class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegate {
 
     @IBOutlet weak var tableViewHeaderImageView: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -20,6 +21,12 @@ class FuelDetailsTableViewController: UITableViewController {
     @IBOutlet weak var historySixMonthsAgoLabel: UILabel!
     @IBOutlet weak var historyOneYearAgoLabel: UILabel!
 
+    @IBOutlet weak var iAdView: ADBannerView! {
+        didSet {
+            iAdView?.delegate = self
+        }
+    }
+    
     weak var fuel: Fuel? {
         didSet {
             if let fuel = self.fuel {
@@ -121,5 +128,42 @@ class FuelDetailsTableViewController: UITableViewController {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         imageView.layer.addAnimation(animation, forKey: "borderColor")
         imageView.layer.borderColor = selectedBorderColor
+    }
+    
+    
+    // MARK: - iAd Delegate
+    
+    func bannerViewWillLoadAd(banner: ADBannerView!) {
+    }
+    
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        layoutAd(banner, animated: true)
+        
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        
+        layoutAd(banner, animated: true)
+    }
+    
+    func bannerViewActionDidFinish(banner: ADBannerView!) {
+        
+    }
+    
+    func layoutAd(adView: UIView, animated: Bool) {
+//        var contentFrame = self.tableView.bounds
+//        var bannerFrame = adView.frame
+//        
+//        if (self.iAdView!.bannerLoaded) {
+//            contentFrame.size.height -= adView.frame.height
+//        }
+//        
+//        bannerFrame.origin.y = contentFrame.height
+//        
+//        UIView.animateWithDuration(animated ? 0.25 : 0) {
+//            self.tableView.frame = contentFrame
+//            self.tableView.layoutIfNeeded()
+//            adView.frame = bannerFrame
+//        }
     }
 }
