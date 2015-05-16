@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B03FB44D76994044AF7D56A /* libPods-DominicanFuelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */; };
+		5180AD72441F4444E0383C92 /* libPods-DominicanFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */; };
 		901685491ADA1664000BD502 /* ChartTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901685481ADA1663000BD502 /* ChartTimespanTableViewController.swift */; };
 		9016854A1ADA1664000BD502 /* ChartTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901685481ADA1663000BD502 /* ChartTimespanTableViewController.swift */; };
 		902EF5611AC9692100661600 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902EF5601AC9692100661600 /* FilterTableViewController.swift */; };
@@ -78,7 +78,7 @@
 		90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
 		90CBBC0A1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */; };
 		90CBBC0B1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */; };
-		AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */; };
+		DD39AEBCB7FD0D6C151A8433 /* libPods-DominicanFuelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,7 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */,
+				5180AD72441F4444E0383C92 /* libPods-DominicanFuel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B03FB44D76994044AF7D56A /* libPods-DominicanFuelTests.a in Frameworks */,
+				DD39AEBCB7FD0D6C151A8433 /* libPods-DominicanFuelTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

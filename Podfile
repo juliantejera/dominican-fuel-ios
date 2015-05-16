@@ -2,8 +2,10 @@
 # platform :ios, '6.0'
 
 target 'DominicanFuel' do
+    pod "Appirater"
 end
 
 target 'DominicanFuelTests' do
+    pod "Appirater"
 end
 

@@ -25,6 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        Appirater.setAppId("986018933")
+        Appirater.setDaysUntilPrompt(5)
+        Appirater.setUsesUntilPrompt(5)
+        Appirater.setSignificantEventsUntilPrompt(-1)
+        Appirater.setTimeBeforeReminding(2)
+        Appirater.setDebug(false)
+        Appirater.appLaunched(true)
+        
         return true
     }
 
@@ -40,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        Appirater.appEnteredForeground(true)
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
