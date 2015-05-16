@@ -12,7 +12,7 @@ import CoreData
 @objc(FuelFilter)
 class FuelFilter: NSManagedObject {
 
-    @NSManaged var id: Int
+    @NSManaged var id: NSNumber
     @NSManaged var type: String
     @NSManaged var isSelected: Bool
     

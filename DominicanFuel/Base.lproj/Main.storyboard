@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5W4-r1-8Db">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5W4-r1-8Db">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Item-->
@@ -59,7 +59,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Wus-mY-7ci">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="SvQ-H5-3lz">
                             <rect key="frame" x="0.0" y="64" width="600" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -77,6 +77,10 @@
                                 <constraint firstItem="T6N-BA-UhK" firstAttribute="centerY" secondItem="SvQ-H5-3lz" secondAttribute="centerY" id="ZBO-j0-UaL"/>
                             </constraints>
                         </view>
+                        <adBannerView key="tableFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vrd-4W-y1q">
+                            <rect key="frame" x="0.0" y="-50" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        </adBannerView>
                         <sections>
                             <tableViewSection id="AIN-cP-2nY">
                                 <cells>
@@ -245,6 +249,7 @@
                         <outlet property="historyOneYearAgoLabel" destination="Ruo-CU-9JH" id="gbM-X1-Q2g"/>
                         <outlet property="historySixMonthsAgoLabel" destination="2cr-ls-eQc" id="BfK-t2-0Oc"/>
                         <outlet property="historyThreeMonthsAgoLabel" destination="k4m-Km-o8P" id="15p-Tj-uSb"/>
+                        <outlet property="iAdView" destination="vrd-4W-y1q" id="YvW-Ho-HBl"/>
                         <outlet property="priceLabel" destination="xtx-l8-xmd" id="Xzs-Hq-g36"/>
                         <outlet property="tableViewHeaderImageView" destination="T6N-BA-UhK" id="9NP-80-nLv"/>
                         <outlet property="timespanLabel" destination="jPi-nR-bvE" id="Xmb-2v-hwx"/>
@@ -297,7 +302,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Precios" id="HoZ-Uc-OGB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="WyZ-NG-HoZ">
+                        <barButtonItem key="rightBarButtonItem" image="filter" id="WyZ-NG-HoZ">
                             <connections>
                                 <segue destination="gp5-gP-kmK" kind="popoverPresentation" identifier="FilterSegue" popoverAnchorBarButtonItem="WyZ-NG-HoZ" id="Zrq-Yu-maE">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -495,6 +500,7 @@
     <resources>
         <image name="big_down_arrow" width="100" height="100"/>
         <image name="equal_sign" width="22" height="22"/>
+        <image name="filter" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6tP-CZ-DZd"/>
