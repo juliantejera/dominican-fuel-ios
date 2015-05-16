@@ -9,20 +9,20 @@
 import UIKit
 import iAd
 
-class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate, GADBannerViewDelegate, ADBannerViewDelegate {
+class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate, ADBannerViewDelegate {
     
-    @IBOutlet weak var gadBannerView: GADBannerView!
+    //@IBOutlet weak var gadBannerView: GADBannerView!
     
-    var googleAdView: GADBannerView? {
-        didSet {
-            googleAdView?.delegate = self
-            googleAdView?.rootViewController = self
-            googleAdView?.adUnitID = "REPLACE_ID"
-            var request = GADRequest()
-            request.testDevices = ["DEVICE IDENTIFIER"]
-            googleAdView?.loadRequest(request)
-        }
-    }
+//    var googleAdView: GADBannerView? {
+//        didSet {
+//            googleAdView?.delegate = self
+//            googleAdView?.rootViewController = self
+//            googleAdView?.adUnitID = "REPLACE_ID"
+//            var request = GADRequest()
+//            request.testDevices = ["DEVICE IDENTIFIER"]
+//            googleAdView?.loadRequest(request)
+//        }
+//    }
     
     @IBOutlet weak var iAdView: ADBannerView! {
         didSet {
@@ -158,31 +158,31 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         }
     }
     
-    // MARK: - Google Ad Banner View Delegate
-    func adViewDidReceiveAd(view: GADBannerView!) {
-        
-    }
-
-    func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-        
-    }
-    
-    func adViewWillPresentScreen(adView: GADBannerView!) {
-        
-    }
-    
-    func adViewWillDismissScreen(adView: GADBannerView!) {
-        
-    }
-    
-    func adViewDidDismissScreen(adView: GADBannerView!) {
-        
-    }
-    
-    func adViewWillLeaveApplication(adView: GADBannerView!) {
-        
-    }
-    
+//    // MARK: - Google Ad Banner View Delegate
+//    func adViewDidReceiveAd(view: GADBannerView!) {
+//        
+//    }
+//
+//    func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+//        
+//    }
+//    
+//    func adViewWillPresentScreen(adView: GADBannerView!) {
+//        
+//    }
+//    
+//    func adViewWillDismissScreen(adView: GADBannerView!) {
+//        
+//    }
+//    
+//    func adViewDidDismissScreen(adView: GADBannerView!) {
+//        
+//    }
+//    
+//    func adViewWillLeaveApplication(adView: GADBannerView!) {
+//        
+//    }
+//    
     
     // MARK: - iAd Delegate
     
