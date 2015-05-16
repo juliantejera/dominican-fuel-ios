@@ -137,13 +137,11 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     }
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {
-        layoutAd(banner, animated: true)
-        
+        //layoutAd(banner, animated: true)
     }
     
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        
-        layoutAd(banner, animated: true)
+        //layoutAd(banner, animated: true)
     }
     
     func bannerViewActionDidFinish(banner: ADBannerView!) {
@@ -151,19 +149,19 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     }
     
     func layoutAd(adView: UIView, animated: Bool) {
-//        var contentFrame = self.tableView.bounds
-//        var bannerFrame = adView.frame
-//        
-//        if (self.iAdView!.bannerLoaded) {
-//            contentFrame.size.height -= adView.frame.height
-//        }
-//        
-//        bannerFrame.origin.y = contentFrame.height
-//        
-//        UIView.animateWithDuration(animated ? 0.25 : 0) {
-//            self.tableView.frame = contentFrame
-//            self.tableView.layoutIfNeeded()
-//            adView.frame = bannerFrame
-//        }
+        var contentFrame = self.tableView.bounds
+        var bannerFrame = adView.frame
+        
+        if (self.iAdView!.bannerLoaded) {
+            contentFrame.size.height -= adView.frame.height
+        }
+        
+        bannerFrame.origin.y = contentFrame.height
+        
+        UIView.animateWithDuration(animated ? 0.25 : 0) {
+            self.tableView.frame = contentFrame
+            self.tableView.layoutIfNeeded()
+            adView.frame = bannerFrame
+        }
     }
 }
