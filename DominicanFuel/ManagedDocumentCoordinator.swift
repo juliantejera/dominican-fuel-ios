@@ -16,7 +16,7 @@ protocol ManagedDocumentCoordinatorDelegate: class {
 
 class ManagedDocumentCoordinator {
     
-    var documentURL: NSURL!
+    private var documentURL: NSURL!
     var document: UIManagedDocument?
     weak var delegate: ManagedDocumentCoordinatorDelegate?
     
@@ -54,8 +54,8 @@ class ManagedDocumentCoordinator {
     }
     
     private func documentIsReady() {
-        if self.document?.documentState == UIDocumentState.Normal {
-            delegate?.managedDocumentCoordinator(self, didOpenDocument: self.document!)
+        if let document = self.document where document.documentState == UIDocumentState.Normal {
+            delegate?.managedDocumentCoordinator(self, didOpenDocument: document)
         } else {
             // Try to open it again
             open()
