@@ -9,27 +9,8 @@
 import UIKit
 import iAd
 
-class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate, ADBannerViewDelegate {
-    
-    //@IBOutlet weak var gadBannerView: GADBannerView!
-    
-//    var googleAdView: GADBannerView? {
-//        didSet {
-//            googleAdView?.delegate = self
-//            googleAdView?.rootViewController = self
-//            googleAdView?.adUnitID = "REPLACE_ID"
-//            var request = GADRequest()
-//            request.testDevices = ["DEVICE IDENTIFIER"]
-//            googleAdView?.loadRequest(request)
-//        }
-//    }
-    
-    @IBOutlet weak var iAdView: ADBannerView! {
-        didSet {
-            iAdView?.delegate = self
-        }
-    }
-    
+class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate {
+
     var document: UIManagedDocument?
     
     var selectedDate: NSDate = NSDate.lastSaturday() {
@@ -164,68 +145,6 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             self.reloadFetchedResultsController()
         }) { (success) -> Void in
             // TODO
-        }
-    }
-    
-//    // MARK: - Google Ad Banner View Delegate
-//    func adViewDidReceiveAd(view: GADBannerView!) {
-//        
-//    }
-//
-//    func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-//        
-//    }
-//    
-//    func adViewWillPresentScreen(adView: GADBannerView!) {
-//        
-//    }
-//    
-//    func adViewWillDismissScreen(adView: GADBannerView!) {
-//        
-//    }
-//    
-//    func adViewDidDismissScreen(adView: GADBannerView!) {
-//        
-//    }
-//    
-//    func adViewWillLeaveApplication(adView: GADBannerView!) {
-//        
-//    }
-//    
-    
-    // MARK: - iAd Delegate
-    
-    func bannerViewWillLoadAd(banner: ADBannerView!) {
-    }
-    
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        layoutAd(banner, animated: true)
-
-    }
-    
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        
-        layoutAd(banner, animated: true)
-    }
-    
-    func bannerViewActionDidFinish(banner: ADBannerView!) {
-        
-    }
-    
-    func layoutAd(adView: UIView, animated: Bool) {
-        var contentFrame = self.tableView.bounds
-        var bannerFrame = adView.frame
-
-        if (self.iAdView!.bannerLoaded) {
-            contentFrame.size.height -= adView.frame.height
-        }
-        
-        bannerFrame.origin.y = contentFrame.height
-        
-        UIView.animateWithDuration(animated ? 0.25 : 0) {
-            self.tableView.frame = contentFrame
-            self.tableView.layoutIfNeeded()
-            adView.frame = bannerFrame
         }
     }
 }

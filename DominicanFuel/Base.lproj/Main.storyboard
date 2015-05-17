@@ -249,7 +249,7 @@
                         <outlet property="historyOneYearAgoLabel" destination="Ruo-CU-9JH" id="gbM-X1-Q2g"/>
                         <outlet property="historySixMonthsAgoLabel" destination="2cr-ls-eQc" id="BfK-t2-0Oc"/>
                         <outlet property="historyThreeMonthsAgoLabel" destination="k4m-Km-o8P" id="15p-Tj-uSb"/>
-                        <outlet property="iAdView" destination="vrd-4W-y1q" id="YvW-Ho-HBl"/>
+                        <outlet property="iAdView" destination="vrd-4W-y1q" id="j6J-WK-n74"/>
                         <outlet property="priceLabel" destination="xtx-l8-xmd" id="Xzs-Hq-g36"/>
                         <outlet property="tableViewHeaderImageView" destination="T6N-BA-UhK" id="9NP-80-nLv"/>
                         <outlet property="timespanLabel" destination="jPi-nR-bvE" id="Xmb-2v-hwx"/>
