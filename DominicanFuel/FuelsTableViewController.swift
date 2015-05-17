@@ -49,9 +49,19 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: "updateFuels", forControlEvents: UIControlEvents.ValueChanged)
+        
         let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
         documentCoordinator.delegate = self
         documentCoordinator.setupDocument()
+    }
+    
+    func updateFuels() {
+        if let managedObjectContext = document?.managedObjectContext {
+            FuelSeeder.updateFuels(FuelRepository(), context: managedObjectContext)
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     func reloadFetchedResultsController() {
@@ -78,7 +88,6 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     }
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
-        // Handle error
         println("Error: \(error)")
     }
 
