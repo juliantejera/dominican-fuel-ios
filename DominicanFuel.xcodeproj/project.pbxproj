@@ -65,15 +65,6 @@
 		906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
 		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 		906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
-		9095874F1B044F1000E30362 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095874E1B044F1000E30362 /* AudioToolbox.framework */; };
-		909587511B044F1600E30362 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587501B044F1600E30362 /* AdSupport.framework */; };
-		909587531B044F1B00E30362 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587521B044F1B00E30362 /* CoreGraphics.framework */; };
-		909587551B044F2100E30362 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587541B044F2100E30362 /* CoreTelephony.framework */; };
-		909587581B044F2800E30362 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587561B044F2800E30362 /* EventKit.framework */; };
-		909587591B044F2800E30362 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587571B044F2800E30362 /* EventKitUI.framework */; };
-		9095875B1B044F2E00E30362 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095875A1B044F2E00E30362 /* MessageUI.framework */; };
-		9095875D1B044F3200E30362 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095875C1B044F3200E30362 /* StoreKit.framework */; };
-		9095875F1B044F3900E30362 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9095875E1B044F3900E30362 /* SystemConfiguration.framework */; };
 		909587611B04530500E30362 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587601B04530500E30362 /* iAd.framework */; };
 		90A7FF901AE2052700A8597C /* FuelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */; };
 		90A7FF951AE20D6A00A8597C /* FuelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */; };
@@ -174,15 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				909587611B04530500E30362 /* iAd.framework in Frameworks */,
-				9095875F1B044F3900E30362 /* SystemConfiguration.framework in Frameworks */,
-				9095875D1B044F3200E30362 /* StoreKit.framework in Frameworks */,
-				9095875B1B044F2E00E30362 /* MessageUI.framework in Frameworks */,
-				909587581B044F2800E30362 /* EventKit.framework in Frameworks */,
-				909587591B044F2800E30362 /* EventKitUI.framework in Frameworks */,
-				909587551B044F2100E30362 /* CoreTelephony.framework in Frameworks */,
-				909587531B044F1B00E30362 /* CoreGraphics.framework in Frameworks */,
-				909587511B044F1600E30362 /* AdSupport.framework in Frameworks */,
-				9095874F1B044F1000E30362 /* AudioToolbox.framework in Frameworks */,
 				AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "d13a2f93-0881-422a-bae4-aea4bc1e9107";
@@ -751,7 +733,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "d13a2f93-0881-422a-bae4-aea4bc1e9107";
 				SDKROOT = iphoneos;
