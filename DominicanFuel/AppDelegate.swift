@@ -63,6 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         var token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
         token = token.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        var mobileDevice = MobileDevice(pushNotificationToken: token)
+        MobileDeviceRepository().create(mobileDevice, callback: { (response) -> Void in
+            // NO ACTION
+        })
+        
         println("Device Token: \(token)")
     }
     
