@@ -42,6 +42,8 @@
 		903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
 		903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
 		903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */; };
+		905067EC1B0AE89E00B63BEC /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */; };
+		905067ED1B0AE8C100B63BEC /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */; };
 		9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA721ABA657C007740B0 /* AppDelegate.swift */; };
 		9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */; };
 		9057CA7B1ABA657C007740B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA791ABA657C007740B0 /* Main.storyboard */; };
@@ -119,6 +121,7 @@
 		902EF5951AD0B09700661600 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModel.swift; sourceTree = "<group>"; };
 		903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelTests.swift; sourceTree = "<group>"; };
+		905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCell.swift; sourceTree = "<group>"; };
 		9057CA6D1ABA657C007740B0 /* DominicanFuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DominicanFuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9057CA711ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9057CA721ABA657C007740B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -340,6 +343,7 @@
 		90A7FF911AE20A1900A8597C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -563,6 +567,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				902EF5741ACB899100661600 /* ManagedDocumentCoordinator.swift in Sources */,
+				905067EC1B0AE89E00B63BEC /* FuelTableViewCell.swift in Sources */,
 				902EF57A1ACC070700661600 /* DominicanFuelManagedDocumentCoordinator.swift in Sources */,
 				90B695681AC4F45100BC8B7B /* ChartViewController.swift in Sources */,
 				901348B41B093CE2009E9AE3 /* MobileDevice.swift in Sources */,
@@ -628,6 +633,7 @@
 				902EF5651ACA43E000661600 /* FuelType.swift in Sources */,
 				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
 				902EF5781ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
+				905067ED1B0AE8C100B63BEC /* FuelTableViewCell.swift in Sources */,
 				9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */,
 				902EF5621AC9692100661600 /* FilterTableViewController.swift in Sources */,
 				902EF5831ACCDF1E00661600 /* CoreDataSeeder.swift in Sources */,

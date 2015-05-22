@@ -32,6 +32,8 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: "updateFuels", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.estimatedRowHeight = self.tableView.rowHeight
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
         documentCoordinator.delegate = self
@@ -84,16 +86,12 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FuelCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("FuelCell", forIndexPath: indexPath) as! FuelTableViewCell
 
-        // Configure the cell...
-        
         if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
             let fuelViewModel = factory.mapToViewModel(fuel)
-            cell.textLabel?.text = fuelViewModel.type
-            cell.detailTextLabel?.text = fuelViewModel.price
-            
-            if let imageView = cell.imageView {
+            cell.viewModel = fuelViewModel
+            if let imageView = cell.signImageView {
                 updateImageView(imageView, delta: fuel.delta)
             }
         }

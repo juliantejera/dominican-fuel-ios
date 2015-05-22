@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5W4-r1-8Db">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Item-->
@@ -268,30 +270,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelCell" textLabel="23Q-KJ-3JD" detailTextLabel="EhN-no-LuC" imageView="X7n-h4-EeA" style="IBUITableViewCellStyleValue1" id="VvJ-2r-0zW">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelCell" id="LtI-gA-W83" customClass="FuelTableViewCell" customModule="DominicanFuel" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VvJ-2r-0zW" id="dPb-33-WEd">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LtI-gA-W83" id="TZE-cJ-j3R">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="23Q-KJ-3JD">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="equal_sign" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-92-7Je">
+                                            <rect key="frame" x="8" y="11" width="22" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="22" id="nEI-3r-Hba"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYT-91-7ug">
+                                            <rect key="frame" x="522" y="11" width="70" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="KzG-kM-hNP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aa-dS-tau">
+                                            <rect key="frame" x="38" y="11" width="469" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EhN-no-LuC">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="equal_sign" id="X7n-h4-EeA">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Agx-92-7Je" firstAttribute="top" secondItem="TZE-cJ-j3R" secondAttribute="topMargin" constant="3" id="2K8-yZ-pr2"/>
+                                        <constraint firstItem="gYT-91-7ug" firstAttribute="leading" secondItem="0aa-dS-tau" secondAttribute="trailing" constant="15" id="CUT-59-Hm2"/>
+                                        <constraint firstItem="gYT-91-7ug" firstAttribute="firstBaseline" secondItem="0aa-dS-tau" secondAttribute="firstBaseline" id="GEy-nM-EM9"/>
+                                        <constraint firstItem="0aa-dS-tau" firstAttribute="baseline" secondItem="gYT-91-7ug" secondAttribute="baseline" id="MrD-rT-vbk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Agx-92-7Je" secondAttribute="bottom" constant="2" id="R0H-0H-3gf"/>
+                                        <constraint firstItem="Agx-92-7Je" firstAttribute="leading" secondItem="TZE-cJ-j3R" secondAttribute="leadingMargin" id="TlS-b3-BMa"/>
+                                        <constraint firstItem="gYT-91-7ug" firstAttribute="trailing" secondItem="TZE-cJ-j3R" secondAttribute="trailingMargin" id="Y1X-om-oM8"/>
+                                        <constraint firstItem="0aa-dS-tau" firstAttribute="top" secondItem="Agx-92-7Je" secondAttribute="top" id="efw-IS-DEd"/>
+                                        <constraint firstAttribute="centerY" secondItem="gYT-91-7ug" secondAttribute="centerY" id="fTe-aD-fMT"/>
+                                        <constraint firstItem="0aa-dS-tau" firstAttribute="leading" secondItem="Agx-92-7Je" secondAttribute="trailing" constant="8" id="qiM-hF-Dyf"/>
+                                        <constraint firstAttribute="centerY" secondItem="Agx-92-7Je" secondAttribute="centerY" constant="-0.5" id="tfK-K4-jLj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="kd4-12-eg7" kind="show" identifier="FuelDetailsSegue" id="fZe-YN-Ze4"/>
+                                    <outlet property="signImageView" destination="Agx-92-7Je" id="Ozg-Xi-VIz"/>
+                                    <outlet property="subtitleLabel" destination="gYT-91-7ug" id="i4V-zv-p70"/>
+                                    <outlet property="titleLabel" destination="0aa-dS-tau" id="XzP-Lu-C2r"/>
+                                    <segue destination="kd4-12-eg7" kind="show" identifier="FuelDetailsSegue" id="Sad-qS-Bh6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -503,7 +527,7 @@
         <image name="filter" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6tP-CZ-DZd"/>
         <segue reference="gNl-ti-LME"/>
+        <segue reference="6tP-CZ-DZd"/>
     </inferredMetricsTieBreakers>
 </document>
