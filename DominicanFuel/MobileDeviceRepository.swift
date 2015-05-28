@@ -17,7 +17,7 @@ class MobileDeviceRepository: NSObject, NSURLSessionDelegate {
     var session: NSURLSession?
     
     override init() {
-        self.endPoint = NSURL(string: "http://localhost:3000/mobile_devices")!
+        self.endPoint = NSURL(string: "\(APIConfiguration.host())/mobile_devices")!
         
         super.init()
         var config = NSURLSessionConfiguration.defaultSessionConfiguration()

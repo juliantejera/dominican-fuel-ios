@@ -17,7 +17,7 @@ class FuelRepository: NSObject, NSURLSessionDelegate {
     var session: NSURLSession?
     
     override init() {
-        self.endPoint = NSURL(string: "http://localhost:3000/fuels")!
+        self.endPoint = NSURL(string: "\(APIConfiguration.host())/fuels")!
         
         super.init()
         var config = NSURLSessionConfiguration.defaultSessionConfiguration()
