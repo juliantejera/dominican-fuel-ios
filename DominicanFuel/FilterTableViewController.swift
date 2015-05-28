@@ -46,7 +46,7 @@ class FilterTableViewController: CoreDataTableViewController {
     func toggleAccessoryViewOfCellAtIndexPath(indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter {        filter.isSelected = !filter.isSelected
-            cell?.accessoryType = filter.isSelected ? UITableViewCellAccessoryType.Checkmark : UITableViewCellAccessoryType.None
+            cell?.accessoryType = filter.isSelected ? .Checkmark : .None
             
             document?.saveToURL(document!.fileURL, forSaveOperation: UIDocumentSaveOperation.ForOverwriting, completionHandler: nil)
         }
