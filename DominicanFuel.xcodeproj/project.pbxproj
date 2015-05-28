@@ -65,6 +65,8 @@
 		905B0A201B16BC7D00EABB6F /* FuelTableViewCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */; };
 		905B0A251B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A241B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift */; };
 		905B0A261B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A241B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift */; };
+		905B0A2C1B16C4FF00EABB6F /* DeltaAssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A2B1B16C4FF00EABB6F /* DeltaAssetsManager.swift */; };
+		905B0A2D1B16C4FF00EABB6F /* DeltaAssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A2B1B16C4FF00EABB6F /* DeltaAssetsManager.swift */; };
 		905FE8C61AEC6C6400745D97 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */; };
 		905FE8C71AEC6C6400745D97 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */; };
 		905FE8C91AEC73BA00745D97 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */; };
@@ -144,6 +146,7 @@
 		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
 		905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCellFactory.swift; sourceTree = "<group>"; };
 		905B0A241B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewHeaderImageView.swift; sourceTree = "<group>"; };
+		905B0A2B1B16C4FF00EABB6F /* DeltaAssetsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeltaAssetsManager.swift; sourceTree = "<group>"; };
 		905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractFactory.swift; sourceTree = "<group>"; };
 		905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelFactory.swift; sourceTree = "<group>"; };
@@ -306,6 +309,7 @@
 				901348B31B093CE2009E9AE3 /* MobileDevice.swift */,
 				901348B51B093D91009E9AE3 /* MobileDeviceRepository.swift */,
 				905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */,
+				905B0A2B1B16C4FF00EABB6F /* DeltaAssetsManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -602,6 +606,7 @@
 				905FE8C61AEC6C6400745D97 /* AbstractFactory.swift in Sources */,
 				902EF5901AD027CC00661600 /* FuelSeeder.swift in Sources */,
 				902EF5861AD0235200661600 /* Fuel.swift in Sources */,
+				905B0A2C1B16C4FF00EABB6F /* DeltaAssetsManager.swift in Sources */,
 				9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
 				9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */,
 				901685491ADA1664000BD502 /* ChartTimespanTableViewController.swift in Sources */,
@@ -651,6 +656,7 @@
 				902EF5651ACA43E000661600 /* FuelType.swift in Sources */,
 				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
 				905B0A261B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */,
+				905B0A2D1B16C4FF00EABB6F /* DeltaAssetsManager.swift in Sources */,
 				902EF5781ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
 				905067ED1B0AE8C100B63BEC /* FuelTableViewCell.swift in Sources */,
 				9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */,

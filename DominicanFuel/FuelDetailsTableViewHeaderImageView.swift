@@ -10,36 +10,20 @@ import UIKit
 
 class FuelDetailsTableViewHeaderImageView: UIImageView {
 
-    private lazy var upArrow = UIImage(named: "big_up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    private lazy var downArrow = UIImage(named: "big_down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    private lazy var equalSign = UIImage(named: "big_equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
-    private lazy var upArrowTintColor = UIColor.redColor()
-    private lazy var downArrowTintColor = UIColor.greenColor()
-    private lazy var equalSignTintColor = UIColor.orangeColor()
-    
+    lazy var deltaAssetsManager = DeltaAssetsManager()
     
     func update(delta: Double) {
-        var selectedBorderColor: CGColor
-        if delta > 0 {
-            selectedBorderColor = upArrowTintColor.CGColor
-            self.tintColor = upArrowTintColor
-            self.image = upArrow
-        } else if delta < 0 {
-            selectedBorderColor = downArrowTintColor.CGColor
-            self.tintColor = downArrowTintColor
-            self.image = downArrow
-        } else {
-            selectedBorderColor = equalSignTintColor.CGColor
-            self.tintColor = equalSignTintColor
-            self.image = equalSign
-        }
-        
+        deltaAssetsManager.updateImageView(self, delta: delta)
+        animateBorderColor(deltaAssetsManager.colorForDelta(delta).CGColor)
+    }
+    
+    func animateBorderColor(color: CGColor) {
         var animation = CABasicAnimation(keyPath: "borderColor")
         animation.fromValue = UIColor.clearColor().CGColor
-        animation.toValue = selectedBorderColor
-        animation.duration = 3.0
+        animation.toValue = color
+        animation.duration = 2.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
         self.layer.addAnimation(animation, forKey: "borderColor")
-        self.layer.borderColor = selectedBorderColor
+        self.layer.borderColor = color
     }
 }
