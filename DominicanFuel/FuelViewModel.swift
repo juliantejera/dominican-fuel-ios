@@ -27,6 +27,6 @@ class FuelViewModel: Printable {
     }
     
     var description: String {
-        return "\(type) durante la semana de \(timespan). El precio fue \(price), para una diferencia de \(delta) con respecto a la semana anterior"
+        return "\(type): \(price) durante la semana de \(timespan) #CombustiblesDominicanos"
     }
 }
