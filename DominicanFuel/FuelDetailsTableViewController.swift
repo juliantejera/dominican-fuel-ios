@@ -12,7 +12,7 @@ import iAd
 
 class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegate {
 
-    @IBOutlet weak var tableViewHeaderImageView: UIImageView!
+    @IBOutlet weak var tableViewHeaderImageView: FuelDetailsTableViewHeaderImageView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var deltaLabel: UILabel!
     @IBOutlet weak var timespanLabel: UILabel!
@@ -30,7 +30,7 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     weak var fuel: Fuel? {
         didSet {
             if let fuel = self.fuel {
-                self.fuelViewModel = factory.mapToViewModel(fuel)
+                self.fuelViewModel = viewModelFactory.mapToViewModel(fuel)
             } else {
                 self.fuelViewModel = nil
             }
@@ -39,13 +39,8 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     
     var fuelViewModel: FuelViewModel?
 
-    lazy var factory = FuelViewModelFactory()
-    lazy var upArrow = UIImage(named: "big_up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var downArrow = UIImage(named: "big_down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var equalSign = UIImage(named: "big_equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var upArrowTintColor = UIColor.redColor()
-    lazy var downArrowTintColor = UIColor.greenColor()
-    lazy var equalSignTintColor = UIColor.orangeColor()
+    lazy var viewModelFactory = FuelViewModelFactory()
+    lazy var cellFactory = FuelTableViewCellFactory()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,60 +70,38 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
         self.deltaLabel.text = fuelViewModel?.delta
         self.timespanLabel.text = fuelViewModel?.timespan
         
-        if let fuel = self.fuel {
-            updateImageView(tableViewHeaderImageView, delta: fuel.delta)
+        if let fuel = self.fuel {            
+            self.tableViewHeaderImageView.update(fuel.delta)
         }
         
         // Historic labels
+        // TODO: Move all this logic to a new class and load this dynamically
         var today = NSDate()
         if let oneMonthAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -1, toDate: today, options: nil) {
             if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: oneMonthAgo)) {
-                historyOneMonthAgoLabel.text = factory.mapToViewModel(historicFuel).price
+                historyOneMonthAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
         if let threeMonthsAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -3, toDate: today, options: nil) {
             if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: threeMonthsAgo)) {
-                historyThreeMonthsAgoLabel.text = factory.mapToViewModel(historicFuel).price
+                historyThreeMonthsAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
         
         if let sixMonthsAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -6, toDate: today, options: nil) {
             if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: sixMonthsAgo)) {
-                historySixMonthsAgoLabel.text = factory.mapToViewModel(historicFuel).price
+                historySixMonthsAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
         
         if let oneYearAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -1, toDate: today, options: nil) {
             if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: oneYearAgo)) {
-                historyOneYearAgoLabel.text = factory.mapToViewModel(historicFuel).price
+                historyOneYearAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
     }
     
-    func updateImageView(imageView: UIImageView, delta: Double) {
-        var selectedBorderColor: CGColor
-        if delta > 0 {
-            selectedBorderColor = upArrowTintColor.CGColor
-            imageView.tintColor = upArrowTintColor
-            imageView.image = upArrow
-        } else if delta < 0 {
-            selectedBorderColor = downArrowTintColor.CGColor
-            imageView.tintColor = downArrowTintColor
-            imageView.image = downArrow
-        } else {
-            selectedBorderColor = equalSignTintColor.CGColor
-            imageView.tintColor = equalSignTintColor
-            imageView.image = equalSign
-        }
-        
-        var animation = CABasicAnimation(keyPath: "borderColor")
-        animation.fromValue = UIColor.clearColor().CGColor
-        animation.toValue = selectedBorderColor
-        animation.duration = 3.0
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        imageView.layer.addAnimation(animation, forKey: "borderColor")
-        imageView.layer.borderColor = selectedBorderColor
-    }
+    
     
     
     // MARK: - iAd Delegate

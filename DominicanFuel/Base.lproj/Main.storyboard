@@ -66,7 +66,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="T6N-BA-UhK">
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big_down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="T6N-BA-UhK" customClass="FuelDetailsTableViewHeaderImageView" customModule="DominicanFuel" customModuleProvider="target">
                                     <rect key="frame" x="220" y="10" width="160" height="160"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="160" id="BAa-Gr-zVy"/>

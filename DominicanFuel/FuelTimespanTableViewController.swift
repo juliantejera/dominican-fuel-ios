@@ -35,7 +35,7 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
         do {
             dates.append(saturday)
             saturday = NSDate(timeInterval: -oneWeekInSeconds, sinceDate: saturday)
-        } while (dates.count < (oneYearInWeeks * 3))
+        } while (dates.count < (oneYearInWeeks * 6))
     }
     
     // MARK: - Table view data source
