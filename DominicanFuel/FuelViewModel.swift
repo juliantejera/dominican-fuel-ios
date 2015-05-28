@@ -27,6 +27,6 @@ class FuelViewModel: Printable {
     }
     
     var description: String {
-        return "\(type): \(price) durante la semana de \(timespan) #CombustiblesDominicanos"
+        return "* \(type):\n - Precio: \(price)\n - Semana: \(timespan)\n#CombustiblesDominicanos"
     }
 }
