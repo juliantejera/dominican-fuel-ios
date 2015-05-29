@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         if let notificationsDictionary = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject: AnyObject] {
+            application.applicationIconBadgeNumber = 0
             
         }
         
@@ -73,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        
+        application.applicationIconBadgeNumber = 0
         if (application.applicationState == UIApplicationState.Inactive) {
             // Instantiate VC from notification
         }
