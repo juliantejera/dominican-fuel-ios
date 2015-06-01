@@ -90,6 +90,29 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         return cell
     }
     
+    // MARK: - Table View Delegate
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share") { (action, indexPath) -> Void in
+            if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
+                var viewModel = self.fuelViewModelFactory.mapToViewModel(fuel)
+                let textToShare = viewModel.description
+                let controller = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+                controller.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+        }
+        
+        shareAction.backgroundEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+        
+        return [shareAction]
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -115,7 +138,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     }
     
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        UIView.transitionWithView(self.tableView, duration: 0.3, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { () -> Void in
+        UIView.transitionWithView(self.tableView, duration: 0.3, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.reloadFetchedResultsController()
         }) { (success) -> Void in
             // TODO
