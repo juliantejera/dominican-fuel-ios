@@ -92,26 +92,26 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     
     // MARK: - Table View Delegate
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-        
-        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share") { (action, indexPath) -> Void in
-            if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
-                var viewModel = self.fuelViewModelFactory.mapToViewModel(fuel)
-                let textToShare = viewModel.description
-                let controller = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
-                controller.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-                self.presentViewController(controller, animated: true, completion: nil)
-            }
-        }
-        
-        shareAction.backgroundEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-        
-        return [shareAction]
-    }
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
+//    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+//        
+//        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Compartir") { (action, indexPath) -> Void in
+//            if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
+//                var viewModel = self.fuelViewModelFactory.mapToViewModel(fuel)
+//                let textToShare = viewModel.description
+//                let controller = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+//                controller.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+//                self.presentViewController(controller, animated: true, completion: nil)
+//            }
+//        }
+//        
+//        shareAction.backgroundEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+//        
+//        return [shareAction]
+//    }
+//    
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//    }
     
     // MARK: - Navigation
 
