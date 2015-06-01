@@ -15,6 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var seeder = CoreDataSeeder()
     
+    
+    func setupAppirater() {
+        Appirater.setAppId("986018933")
+        Appirater.setDaysUntilPrompt(5)
+        Appirater.setUsesUntilPrompt(5)
+        Appirater.setSignificantEventsUntilPrompt(-1)
+        Appirater.setTimeBeforeReminding(2)
+        Appirater.setDebug(false)
+        Appirater.appLaunched(true)
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Sound | .Badge | .Alert, categories: nil))
@@ -26,13 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        Appirater.setAppId("986018933")
-        Appirater.setDaysUntilPrompt(5)
-        Appirater.setUsesUntilPrompt(5)
-        Appirater.setSignificantEventsUntilPrompt(-1)
-        Appirater.setTimeBeforeReminding(2)
-        Appirater.setDebug(false)
-        Appirater.appLaunched(true)
+        setupAppirater()
         
         return true
     }

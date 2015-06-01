@@ -55,14 +55,10 @@ class ChartTimespanTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ChartsSegue" {
             if let vc = segue.destinationViewController.contentViewController as? ChartViewController {
-                if let cell = sender as? UITableViewCell {
-                    if let indexPath = self.tableView.indexPathForCell(cell) {
-                        vc.selectedDate = self.dates[indexPath.row]
-                    }
+                if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPathForCell(cell) {
+                    vc.selectedDate = self.dates[indexPath.row]
                 }
             }
         }
     }
-
-
 }
