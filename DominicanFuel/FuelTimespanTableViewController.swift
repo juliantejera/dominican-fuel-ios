@@ -8,8 +8,10 @@
 
 import UIKit
 
-class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate {
 
+    var document: UIManagedDocument?
+    
     var dates = [NSDate]()
     
     lazy var dateFormatter: NSDateFormatter = {
@@ -20,7 +22,10 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateDates()
+        let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
+        documentCoordinator.delegate = self
+        documentCoordinator.setupDocument()
+        populateDates(NSDate.lastSaturday())
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,14 +33,36 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
         // Dispose of any resources that can be recreated.
     }
     
-    func populateDates() {
+    func populateDates(date: NSDate) {
         let oneYearInWeeks = 52
         let oneWeekInSeconds: NSTimeInterval = 60*60*24*7
-        var saturday = NSDate.lastSaturday()
+        var saturday = date
         do {
             dates.append(saturday)
             saturday = NSDate(timeInterval: -oneWeekInSeconds, sinceDate: saturday)
         } while (dates.count < (oneYearInWeeks * 6))
+    }
+    
+    func mostRecentFuel() -> Fuel? {
+        var request = NSFetchRequest(entityName: Fuel.entityName())
+        request.fetchLimit = 1
+        request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
+        return document?.managedObjectContext.executeFetchRequest(request, error: nil)?.first as? Fuel
+    }
+    
+    // MARK: - Managed Document Coordinator Delegate
+    
+    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
+        self.document = document
+        
+        if let fuel = mostRecentFuel(), let publishedAt = fuel.publishedAt {
+            dates.insert(publishedAt, atIndex: 0)
+            tableView.reloadData()
+        }
+    }
+    
+    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
+        println("Error: \(error)")
     }
     
     // MARK: - Table view data source
@@ -66,6 +93,7 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
                 if let cell = sender as? UITableViewCell {
                     if let indexPath = self.tableView.indexPathForCell(cell) {
                         vc.selectedDate = self.dates[indexPath.row]
+                        vc.document = self.document
                     }
                 }
             }
