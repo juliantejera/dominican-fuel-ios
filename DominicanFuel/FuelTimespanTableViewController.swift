@@ -25,7 +25,6 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
         let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
         documentCoordinator.delegate = self
         documentCoordinator.setupDocument()
-        populateDates(NSDate.lastSaturday())
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +55,7 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
         self.document = document
         
         if let fuel = mostRecentFuel(), let publishedAt = fuel.publishedAt {
-            dates.insert(publishedAt, atIndex: 0)
+            populateDates(publishedAt)
             tableView.reloadData()
         }
     }
