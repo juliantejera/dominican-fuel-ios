@@ -78,6 +78,8 @@
 		906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
 		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 		906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
+		907529FA1B24175200583DD6 /* FuelFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907529F91B24175200583DD6 /* FuelFetcher.swift */; };
+		907529FB1B24175200583DD6 /* FuelFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907529F91B24175200583DD6 /* FuelFetcher.swift */; };
 		909587611B04530500E30362 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587601B04530500E30362 /* iAd.framework */; };
 		90A7FF901AE2052700A8597C /* FuelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */; };
 		90A7FF951AE20D6A00A8597C /* FuelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */; };
@@ -157,6 +159,7 @@
 		905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelFactory.swift; sourceTree = "<group>"; };
 		906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelsTableViewController.swift; sourceTree = "<group>"; };
+		907529F91B24175200583DD6 /* FuelFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelFetcher.swift; sourceTree = "<group>"; };
 		9095874E1B044F1000E30362 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		909587501B044F1600E30362 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		909587521B044F1B00E30362 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -320,6 +323,7 @@
 				905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */,
 				905B0A2B1B16C4FF00EABB6F /* DeltaAssetsManager.swift */,
 				905B0A341B16CFA200EABB6F /* APIConfiguration.swift */,
+				907529F91B24175200583DD6 /* FuelFetcher.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -634,6 +638,7 @@
 				902EF5711ACB878900661600 /* FuelFilter.swift in Sources */,
 				9057CAA81ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
 				906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */,
+				907529FA1B24175200583DD6 /* FuelFetcher.swift in Sources */,
 				90E12E0A1B18901D00AF3A52 /* TableViewCellViewModel.swift in Sources */,
 				902EF5771ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
 				90AD3B3F1AD69F2800785573 /* Date.swift in Sources */,
@@ -646,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90AD3B3D1AD61B1D00785573 /* ViewController.swift in Sources */,
+				907529FB1B24175200583DD6 /* FuelFetcher.swift in Sources */,
 				90AD3B441AD7D43B00785573 /* ChartViewController.swift in Sources */,
 				902EF5971AD0B09700661600 /* DateFormatter.swift in Sources */,
 				90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */,

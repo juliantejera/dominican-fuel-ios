@@ -11,7 +11,11 @@ import iAd
 
 class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate {
 
-    var document: UIManagedDocument?
+    var document: UIManagedDocument? {
+        didSet {
+            reloadFetchedResultsController()
+        }
+    }
     
     var selectedDate: NSDate = NSDate.lastSaturday() {
         didSet {
@@ -30,9 +34,11 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         self.tableView.estimatedRowHeight = self.tableView.rowHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
-        documentCoordinator.delegate = self
-        documentCoordinator.setupDocument()
+        if document == nil {
+            let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
+            documentCoordinator.delegate = self
+            documentCoordinator.setupDocument()
+        }
     }
     
     func updateFuels() {
@@ -61,8 +67,11 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     // MARK: - Managed Document Coordinator Delegate
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
+        if let publishedAt = FuelFetcher(managedObjectContext: document.managedObjectContext).mostRecentFuel()?.publishedAt {
+            self.selectedDate = publishedAt
+        }
+        
         self.document = document
-        reloadFetchedResultsController()
     }
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {

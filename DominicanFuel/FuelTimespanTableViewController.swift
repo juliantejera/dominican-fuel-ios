@@ -42,19 +42,12 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
         } while (dates.count < (oneYearInWeeks * 6))
     }
     
-    func mostRecentFuel() -> Fuel? {
-        var request = NSFetchRequest(entityName: Fuel.entityName())
-        request.fetchLimit = 1
-        request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
-        return document?.managedObjectContext.executeFetchRequest(request, error: nil)?.first as? Fuel
-    }
-    
     // MARK: - Managed Document Coordinator Delegate
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
         self.document = document
         
-        if let fuel = mostRecentFuel(), let publishedAt = fuel.publishedAt {
+        if let fuel = FuelFetcher(managedObjectContext: document.managedObjectContext).mostRecentFuel(), let publishedAt = fuel.publishedAt {
             populateDates(publishedAt)
             tableView.reloadData()
         }
@@ -91,8 +84,8 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
             if let vc = segue.destinationViewController.contentViewController as? FuelsTableViewController {
                 if let cell = sender as? UITableViewCell {
                     if let indexPath = self.tableView.indexPathForCell(cell) {
-                        vc.selectedDate = self.dates[indexPath.row]
                         vc.document = self.document
+                        vc.selectedDate = self.dates[indexPath.row]
                     }
                 }
             }
