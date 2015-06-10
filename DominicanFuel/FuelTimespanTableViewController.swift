@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate {
+class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
 
     var document: UIManagedDocument?
     
@@ -22,11 +22,9 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
-        documentCoordinator.delegate = self
-        documentCoordinator.setupDocument()
+        populateDates(NSDate.lastSaturday())
     }
-
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,21 +38,6 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
             dates.append(saturday)
             saturday = NSDate(timeInterval: -oneWeekInSeconds, sinceDate: saturday)
         } while (dates.count < (oneYearInWeeks * 6))
-    }
-    
-    // MARK: - Managed Document Coordinator Delegate
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
-        self.document = document
-        
-        if let fuel = FuelFetcher(managedObjectContext: document.managedObjectContext).mostRecentFuel(), let publishedAt = fuel.publishedAt {
-            populateDates(publishedAt)
-            tableView.reloadData()
-        }
-    }
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
-        println("Error: \(error)")
     }
     
     // MARK: - Table view data source
@@ -84,7 +67,6 @@ class FuelTimespanTableViewController: UITableViewController, UIPopoverPresentat
             if let vc = segue.destinationViewController.contentViewController as? FuelsTableViewController {
                 if let cell = sender as? UITableViewCell {
                     if let indexPath = self.tableView.indexPathForCell(cell) {
-                        vc.document = self.document
                         vc.selectedDate = self.dates[indexPath.row]
                     }
                 }

@@ -40,7 +40,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             documentCoordinator.setupDocument()
         }
     }
-    
+
     func updateFuels() {
         if let managedObjectContext = document?.managedObjectContext {
             FuelSeeder.updateFuels(FuelRepository(), context: managedObjectContext)
@@ -62,7 +62,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "publishedAt", cacheName: nil)
         }
     }
-
+    
  
     // MARK: - Managed Document Coordinator Delegate
     
