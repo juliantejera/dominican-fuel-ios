@@ -15,7 +15,7 @@ class FuelFilterSeeder {
         var error: NSError? = nil
         var count = context.countForFetchRequest(request, error: &error)
         if error == nil && count == 0 {
-            let types = ["Gasolina Premium", "Gasolina Regular", "Gasoil Premium", "Gasoil Regular", "Gas Licuado de Petróleo (GLP)", "Kerosene", "Gas Natural Vehicular (GNV)"]
+            let types = ["Gasolina Premium", "Gasolina Regular", "Gasoil Optimo","Gasoil Premium", "Gasoil Regular", "Gas Licuado de Petróleo (GLP)", "Kerosene", "Gas Natural Vehicular (GNV)"]
             
             for var i = 0; i < types.count; i++ {
                 if let fuelFilter = NSEntityDescription.insertNewObjectForEntityForName(FuelFilter.entityName(), inManagedObjectContext: context) as? FuelFilter {
