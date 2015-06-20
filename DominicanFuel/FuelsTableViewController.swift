@@ -67,10 +67,6 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     // MARK: - Managed Document Coordinator Delegate
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
-        if let publishedAt = FuelFetcher(managedObjectContext: document.managedObjectContext).mostRecentFuel()?.publishedAt {
-            self.selectedDate = publishedAt
-        }
-        
         self.document = document
     }
     
