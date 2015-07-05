@@ -11,18 +11,8 @@ import iAd
 
 class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate {
 
-    var document: UIManagedDocument? {
-        didSet {
-            reloadFetchedResultsController()
-        }
-    }
+    var document: UIManagedDocument?
     
-    var selectedDate: NSDate = NSDate.lastSaturday() {
-        didSet {
-            reloadFetchedResultsController()
-        }
-    }
-
     lazy var fuelViewModelFactory = FuelViewModelFactory()
     lazy var fuelTableViewCellFactory = FuelTableViewCellFactory()
     
@@ -43,7 +33,31 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
 
     func updateFuels() {
         if let managedObjectContext = document?.managedObjectContext {
-            FuelSeeder.updateFuels(FuelRepository(), context: managedObjectContext)
+            
+            var request = NSFetchRequest(entityName: Fuel.entityName())
+            var error: NSError? = nil
+            request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
+            request.fetchLimit = 1
+            
+            if let result = managedObjectContext.executeFetchRequest(request, error: &error)?.first as? Fuel {
+                if let date = result.publishedAt?.description {
+                    let parameters = ["published_at": date]
+                    FuelRepository().findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
+                        switch response {
+                        case .Failure(let error):
+                            println("Error: \(error)")
+                        case .Success(let items):
+                            for dictionary in items {
+                                if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: managedObjectContext) as? Fuel {
+                                    fuel.populateWithDictionary(dictionary)
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            
             self.refreshControl?.endRefreshing()
         }
     }
@@ -53,7 +67,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             let request = NSFetchRequest(entityName: Fuel.entityName())
             var selectedFuelFiltersTypes = FuelFilter.selectedFuelFilters(managedObjectContext).map({ $0.type })
             if selectedFuelFiltersTypes.count > 0 {
-                request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt < %@) AND type IN %@", selectedDate.beginningOfDay, selectedDate.tomorrow.beginningOfDay, selectedFuelFiltersTypes)
+                request.predicate = NSPredicate(format: "type IN %@", selectedFuelFiltersTypes)
             }
             
             var publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
@@ -68,6 +82,8 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
         self.document = document
+        reloadFetchedResultsController()
+        updateFuels()
     }
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {

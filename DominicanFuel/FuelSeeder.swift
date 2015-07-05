@@ -28,9 +28,7 @@ class FuelSeeder {
                                 fuel.populateWithDictionary(dictionary)
                             }
                         }
-                    }
-                    
-                    FuelSeeder.updateFuels(FuelRepository(), context: context)
+                    }                    
                 }
             }
             

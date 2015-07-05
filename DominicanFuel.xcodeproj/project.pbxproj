@@ -92,8 +92,6 @@
 		90B695681AC4F45100BC8B7B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartViewController.swift */; };
 		90BA14481AE74451007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
 		90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
-		90CBBC0A1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */; };
-		90CBBC0B1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */; };
 		90E12E0A1B18901D00AF3A52 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E091B18901D00AF3A52 /* TableViewCellViewModel.swift */; };
 		90E12E0C1B1BE55D00AF3A52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E0B1B1BE55D00AF3A52 /* LaunchScreen.storyboard */; };
 		AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */; };
@@ -177,7 +175,6 @@
 		90B695671AC4F45100BC8B7B /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		90B695691AC56A9F00BC8B7B /* DominicanFuel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DominicanFuel-Bridging-Header.h"; sourceTree = "<group>"; };
 		90BA14471AE74451007BB5F9 /* FuelRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepository.swift; sourceTree = "<group>"; };
-		90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTimespanTableViewController.swift; sourceTree = "<group>"; };
 		90E12E091B18901D00AF3A52 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		90E12E0B1B1BE55D00AF3A52 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		944AA7BC5C89A49589B2E2DE /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
@@ -368,7 +365,6 @@
 				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
 				90B695671AC4F45100BC8B7B /* ChartViewController.swift */,
 				902EF5601AC9692100661600 /* FilterTableViewController.swift */,
-				90CBBC091AD60A8300F99E8B /* FuelTimespanTableViewController.swift */,
 				901685481ADA1663000BD502 /* ChartTimespanTableViewController.swift */,
 				90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */,
 			);
@@ -607,7 +603,6 @@
 				90B695681AC4F45100BC8B7B /* ChartViewController.swift in Sources */,
 				901348B41B093CE2009E9AE3 /* MobileDevice.swift in Sources */,
 				90A7FF901AE2052700A8597C /* FuelDetailsTableViewController.swift in Sources */,
-				90CBBC0A1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */,
 				9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				9057CAA61ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
 				902EF5891AD0242400661600 /* FuelExtension.swift in Sources */,
@@ -672,7 +667,6 @@
 				90AD3B401AD69F2C00785573 /* Date.swift in Sources */,
 				902EF5871AD0235200661600 /* Fuel.swift in Sources */,
 				902EF58E1AD0273E00661600 /* FuelFilterSeeder.swift in Sources */,
-				90CBBC0B1AD60A8300F99E8B /* FuelTimespanTableViewController.swift in Sources */,
 				905B0A361B16CFA200EABB6F /* APIConfiguration.swift in Sources */,
 				905B0A331B16CA9B00EABB6F /* FuelsTableViewControllerFetchRequest.swift in Sources */,
 				902EF5651ACA43E000661600 /* FuelType.swift in Sources */,

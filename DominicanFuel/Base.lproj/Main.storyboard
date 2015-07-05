@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5W4-r1-8Db">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XcA-sj-8R7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
-        <scene sceneID="beQ-R7-hyO">
-            <objects>
-                <splitViewController id="5W4-r1-8Db" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Cid-6f-LWj"/>
-                    <connections>
-                        <segue destination="VBT-10-3Jf" kind="relationship" relationship="masterViewController" id="6dW-rh-I05"/>
-                        <segue destination="XcA-sj-8R7" kind="relationship" relationship="detailViewController" id="Pyl-kK-5QT"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="449-Ve-4mX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-738" y="-785"/>
-        </scene>
         <!--Filter Table View Controller-->
         <scene sceneID="ANJ-Zc-v2Z">
             <objects>
@@ -79,10 +65,11 @@
                                 <constraint firstItem="T6N-BA-UhK" firstAttribute="centerY" secondItem="SvQ-H5-3lz" secondAttribute="centerY" id="ZBO-j0-UaL"/>
                             </constraints>
                         </view>
-                        <adBannerView key="tableFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vrd-4W-y1q">
-                            <rect key="frame" x="0.0" y="-50" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        </adBannerView>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="KKL-tx-rpl" customClass="GADBannerView">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <sections>
                             <tableViewSection id="AIN-cP-2nY">
                                 <cells>
@@ -247,11 +234,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="deltaLabel" destination="CTf-jH-XvU" id="Abt-ar-w08"/>
+                        <outlet property="googleAdView" destination="KKL-tx-rpl" id="BO4-Mc-QZ4"/>
                         <outlet property="historyOneMonthAgoLabel" destination="zJ1-iS-bgq" id="m7U-A4-rcf"/>
                         <outlet property="historyOneYearAgoLabel" destination="Ruo-CU-9JH" id="gbM-X1-Q2g"/>
                         <outlet property="historySixMonthsAgoLabel" destination="2cr-ls-eQc" id="BfK-t2-0Oc"/>
                         <outlet property="historyThreeMonthsAgoLabel" destination="k4m-Km-o8P" id="15p-Tj-uSb"/>
-                        <outlet property="iAdView" destination="vrd-4W-y1q" id="j6J-WK-n74"/>
                         <outlet property="priceLabel" destination="xtx-l8-xmd" id="Xzs-Hq-g36"/>
                         <outlet property="tableViewHeaderImageView" destination="T6N-BA-UhK" id="9NP-80-nLv"/>
                         <outlet property="timespanLabel" destination="jPi-nR-bvE" id="Xmb-2v-hwx"/>
@@ -339,63 +326,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7np-WY-LPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1007" y="-481"/>
-        </scene>
-        <!--Semanas-->
-        <scene sceneID="IiH-rY-2ln">
-            <objects>
-                <tableViewController id="Pnt-jX-Zml" customClass="FuelTimespanTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="O41-9W-MU7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TimespanCell" textLabel="b4H-V4-ReQ" style="IBUITableViewCellStyleDefault" id="8BT-Bm-A4K">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8BT-Bm-A4K" id="dG5-Tk-2Sq">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b4H-V4-ReQ">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="XcA-sj-8R7" kind="showDetail" identifier="FuelsSegue" id="gNl-ti-LME"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Pnt-jX-Zml" id="JYJ-rl-vHt"/>
-                            <outlet property="delegate" destination="Pnt-jX-Zml" id="hqR-UW-1np"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Semanas" id="CH5-Ud-z6F"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rV2-Ka-2x0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1007" y="-1273"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="ZAd-hG-8Qu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBT-10-3Jf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3Sj-6e-v4o"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="85m-xp-UaE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Pnt-jX-Zml" kind="relationship" relationship="rootViewController" id="7H8-YW-x2u"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GKc-TX-Hb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="149" y="-1273"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="kmf-Bp-xCo">
@@ -527,7 +457,6 @@
         <image name="filter" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gNl-ti-LME"/>
         <segue reference="6tP-CZ-DZd"/>
     </inferredMetricsTieBreakers>
 </document>
