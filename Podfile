@@ -3,9 +3,11 @@
 
 target 'DominicanFuel' do
     pod "Appirater"
+    pod "Google-Mobile-Ads-SDK"
 end
 
 target 'DominicanFuelTests' do
     pod "Appirater"
+    pod "Google-Mobile-Ads-SDK"
 end
 

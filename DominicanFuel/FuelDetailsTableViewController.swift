@@ -9,8 +9,9 @@
 import UIKit
 import QuartzCore
 import iAd
+import GoogleMobileAds
 
-class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegate {
+class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegate, GADBannerViewDelegate {
 
     @IBOutlet weak var tableViewHeaderImageView: FuelDetailsTableViewHeaderImageView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -21,9 +22,11 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     @IBOutlet weak var historySixMonthsAgoLabel: UILabel!
     @IBOutlet weak var historyOneYearAgoLabel: UILabel!
 
-    @IBOutlet weak var iAdView: ADBannerView! {
+   @IBOutlet weak var googleAdView: GADBannerView? {
         didSet {
-            iAdView?.delegate = self
+            googleAdView?.delegate = self
+            googleAdView?.rootViewController = self
+            googleAdView?.adUnitID = "ca-app-pub-3743373903826064/5760698435"
         }
     }
     
@@ -45,6 +48,9 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        var request = GADRequest()
+        request.testDevices = ["97cae6e4f669f3e8527d82ad261cc092", kGADSimulatorID]
+        googleAdView?.loadRequest(request)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -100,24 +106,30 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
             }
         }
     }
-    
-    
-    
-    
-    // MARK: - iAd Delegate
-    
-    func bannerViewWillLoadAd(banner: ADBannerView!) {
+
+    // MARK: - Google Ad Banner View Delegate
+    func adViewDidReceiveAd(view: GADBannerView!) {
+        self.tableView.tableFooterView = view
     }
     
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        self.tableView.tableFooterView = banner
-    }
-    
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+    func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+        println(error.localizedDescription)
         self.tableView.tableFooterView = nil
     }
     
-    func bannerViewActionDidFinish(banner: ADBannerView!) {
+    func adViewWillPresentScreen(adView: GADBannerView!) {
+        
+    }
+    
+    func adViewWillDismissScreen(adView: GADBannerView!) {
+        
+    }
+    
+    func adViewDidDismissScreen(adView: GADBannerView!) {
+        
+    }
+    
+    func adViewWillLeaveApplication(adView: GADBannerView!) {
         
     }
 }
