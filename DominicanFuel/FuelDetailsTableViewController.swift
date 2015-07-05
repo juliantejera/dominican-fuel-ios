@@ -8,10 +8,8 @@
 
 import UIKit
 import QuartzCore
-import iAd
-import GoogleMobileAds
 
-class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegate, GADBannerViewDelegate {
+class FuelDetailsTableViewController: UITableViewController {
 
     @IBOutlet weak var tableViewHeaderImageView: FuelDetailsTableViewHeaderImageView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -22,14 +20,7 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     @IBOutlet weak var historySixMonthsAgoLabel: UILabel!
     @IBOutlet weak var historyOneYearAgoLabel: UILabel!
 
-   @IBOutlet weak var googleAdView: GADBannerView? {
-        didSet {
-            googleAdView?.delegate = self
-            googleAdView?.rootViewController = self
-            googleAdView?.adUnitID = "ca-app-pub-3743373903826064/5760698435"
-        }
-    }
-    
+
     weak var fuel: Fuel? {
         didSet {
             if let fuel = self.fuel {
@@ -48,9 +39,6 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        var request = GADRequest()
-        request.testDevices = ["97cae6e4f669f3e8527d82ad261cc092", kGADSimulatorID]
-        googleAdView?.loadRequest(request)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -105,31 +93,5 @@ class FuelDetailsTableViewController: UITableViewController, ADBannerViewDelegat
                 historyOneYearAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
-    }
-
-    // MARK: - Google Ad Banner View Delegate
-    func adViewDidReceiveAd(view: GADBannerView!) {
-        self.tableView.tableFooterView = view
-    }
-    
-    func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-        println(error.localizedDescription)
-        self.tableView.tableFooterView = nil
-    }
-    
-    func adViewWillPresentScreen(adView: GADBannerView!) {
-        
-    }
-    
-    func adViewWillDismissScreen(adView: GADBannerView!) {
-        
-    }
-    
-    func adViewDidDismissScreen(adView: GADBannerView!) {
-        
-    }
-    
-    func adViewWillLeaveApplication(adView: GADBannerView!) {
-        
     }
 }

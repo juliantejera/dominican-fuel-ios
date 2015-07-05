@@ -65,11 +65,6 @@
                                 <constraint firstItem="T6N-BA-UhK" firstAttribute="centerY" secondItem="SvQ-H5-3lz" secondAttribute="centerY" id="ZBO-j0-UaL"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="KKL-tx-rpl" customClass="GADBannerView">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
                         <sections>
                             <tableViewSection id="AIN-cP-2nY">
                                 <cells>
@@ -234,7 +229,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="deltaLabel" destination="CTf-jH-XvU" id="Abt-ar-w08"/>
-                        <outlet property="googleAdView" destination="KKL-tx-rpl" id="BO4-Mc-QZ4"/>
                         <outlet property="historyOneMonthAgoLabel" destination="zJ1-iS-bgq" id="m7U-A4-rcf"/>
                         <outlet property="historyOneYearAgoLabel" destination="Ruo-CU-9JH" id="gbM-X1-Q2g"/>
                         <outlet property="historySixMonthsAgoLabel" destination="2cr-ls-eQc" id="BfK-t2-0Oc"/>
@@ -256,6 +250,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="5m0-hY-VFe">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2M-iu-boG" customClass="GADBannerView">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="f2M-iu-boG" firstAttribute="leading" secondItem="5m0-hY-VFe" secondAttribute="leading" id="4LP-n0-o9b"/>
+                                <constraint firstItem="f2M-iu-boG" firstAttribute="top" secondItem="5m0-hY-VFe" secondAttribute="top" id="LfV-MS-SFX"/>
+                                <constraint firstAttribute="bottom" secondItem="f2M-iu-boG" secondAttribute="bottom" id="ZBY-B6-J9s"/>
+                                <constraint firstAttribute="trailing" secondItem="f2M-iu-boG" secondAttribute="trailing" id="shX-BN-mlz"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FuelCell" id="LtI-gA-W83" customClass="FuelTableViewCell" customModule="DominicanFuel" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -268,7 +279,7 @@
                                                 <constraint firstAttribute="width" constant="22" id="nEI-3r-Hba"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYT-91-7ug">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYT-91-7ug">
                                             <rect key="frame" x="522" y="11" width="70" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="KzG-kM-hNP"/>
@@ -322,6 +333,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="googleAdView" destination="f2M-iu-boG" id="gHz-l6-eO9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7np-WY-LPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

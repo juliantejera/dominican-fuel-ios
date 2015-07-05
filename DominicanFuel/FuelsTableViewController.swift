@@ -7,10 +7,19 @@
 //
 
 import UIKit
-import iAd
+import GoogleMobileAds
 
-class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate {
-
+class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate, GADBannerViewDelegate {
+    
+    
+    @IBOutlet weak var googleAdView: GADBannerView? {
+        didSet {
+            googleAdView?.delegate = self
+            googleAdView?.rootViewController = self
+            googleAdView?.adUnitID = "ca-app-pub-3743373903826064/5760698435"
+        }
+    }
+    
     var document: UIManagedDocument?
     
     lazy var fuelViewModelFactory = FuelViewModelFactory()
@@ -23,6 +32,11 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         self.refreshControl?.addTarget(self, action: "updateFuels", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.estimatedRowHeight = self.tableView.rowHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        
+        let request = GADRequest()
+        request.testDevices = ["97cae6e4f669f3e8527d82ad261cc092", kGADSimulatorID]
+        googleAdView?.loadRequest(request)
+        
         
         if document == nil {
             let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
@@ -164,5 +178,40 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         }) { (success) -> Void in
             // TODO
         }
+    }
+    
+    
+    // MARK: - Google Ad Banner View Delegate
+    func adViewDidReceiveAd(view: GADBannerView!) {
+        
+        UIView.transitionWithView(self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: { () -> Void in
+            self.tableView.tableHeaderView = view
+
+        }, completion: nil)
+    }
+    
+    func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+        println(error.localizedDescription)
+        
+        UIView.transitionWithView(self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: { () -> Void in
+            self.tableView.tableHeaderView = nil
+            
+        }, completion: nil)
+    }
+    
+    func adViewWillPresentScreen(adView: GADBannerView!) {
+        
+    }
+    
+    func adViewWillDismissScreen(adView: GADBannerView!) {
+        
+    }
+    
+    func adViewDidDismissScreen(adView: GADBannerView!) {
+        
+    }
+    
+    func adViewWillLeaveApplication(adView: GADBannerView!) {
+        
     }
 }
