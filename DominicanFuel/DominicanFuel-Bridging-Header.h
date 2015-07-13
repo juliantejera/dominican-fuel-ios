@@ -4,4 +4,7 @@
 
 #import "CoreDataTableViewController.h"
 #import <Appirater/Appirater.h>
-
+#import "JBChartView.h"
+#import "JBBarChartView.h"
+#import "JBLineChartView.h"
+#import "JBBaseChartViewController.h"

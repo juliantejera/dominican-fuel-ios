@@ -4,10 +4,12 @@
 target 'DominicanFuel' do
     pod "Appirater"
     pod "Google-Mobile-Ads-SDK"
+    pod "JBChartView"
 end
 
 target 'DominicanFuelTests' do
     pod "Appirater"
     pod "Google-Mobile-Ads-SDK"
+    pod "JBChartView"
 end
 

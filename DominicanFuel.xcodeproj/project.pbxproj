@@ -89,6 +89,11 @@
 		90AD3B401AD69F2C00785573 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3E1AD69F2800785573 /* Date.swift */; };
 		90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */; };
 		90AD3B441AD7D43B00785573 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartViewController.swift */; };
+		90B3C7E51B535BC500354846 /* JBBaseChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */; };
+		90B3C7E81B535C0200354846 /* JBChartTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7E71B535C0200354846 /* JBChartTooltipView.m */; };
+		90B3C7EB1B535D1000354846 /* JBChartTooltipTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7EA1B535D1000354846 /* JBChartTooltipTipView.m */; };
+		90B3C7ED1B53D01E00354846 /* TooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */; };
+		90B3C7EE1B53D01E00354846 /* TooltipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */; };
 		90B695681AC4F45100BC8B7B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartViewController.swift */; };
 		90BA14481AE74451007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
 		90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
@@ -172,6 +177,13 @@
 		90AD3B3B1AD61B1D00785573 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90AD3B3E1AD69F2800785573 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
+		90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBaseChartViewController.h; sourceTree = "<group>"; };
+		90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBaseChartViewController.m; sourceTree = "<group>"; };
+		90B3C7E61B535C0200354846 /* JBChartTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipView.h; sourceTree = "<group>"; };
+		90B3C7E71B535C0200354846 /* JBChartTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipView.m; sourceTree = "<group>"; };
+		90B3C7E91B535D1000354846 /* JBChartTooltipTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipTipView.h; sourceTree = "<group>"; };
+		90B3C7EA1B535D1000354846 /* JBChartTooltipTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipTipView.m; sourceTree = "<group>"; };
+		90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TooltipViewController.swift; sourceTree = "<group>"; };
 		90B695671AC4F45100BC8B7B /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		90B695691AC56A9F00BC8B7B /* DominicanFuel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DominicanFuel-Bridging-Header.h"; sourceTree = "<group>"; };
 		90BA14471AE74451007BB5F9 /* FuelRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepository.swift; sourceTree = "<group>"; };
@@ -360,6 +372,13 @@
 		906CE7C91ABDDE6000B45CCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */,
+				90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */,
+				90B3C7E61B535C0200354846 /* JBChartTooltipView.h */,
+				90B3C7E71B535C0200354846 /* JBChartTooltipView.m */,
+				90B3C7E91B535D1000354846 /* JBChartTooltipTipView.h */,
+				90B3C7EA1B535D1000354846 /* JBChartTooltipTipView.m */,
+				90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */,
 				902EF57D1ACC0D3200661600 /* CoreDataTableViewController.h */,
 				902EF57E1ACC0D3200661600 /* CoreDataTableViewController.m */,
 				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
@@ -599,6 +618,7 @@
 			files = (
 				902EF5741ACB899100661600 /* ManagedDocumentCoordinator.swift in Sources */,
 				905067EC1B0AE89E00B63BEC /* FuelTableViewCell.swift in Sources */,
+				90B3C7E81B535C0200354846 /* JBChartTooltipView.m in Sources */,
 				902EF57A1ACC070700661600 /* DominicanFuelManagedDocumentCoordinator.swift in Sources */,
 				90B695681AC4F45100BC8B7B /* ChartViewController.swift in Sources */,
 				901348B41B093CE2009E9AE3 /* MobileDevice.swift in Sources */,
@@ -613,8 +633,10 @@
 				90BA14481AE74451007BB5F9 /* FuelRepository.swift in Sources */,
 				903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				905B0A251B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */,
+				90B3C7ED1B53D01E00354846 /* TooltipViewController.swift in Sources */,
 				905FE8C61AEC6C6400745D97 /* AbstractFactory.swift in Sources */,
 				902EF5901AD027CC00661600 /* FuelSeeder.swift in Sources */,
+				90B3C7E51B535BC500354846 /* JBBaseChartViewController.m in Sources */,
 				902EF5861AD0235200661600 /* Fuel.swift in Sources */,
 				905B0A2C1B16C4FF00EABB6F /* DeltaAssetsManager.swift in Sources */,
 				9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */,
@@ -626,6 +648,7 @@
 				905B0A351B16CFA200EABB6F /* APIConfiguration.swift in Sources */,
 				905B0A321B16CA9B00EABB6F /* FuelsTableViewControllerFetchRequest.swift in Sources */,
 				906093131AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */,
+				90B3C7EB1B535D1000354846 /* JBChartTooltipTipView.m in Sources */,
 				9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */,
 				9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				902EF57F1ACC0D3200661600 /* CoreDataTableViewController.m in Sources */,
@@ -677,6 +700,7 @@
 				905067ED1B0AE8C100B63BEC /* FuelTableViewCell.swift in Sources */,
 				9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */,
 				902EF5621AC9692100661600 /* FilterTableViewController.swift in Sources */,
+				90B3C7EE1B53D01E00354846 /* TooltipViewController.swift in Sources */,
 				902EF5831ACCDF1E00661600 /* CoreDataSeeder.swift in Sources */,
 				906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */,
 				905FE8C71AEC6C6400745D97 /* AbstractFactory.swift in Sources */,
