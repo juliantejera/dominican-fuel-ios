@@ -10,7 +10,7 @@ import UIKit
 
 class ChartTimespanTableViewController: UITableViewController {
     
-    var titles = ["Último mes", "Últimos tres meses", "Últimos seis meses", "Último año", "Último dos años"]
+    var titles = ["Último mes", "Últimos tres meses", "Últimos seis meses", "Último año", "Último dos años", "Último tres años", "Último cuatro años", "Último cinco años"]
     var dates = [NSDate]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,9 @@ class ChartTimespanTableViewController: UITableViewController {
         dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -6, toDate: lastSaturday, options: nil)!)
         dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -1, toDate: lastSaturday, options: nil)!)
         dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -2, toDate: lastSaturday, options: nil)!)
-
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -3, toDate: lastSaturday, options: nil)!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -4, toDate: lastSaturday, options: nil)!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -5, toDate: lastSaturday, options: nil)!)
         self.refreshControl?.endRefreshing()
     }
 

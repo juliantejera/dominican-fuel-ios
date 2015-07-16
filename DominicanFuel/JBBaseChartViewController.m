@@ -40,22 +40,22 @@ CGFloat const kJBBaseChartViewControllerAnimationDuration = 0.25f;
     {
         self.tooltipView = [[JBChartTooltipView alloc] init];
         self.tooltipView.alpha = 0.0;
-        [self.view addSubview:self.tooltipView];
+        [self.chartView addSubview:self.tooltipView];
     }
     
-    [self.view bringSubviewToFront:self.tooltipView];
+    [self.chartView bringSubviewToFront:self.tooltipView];
     
     if (!self.tooltipTipView)
     {
         self.tooltipTipView = [[JBChartTooltipTipView alloc] init];
         self.tooltipTipView.alpha = 0.0;
-        [self.view addSubview:self.tooltipTipView];
+        [self.chartView addSubview:self.tooltipTipView];
     }
     
-    [self.view bringSubviewToFront:self.tooltipTipView];
+    [self.chartView bringSubviewToFront:self.tooltipTipView];
     
     dispatch_block_t adjustTooltipPosition = ^{
-        CGPoint originalTouchPoint = [self.view convertPoint:touchPoint fromView:chartView];
+        CGPoint originalTouchPoint = [self.chartView convertPoint:touchPoint fromView:chartView];
         CGPoint convertedTouchPoint = originalTouchPoint; // modified
         JBChartView *chartView = [self chartView];
         if (chartView)

@@ -21,14 +21,12 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
         didSet {
             lineChart.delegate = self
             lineChart.dataSource = self
-            lineChart.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.9)
+            lineChart.headerPadding = 20.0
+            lineChart.backgroundColor = UIColor.darkGrayColor()
         }
     }
-    @IBOutlet weak var stupidLabel: UILabel! {
-        didSet {
-            stupidLabel.numberOfLines = 0
-        }
-    }
+
+    var visualEffectView: UIVisualEffectView!
     
     lazy var dateFormatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
@@ -38,7 +36,34 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
     
     var fetchedResultsController: NSFetchedResultsController!
     lazy var fuelViewModelFactory = FuelViewModelFactory()
-
+    
+    var firstFuel: Fuel? {
+        if let firstSection = self.fetchedResultsController.sections?.first as? NSFetchedResultsSectionInfo, let fuel = firstSection.objects.first as? Fuel {
+            return fuel
+        }
+        return nil
+    }
+    
+    var lastFuel: Fuel? {
+        if let firstSection = self.fetchedResultsController.sections?.last as? NSFetchedResultsSectionInfo, let fuel = firstSection.objects.last as? Fuel {
+            return fuel
+        }
+        return nil
+    }
+    
+    lazy var leftToolbarItem: UIBarButtonItem =  {
+       return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: self, action: "didSelectLeftToolbarItem")
+    }()
+    
+    lazy var rightToolbarItem: UIBarButtonItem =  {
+        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: self, action: "didSelectRightToolbarItem")
+    }()
+    
+    lazy var middleToolbarItem: UIBarButtonItem = {
+        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+    }()
+    
+    lazy var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +71,37 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
         documentCoordinator.delegate = self
         documentCoordinator.setupDocument()
         
+        self.view.backgroundColor = UIColor.darkGrayColor()
         
+        self.navigationController?.toolbarHidden = false
+        self.toolbarItems = [self.leftToolbarItem,self.flexibleSpace, self.middleToolbarItem,self.flexibleSpace, self.rightToolbarItem]
+    }
+    
+
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    func didSelectLeftToolbarItem() {
+        
+    }
+    
+    func didSelectRightToolbarItem() {
+        
+    }
+    
+    func assignDefaultValues() {
+        self.title = "Seleccione una línea"
+        if let firstDate = firstFuel?.publishedAt, let lastDate = lastFuel?.publishedAt {
+            self.leftToolbarItem.title = dateFormatter.stringFromDate(firstDate)
+            self.middleToolbarItem.title = "---"
+            self.rightToolbarItem.title = dateFormatter.stringFromDate(lastDate)
+        }
     }
     
     
@@ -66,6 +121,7 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
             var error: NSError?
             if self.fetchedResultsController.performFetch(&error) {
                 lineChart.reloadData()
+                assignDefaultValues()
             }
         }
     }
@@ -82,7 +138,15 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
         println("Error: \(error)")
     }
     
-    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        coordinator.animateAlongsideTransition({ (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
+            self.lineChart.reloadData()
+        }, completion: nil)
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -106,7 +170,7 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
     }
     
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        UIView.transitionWithView(self.view, duration: 0.6, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        UIView.transitionWithView(self.view, duration: 0.6, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
             self.reloadFetchedResultsController()
             }) { (success) -> Void in
                 // TODO
@@ -127,11 +191,14 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
         return 0
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
-        return true
+    
+    func shouldExtendSelectionViewIntoFooterPaddingForChartView(chartView: JBChartView!) -> Bool {
+        return false
     }
     
-    
+    func shouldExtendSelectionViewIntoHeaderPaddingForChartView(chartView: JBChartView!) -> Bool {
+        return true
+    }
     // MARK: Line Chart View Delegate
     func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
         let indexPath = NSIndexPath(forRow: Int(horizontalIndex), inSection: Int(lineIndex))
@@ -146,11 +213,25 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
         let indexPath = NSIndexPath(forRow: Int(horizontalIndex), inSection: Int(lineIndex))
         if let fuel = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Fuel {
             let viewModel = fuelViewModelFactory.mapToViewModel(fuel)
-            self.setTooltipVisible(true, animated: true, atTouchPoint: touchPoint)
-            self.tooltipView.setText("1")
             self.navigationItem.title = viewModel.type
-            self.stupidLabel.text = "\(viewModel.type)\n\(viewModel.timespan)\n\(viewModel.price)"
+            self.navigationItem.prompt = viewModel.timespan
+            self.middleToolbarItem.title = "Precio: \(viewModel.price)"
+            
+            self.setTooltipVisible(true, animated: true, atTouchPoint: touchPoint)
+            if fuel.delta > 0 {
+                self.tooltipView.setText("😱")
+            } else if fuel.delta < 0 {
+                self.tooltipView.setText("😍")
+            } else {
+                self.tooltipView.setText("👀")
+            }
+
         }
+        
+        
+        self.leftToolbarItem.title = ""
+        self.rightToolbarItem.title = ""
+
         
     }
     
@@ -158,26 +239,49 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
         self.setTooltipVisible(false, animated: true)
         self.navigationItem.title = nil
+        self.navigationItem.prompt = nil
+        assignDefaultValues()
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.whiteColor()
+        return self.view.tintColor
     }
     
     func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return UIColor.redColor()
+        return self.view.tintColor
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, lineStyleForLineAtLineIndex lineIndex: UInt) -> JBLineChartViewLineStyle {
+        return JBLineChartViewLineStyle.Solid
     }
     
     func lineChartView(lineChartView: JBLineChartView!, dotRadiusForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-        return 5
+        return 4.0
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
+        return 3.0
     }
     
     func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
         return true
     }
     
+    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
+        return true
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return self.view.tintColor
+    }
+    
+    func lineChartView(lineChartView: JBLineChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
+        return self.view.tintColor
+    }
     
     override func chartView() -> JBChartView! {
         return lineChart
     }
+    
+    
 }

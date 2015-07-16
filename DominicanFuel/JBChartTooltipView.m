@@ -33,8 +33,8 @@ CGFloat const kJBChartTooltipViewDefaultHeight = 25.0f;
     {
         self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.9];        
         _textLabel = [[UILabel alloc] init];
-        _textLabel.backgroundColor = [UIColor blueColor];
-        _textLabel.textColor = [UIColor whiteColor];
+        _textLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.9];
+        _textLabel.textColor = [UIColor blueColor];
         _textLabel.adjustsFontSizeToFitWidth = YES;
         _textLabel.numberOfLines = 1;
         _textLabel.textAlignment = NSTextAlignmentCenter;
