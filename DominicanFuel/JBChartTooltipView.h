@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 @interface JBChartTooltipView : UIView
 
-- (void)setText:(NSString *)text;
+@property (nonatomic, strong) UIImageView *imageView;
 
+- (void)setText:(NSString *)text;
+- (void)setImage:(UIImage *) image;
 @end

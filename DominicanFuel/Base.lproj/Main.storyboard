@@ -354,16 +354,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hL-hS-F0U" customClass="JBLineChartView">
-                                <rect key="frame" x="5" y="94" width="590" height="450"/>
+                                <rect key="frame" x="16" y="94" width="568" height="437"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7hL-hS-F0U" firstAttribute="leading" secondItem="Wl7-l8-4Gn" secondAttribute="leadingMargin" constant="-11" id="5U8-T6-Oes"/>
-                            <constraint firstItem="7hL-hS-F0U" firstAttribute="top" secondItem="FPX-gq-fdc" secondAttribute="bottom" constant="30" id="TBC-cL-zDz"/>
-                            <constraint firstItem="7hL-hS-F0U" firstAttribute="centerX" secondItem="Wl7-l8-4Gn" secondAttribute="centerX" id="Yop-ld-OZ9"/>
-                            <constraint firstItem="i70-CO-bqw" firstAttribute="top" secondItem="7hL-hS-F0U" secondAttribute="bottom" constant="7" id="Z0y-Bf-Bep"/>
+                            <constraint firstItem="7hL-hS-F0U" firstAttribute="top" secondItem="FPX-gq-fdc" secondAttribute="bottom" constant="30" id="6MD-Bt-1mN"/>
+                            <constraint firstItem="7hL-hS-F0U" firstAttribute="trailing" secondItem="Wl7-l8-4Gn" secondAttribute="trailingMargin" id="GEa-A6-soW"/>
+                            <constraint firstItem="i70-CO-bqw" firstAttribute="top" secondItem="7hL-hS-F0U" secondAttribute="bottom" constant="20" id="MDH-uh-sK7"/>
+                            <constraint firstItem="7hL-hS-F0U" firstAttribute="leading" secondItem="Wl7-l8-4Gn" secondAttribute="leadingMargin" id="NbT-On-EAF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Yh-Ok-OV1">

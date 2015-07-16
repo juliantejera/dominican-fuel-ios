@@ -36,7 +36,8 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
     
     var fetchedResultsController: NSFetchedResultsController!
     lazy var fuelViewModelFactory = FuelViewModelFactory()
-    
+    lazy var assetsManager = DeltaAssetsManager()
+
     var firstFuel: Fuel? {
         if let firstSection = self.fetchedResultsController.sections?.first as? NSFetchedResultsSectionInfo, let fuel = firstSection.objects.first as? Fuel {
             return fuel
@@ -170,11 +171,7 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
     }
     
     func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        UIView.transitionWithView(self.view, duration: 0.6, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-            self.reloadFetchedResultsController()
-            }) { (success) -> Void in
-                // TODO
-        }
+        self.reloadFetchedResultsController()
     }
     
     
@@ -218,14 +215,7 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
             self.middleToolbarItem.title = "Precio: \(viewModel.price)"
             
             self.setTooltipVisible(true, animated: true, atTouchPoint: touchPoint)
-            if fuel.delta > 0 {
-                self.tooltipView.setText("😱")
-            } else if fuel.delta < 0 {
-                self.tooltipView.setText("😍")
-            } else {
-                self.tooltipView.setText("👀")
-            }
-
+            self.assetsManager.updateImageView(self.tooltipView.imageView, delta: fuel.delta)
         }
         
         

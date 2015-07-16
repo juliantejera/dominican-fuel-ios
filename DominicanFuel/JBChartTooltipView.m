@@ -12,14 +12,13 @@
 #import <QuartzCore/QuartzCore.h>
 
 // Numerics
-CGFloat static const kJBChartTooltipViewCornerRadius = 6.0;
-CGFloat const kJBChartTooltipViewDefaultWidth = 40.0f;
-CGFloat const kJBChartTooltipViewDefaultHeight = 25.0f;
+CGFloat static const kJBChartTooltipViewCornerRadius = 10.0;
+CGFloat const kJBChartTooltipViewDefaultWidth = 30.0f;
+CGFloat const kJBChartTooltipViewDefaultHeight = 30.0f;
 
 @interface JBChartTooltipView ()
 
 @property (nonatomic, strong) UILabel *textLabel;
-
 @end
 
 @implementation JBChartTooltipView
@@ -31,16 +30,19 @@ CGFloat const kJBChartTooltipViewDefaultHeight = 25.0f;
     self = [super initWithFrame:CGRectMake(0, 0, kJBChartTooltipViewDefaultWidth, kJBChartTooltipViewDefaultHeight)];
     if (self)
     {
-        self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.9];        
+        self.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
         _textLabel = [[UILabel alloc] init];
-        _textLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.9];
+//        _textLabel.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.3];
         _textLabel.textColor = [UIColor blueColor];
         _textLabel.adjustsFontSizeToFitWidth = YES;
         _textLabel.numberOfLines = 1;
         _textLabel.textAlignment = NSTextAlignmentCenter;
         _textLabel.layer.cornerRadius = kJBChartTooltipViewCornerRadius;
         _textLabel.layer.masksToBounds = YES;
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 20, 20)];
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_textLabel];
+        [self addSubview:_imageView];
     }
     return self;
 }
@@ -65,6 +67,11 @@ CGFloat const kJBChartTooltipViewDefaultHeight = 25.0f;
 {
     [super layoutSubviews];
     _textLabel.frame = self.bounds;
+//    _imageView.frame = self.bounds;
+}
+
+- (void) setImage:(UIImage *) image {
+    self.imageView.image = image;
 }
 
 @end

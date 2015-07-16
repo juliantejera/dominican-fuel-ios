@@ -43,7 +43,7 @@ CGFloat const kJBChartTooltipTipViewDefaultHeight = 5.0f;
         CGContextAddLineToPoint(context, CGRectGetMinX(rect), CGRectGetMinY(rect));
         CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMinY(rect));
         CGContextClosePath(context);
-        CGContextSetFillColorWithColor(context, [UIColor colorWithWhite:1.0 alpha:0.9].CGColor);
+        CGContextSetFillColorWithColor(context, [UIColor colorWithWhite:1.0 alpha:0.3].CGColor);
         CGContextFillPath(context);
     }
     CGContextRestoreGState(context);
