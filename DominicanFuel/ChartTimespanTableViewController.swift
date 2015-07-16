@@ -12,6 +12,9 @@ class ChartTimespanTableViewController: UITableViewController {
     
     var titles = ["Último mes", "Últimos tres meses", "Últimos seis meses", "Último año", "Último dos años", "Último tres años", "Último cuatro años", "Último cinco años"]
     var dates = [NSDate]()
+    
+    var document: UIManagedDocument?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +62,7 @@ class ChartTimespanTableViewController: UITableViewController {
             if let vc = segue.destinationViewController.contentViewController as? ChartViewController {
                 if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPathForCell(cell) {
                     vc.selectedDate = self.dates[indexPath.row]
+                    vc.document = document
                 }
             }
         }

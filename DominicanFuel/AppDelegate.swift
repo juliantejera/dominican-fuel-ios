@@ -10,11 +10,10 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinatorDelegate {
 
     var window: UIWindow?
-    var seeder = CoreDataSeeder()
-    
+    var document: UIManagedDocument?
     
     func setupAppirater() {
         Appirater.setAppId("986018933")
@@ -38,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         setupAppirater()
+        
+        let coordinator = DominicanFuelManagedDocumentCoordinator()
+        coordinator.delegate = self
+        coordinator.setupDocument()
         
         return true
     }
@@ -85,5 +88,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
+    
+    // MARK: - Managed Document Coordinator Delegate
+    
+    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
+        self.document = document
+        if let tabBarController = self.window?.rootViewController as? UITabBarController {
+            if let fuelsTableViewController = tabBarController.viewControllers?.first?.contentViewController as? FuelsTableViewController {
+                fuelsTableViewController.document = document
+                println("HERE 1")
+            }
+            
+            if let splitViewController = tabBarController.viewControllers?.last as? UISplitViewController {
+                
+                if let timestampViewController = splitViewController.viewControllers.first?.contentViewController as? ChartTimespanTableViewController {
+                    timestampViewController.document = document
+                    println("HERE 2")
+                }
+                
+                if let chartViewController = splitViewController.viewControllers.last?.contentViewController as? ChartViewController {
+                    chartViewController.document = document
+                    println("HERE 3")
+                }
+
+            }
+        }
+        
+        let seeder = CoreDataSeeder(document: document)
+        seeder.seed()
+    }
+    
+    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
+        // Handle error
+        println("Error: \(error)")
+    }
+    
 }
 

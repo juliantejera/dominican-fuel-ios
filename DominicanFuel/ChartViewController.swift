@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinatorDelegate, JBLineChartViewDataSource, JBLineChartViewDelegate, UIPopoverPresentationControllerDelegate {
+class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource, JBLineChartViewDelegate, UIPopoverPresentationControllerDelegate {
 
-    var document: UIManagedDocument?
+    var document: UIManagedDocument? 
     var selectedDate: NSDate! = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -1, toDate: NSDate(), options: NSCalendarOptions.MatchFirst) {
         didSet {
             reloadFetchedResultsController()
@@ -68,14 +68,15 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
-        documentCoordinator.delegate = self
-        documentCoordinator.setupDocument()
+        reloadFetchedResultsController()
         
         self.view.backgroundColor = UIColor.darkGrayColor()
-        
         self.navigationController?.toolbarHidden = false
-        self.toolbarItems = [self.leftToolbarItem,self.flexibleSpace, self.middleToolbarItem,self.flexibleSpace, self.rightToolbarItem]
+        let items = [self.leftToolbarItem,self.flexibleSpace, self.middleToolbarItem,self.flexibleSpace, self.rightToolbarItem]
+        for item in items {
+            item.tintColor = self.view.tintColor
+        }
+        self.toolbarItems = items
     }
     
 
@@ -127,17 +128,6 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
         }
     }
     
-    // MARK: - Managed Document Coordinator Delegate
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
-        self.document = document
-        reloadFetchedResultsController()
-    }
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
-        // Handle error
-        println("Error: \(error)")
-    }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         
@@ -268,6 +258,7 @@ class ChartViewController: JBBaseChartViewController, ManagedDocumentCoordinator
     func lineChartView(lineChartView: JBLineChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
         return self.view.tintColor
     }
+    
     
     override func chartView() -> JBChartView! {
         return lineChart
