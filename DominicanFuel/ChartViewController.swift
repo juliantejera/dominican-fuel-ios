@@ -25,8 +25,6 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
             lineChart.backgroundColor = UIColor.darkGrayColor()
         }
     }
-
-    var visualEffectView: UIVisualEffectView!
     
     lazy var dateFormatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
@@ -68,8 +66,6 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadFetchedResultsController()
-        
         self.view.backgroundColor = UIColor.darkGrayColor()
         self.navigationController?.toolbarHidden = false
         let items = [self.leftToolbarItem,self.flexibleSpace, self.middleToolbarItem,self.flexibleSpace, self.rightToolbarItem]
@@ -79,7 +75,12 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         self.toolbarItems = items
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadFetchedResultsController()
 
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -211,8 +212,6 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         
         self.leftToolbarItem.title = ""
         self.rightToolbarItem.title = ""
-
-        
     }
     
     
@@ -244,7 +243,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
-        return true
+        return false
     }
     
     func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {

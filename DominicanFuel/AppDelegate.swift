@@ -96,19 +96,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
         if let tabBarController = self.window?.rootViewController as? UITabBarController {
             if let fuelsTableViewController = tabBarController.viewControllers?.first?.contentViewController as? FuelsTableViewController {
                 fuelsTableViewController.document = document
-                println("HERE 1")
             }
             
             if let splitViewController = tabBarController.viewControllers?.last as? UISplitViewController {
                 
                 if let timestampViewController = splitViewController.viewControllers.first?.contentViewController as? ChartTimespanTableViewController {
                     timestampViewController.document = document
-                    println("HERE 2")
                 }
                 
                 if let chartViewController = splitViewController.viewControllers.last?.contentViewController as? ChartViewController {
                     chartViewController.document = document
-                    println("HERE 3")
                 }
 
             }

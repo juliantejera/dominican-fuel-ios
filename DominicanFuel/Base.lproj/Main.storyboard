@@ -383,7 +383,7 @@
             </objects>
             <point key="canvasLocation" x="2713" y="1235"/>
         </scene>
-        <!--Fechas-->
+        <!--Rango-->
         <scene sceneID="3Xl-Ys-ioc">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="v8V-FJ-T0W" customClass="ChartTimespanTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
@@ -415,7 +415,7 @@
                             <outlet property="delegate" destination="v8V-FJ-T0W" id="iT6-cK-d7V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Fechas" id="v7X-0x-Ger"/>
+                    <navigationItem key="navigationItem" title="Rango" id="v7X-0x-Ger"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOy-Tg-9nF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -437,11 +437,11 @@
             </objects>
             <point key="canvasLocation" x="1893" y="387"/>
         </scene>
-        <!--Graficas-->
+        <!--Gráficas-->
         <scene sceneID="ACJ-0D-zNe">
             <objects>
                 <splitViewController id="dFd-Wo-JCT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Graficas" image="chart" id="gdZ-vn-oel"/>
+                    <tabBarItem key="tabBarItem" title="Gráficas" image="chart" id="gdZ-vn-oel"/>
                     <connections>
                         <segue destination="7cA-Iu-91B" kind="relationship" relationship="masterViewController" id="NqF-Pq-kSe"/>
                         <segue destination="slz-I7-iI5" kind="relationship" relationship="detailViewController" id="6tP-CZ-DZd"/>
@@ -516,7 +516,7 @@
         <image name="fuel" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6tP-CZ-DZd"/>
+        <segue reference="Osj-HV-bEn"/>
         <segue reference="67A-X1-CZs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
