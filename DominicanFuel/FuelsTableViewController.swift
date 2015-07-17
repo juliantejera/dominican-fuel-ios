@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, ManagedDocumentCoordinatorDelegate, GADBannerViewDelegate {
+class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentationControllerDelegate, GADBannerViewDelegate {
     
     
     @IBOutlet weak var googleAdView: GADBannerView? {
@@ -20,7 +20,12 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         }
     }
     
-    var document: UIManagedDocument?
+    var document: UIManagedDocument? {
+        didSet {
+            reloadFetchedResultsController()
+            updateFuels()
+        }
+    }
     
     lazy var fuelViewModelFactory = FuelViewModelFactory()
     lazy var fuelTableViewCellFactory = FuelTableViewCellFactory()
@@ -36,13 +41,6 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         let request = GADRequest()
         request.testDevices = ["97cae6e4f669f3e8527d82ad261cc092", kGADSimulatorID]
         googleAdView?.loadRequest(request)
-        
-        
-        if document == nil {
-            let documentCoordinator = DominicanFuelManagedDocumentCoordinator()
-            documentCoordinator.delegate = self
-            documentCoordinator.setupDocument()
-        }
     }
 
     func updateFuels() {
@@ -91,19 +89,6 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         }
     }
     
- 
-    // MARK: - Managed Document Coordinator Delegate
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument) {
-        self.document = document
-        reloadFetchedResultsController()
-        updateFuels()
-    }
-    
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
-        println("Error: \(error)")
-    }
-
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

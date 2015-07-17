@@ -23,7 +23,7 @@ extension NSURL {
             }
         }
         
-        var queryString = array.reduce("") { "\($0)&\($1)" }
+        let queryString = "&".join(array)
         
         return NSURL(string: "\(self.absoluteString!)?\(queryString)")!
     }

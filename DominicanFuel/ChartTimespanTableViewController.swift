@@ -10,8 +10,11 @@ import UIKit
 
 class ChartTimespanTableViewController: UITableViewController {
     
-    var titles = ["Último mes", "Últimos tres meses", "Últimos seis meses", "Último año", "Último dos años"]
+    var titles = ["Último mes", "Últimos tres meses", "Últimos seis meses", "Último año", "Últimos dos años", "Últimos tres años", "Últimos cuatro años", "Últimos cinco años", "Últimos seis años", "Últimos siete años"]
     var dates = [NSDate]()
+    
+    var document: UIManagedDocument?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +31,11 @@ class ChartTimespanTableViewController: UITableViewController {
         dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -6, toDate: lastSaturday, options: nil)!)
         dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -1, toDate: lastSaturday, options: nil)!)
         dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -2, toDate: lastSaturday, options: nil)!)
-
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -3, toDate: lastSaturday, options: nil)!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -4, toDate: lastSaturday, options: nil)!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -5, toDate: lastSaturday, options: nil)!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -6, toDate: lastSaturday, options: nil)!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -7, toDate: lastSaturday, options: nil)!)
         self.refreshControl?.endRefreshing()
     }
 
@@ -57,6 +64,7 @@ class ChartTimespanTableViewController: UITableViewController {
             if let vc = segue.destinationViewController.contentViewController as? ChartViewController {
                 if let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPathForCell(cell) {
                     vc.selectedDate = self.dates[indexPath.row]
+                    vc.document = document
                 }
             }
         }
