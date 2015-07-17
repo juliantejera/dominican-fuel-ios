@@ -354,7 +354,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hL-hS-F0U" customClass="JBLineChartView">
-                                <rect key="frame" x="16" y="94" width="568" height="437"/>
+                                <rect key="frame" x="16" y="94" width="568" height="486"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                         </subviews>
