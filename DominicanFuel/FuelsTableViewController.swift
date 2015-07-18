@@ -60,8 +60,10 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
                             println("Error: \(error)")
                         case .Success(let items):
                             for dictionary in items {
-                                if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: managedObjectContext) as? Fuel {
-                                    fuel.populateWithDictionary(dictionary)
+                                if !self.isDuplicateFuel(dictionary) {
+                                    if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: managedObjectContext) as? Fuel {
+                                        fuel.populateWithDictionary(dictionary)
+                                    }
                                 }
                             }
                         }
@@ -72,6 +74,18 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
             
             self.refreshControl?.endRefreshing()
         }
+    }
+    
+    
+    func isDuplicateFuel(dictionary: [NSObject: AnyObject]) -> Bool {
+        if let publishedAtString = dictionary[Fuel.kPublishedAt()] as? String,let publishedAt = NSDateFormatter.sharedISO8601DateFormatter().dateFromString(publishedAtString),let type = dictionary[Fuel.kType()] as? String {
+            let request = NSFetchRequest(entityName: Fuel.entityName())
+            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt, type)
+            if let count = self.document?.managedObjectContext.countForFetchRequest(request, error: nil) {
+                return count > 0
+            }
+        }
+        return false
     }
     
     func reloadFetchedResultsController() {
