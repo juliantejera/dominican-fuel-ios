@@ -18,13 +18,15 @@ extension NSURL {
         
         var array = [String]()
         for (key, value) in parameters! {
-            if let escapedKey = key.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding), let escapedValue = value.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
+            
+            
+            if let escapedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet()), let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet()) {
                 array.append("\(escapedKey)=\(escapedValue)")
             }
         }
         
-        let queryString = "&".join(array)
+        let queryString = array.joinWithSeparator("&")
         
-        return NSURL(string: "\(self.absoluteString!)?\(queryString)")!
+        return NSURL(string: "\(self.absoluteString)?\(queryString)")!
     }
 }

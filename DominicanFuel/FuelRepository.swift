@@ -20,34 +20,35 @@ class FuelRepository: NSObject, NSURLSessionDelegate {
         self.endPoint = NSURL(string: "\(APIConfiguration.host())/fuels")!
         
         super.init()
-        var config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         config.HTTPAdditionalHeaders = [kAcceptHeaderKey: kJsonContentType, kContentTypeKey: kJsonContentType]
         self.session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
     }
     
     func findAll(parameters: [String: String]?, callback: (response: MultipleItemsNetworkResponse) -> Void) {
-        var request = NSMutableURLRequest(URL: self.endPoint.URLByAppendingParameters(parameters))
+        let request = NSMutableURLRequest(URL: self.endPoint.URLByAppendingParameters(parameters))
         request.HTTPMethod = "GET"
-        println("Request: \(request)")
+        print("Request: \(request)")
         NetworkActivityIndicator.sharedInstance().addConnection()
-        var dataTask = self.session?.dataTaskWithRequest(request, completionHandler: { (data, response, connectionError) -> Void in
+        
+        let dataTask = self.session?.dataTaskWithRequest(request, completionHandler: { (data, response, connectionError) -> Void in
             NetworkActivityIndicator.sharedInstance().removeConnection()
-            println("Response: \(response)")
+            print("Response: \(response)")
             
-            if(connectionError != nil) {
-                callback(response: .Failure(connectionError))
+            if let error = connectionError {
+                callback(response: MultipleItemsNetworkResponse.Failure(error))
                 return
             }
             
-            // Serialize
-            var jsonSerializationError: NSError?
-            if let array = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves, error: &jsonSerializationError) as? [[NSObject: AnyObject]] {
-                callback(response: .Success(array))
-            } else if let error = jsonSerializationError {
-                callback(response: .Failure(error))
+            do {
+                if let array = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as? [[NSObject: AnyObject]] {
+                    callback(response: .Success(array))
+                }
+            } catch let error as NSError {
+                callback(response: MultipleItemsNetworkResponse.Failure(error))
             }
         })
-
+        
         dataTask?.resume()
     }
 }

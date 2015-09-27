@@ -70,6 +70,8 @@
 		905B0A331B16CA9B00EABB6F /* FuelsTableViewControllerFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A311B16CA9B00EABB6F /* FuelsTableViewControllerFetchRequest.swift */; };
 		905B0A351B16CFA200EABB6F /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A341B16CFA200EABB6F /* APIConfiguration.swift */; };
 		905B0A361B16CFA200EABB6F /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A341B16CFA200EABB6F /* APIConfiguration.swift */; };
+		905E52701B5B1FF70019E419 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905E526F1B5B1FF70019E419 /* SettingsViewController.swift */; };
+		905E52711B5B20D40019E419 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905E526F1B5B1FF70019E419 /* SettingsViewController.swift */; };
 		905FE8C61AEC6C6400745D97 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */; };
 		905FE8C71AEC6C6400745D97 /* AbstractFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */; };
 		905FE8C91AEC73BA00745D97 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */; };
@@ -158,6 +160,7 @@
 		905B0A2B1B16C4FF00EABB6F /* DeltaAssetsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeltaAssetsManager.swift; sourceTree = "<group>"; };
 		905B0A311B16CA9B00EABB6F /* FuelsTableViewControllerFetchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelsTableViewControllerFetchRequest.swift; sourceTree = "<group>"; };
 		905B0A341B16CFA200EABB6F /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		905E526F1B5B1FF70019E419 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractFactory.swift; sourceTree = "<group>"; };
 		905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelFactory.swift; sourceTree = "<group>"; };
@@ -387,6 +390,7 @@
 				902EF5601AC9692100661600 /* FilterTableViewController.swift */,
 				901685481ADA1663000BD502 /* ChartTimespanTableViewController.swift */,
 				90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */,
+				905E526F1B5B1FF70019E419 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -494,7 +498,9 @@
 		9057CA651ABA657B007740B0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Julian Tejera";
 				TargetAttributes = {
 					9057CA6C1ABA657C007740B0 = {
@@ -632,6 +638,7 @@
 				905B0A1F1B16BBA900EABB6F /* FuelTableViewCellFactory.swift in Sources */,
 				90AD3B3C1AD61B1D00785573 /* ViewController.swift in Sources */,
 				90BA14481AE74451007BB5F9 /* FuelRepository.swift in Sources */,
+				905E52701B5B1FF70019E419 /* SettingsViewController.swift in Sources */,
 				903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				905B0A251B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */,
 				90B3C7ED1B53D01E00354846 /* TooltipViewController.swift in Sources */,
@@ -676,6 +683,7 @@
 				90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */,
 				903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				902EF5751ACB899100661600 /* ManagedDocumentCoordinator.swift in Sources */,
+				905E52711B5B20D40019E419 /* SettingsViewController.swift in Sources */,
 				9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */,
 				905FE8CA1AEC73BA00745D97 /* NetworkResponse.swift in Sources */,
@@ -753,7 +761,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -797,6 +807,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -825,6 +836,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliantejera.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
@@ -842,6 +854,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliantejera.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
@@ -866,6 +879,7 @@
 				);
 				INFOPLIST_FILE = DominicanFuelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliantejera.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
@@ -888,6 +902,7 @@
 				);
 				INFOPLIST_FILE = DominicanFuelTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.juliantejera.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";

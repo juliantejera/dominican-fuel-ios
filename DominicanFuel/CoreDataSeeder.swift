@@ -17,9 +17,8 @@ class CoreDataSeeder {
     }
     
     func seed() {
-        if let context = document.managedObjectContext {
-            FuelSeeder.seed(context)
-            FuelFilterSeeder.seed(context)
-        }
+        let context = document.managedObjectContext
+        FuelSeeder.seed(context)
+        FuelFilterSeeder.seed(context)
     }
 }

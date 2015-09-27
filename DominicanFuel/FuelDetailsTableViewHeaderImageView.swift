@@ -18,7 +18,7 @@ class FuelDetailsTableViewHeaderImageView: UIImageView {
     }
     
     func animateBorderColor(color: CGColor) {
-        var animation = CABasicAnimation(keyPath: "borderColor")
+        let animation = CABasicAnimation(keyPath: "borderColor")
         animation.fromValue = UIColor.clearColor().CGColor
         animation.toValue = color
         animation.duration = 2.5

@@ -46,18 +46,18 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     func updateFuels() {
         if let managedObjectContext = document?.managedObjectContext {
             
-            var request = NSFetchRequest(entityName: Fuel.entityName())
-            var error: NSError? = nil
+            let request = NSFetchRequest(entityName: Fuel.entityName())
             request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
             request.fetchLimit = 1
             
-            if let result = managedObjectContext.executeFetchRequest(request, error: &error)?.first as? Fuel {
-                if let date = result.publishedAt?.description {
+            do {
+                let result = try managedObjectContext.executeFetchRequest(request).first as? Fuel
+                if let date = result?.publishedAt?.description {
                     let parameters = ["published_at": date]
                     FuelRepository().findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
                         switch response {
                         case .Failure(let error):
-                            println("Error: \(error)")
+                            print("Error: \(error)")
                         case .Success(let items):
                             for dictionary in items {
                                 if !self.isDuplicateFuel(dictionary) {
@@ -69,6 +69,8 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
                         }
                     }
                 }
+
+            } catch _ {
                 
             }
             
@@ -91,13 +93,13 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
             let request = NSFetchRequest(entityName: Fuel.entityName())
-            var selectedFuelFiltersTypes = FuelFilter.selectedFuelFilters(managedObjectContext).map({ $0.type })
+            let selectedFuelFiltersTypes = FuelFilter.selectedFuelFilters(managedObjectContext).map({ $0.type })
             if selectedFuelFiltersTypes.count > 0 {
                 request.predicate = NSPredicate(format: "type IN %@", selectedFuelFiltersTypes)
             }
             
-            var publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
-            var typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
+            let publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
+            let typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
             request.sortDescriptors = [publishedAtDescending, typeAscending]
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "publishedAt", cacheName: nil)
         }
@@ -106,8 +108,8 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let sectionInfo = self.fetchedResultsController.sections?[section] as? NSFetchedResultsSectionInfo {
-            if let fuel = sectionInfo.objects.first as? Fuel {
+        if let sectionInfo = self.fetchedResultsController.sections?[section]  {
+            if let fuel = sectionInfo.objects?.first as? Fuel {
                 return fuelViewModelFactory.mapToViewModel(fuel).timespan
             }
         }
@@ -190,7 +192,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     }
     
     func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
-        println(error.localizedDescription)
+        print(error.localizedDescription)
         
         UIView.transitionWithView(self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: { () -> Void in
             self.tableView.tableHeaderView = nil

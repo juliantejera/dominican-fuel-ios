@@ -24,18 +24,18 @@ class ChartTimespanTableViewController: UITableViewController {
     }
     
     func populateDates() {
-        var lastSaturday = NSDate.lastSaturday().beginningOfDay
+        let lastSaturday = NSDate.lastSaturday().beginningOfDay
         dates.removeAll(keepCapacity: true)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -1, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -3, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -6, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -1, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -2, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -3, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -4, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -5, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -6, toDate: lastSaturday, options: nil)!)
-        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -7, toDate: lastSaturday, options: nil)!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -3, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -6, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -1, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -2, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -3, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -4, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -5, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -6, toDate: lastSaturday, options: [])!)
+        dates.append(NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -7, toDate: lastSaturday, options: [])!)
         self.refreshControl?.endRefreshing()
     }
 
@@ -47,7 +47,7 @@ class ChartTimespanTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ChartTimespanCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChartTimespanCell", forIndexPath: indexPath) 
 
         // Configure the cell...
         cell.textLabel?.text = titles[indexPath.row]

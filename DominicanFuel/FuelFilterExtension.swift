@@ -19,14 +19,15 @@ extension FuelFilter {
     class func selectedFuelFilters(managedObjectContext: NSManagedObjectContext) -> [FuelFilter] {
         let request = NSFetchRequest(entityName: FuelFilter.entityName())
         request.predicate = NSPredicate(format: "isSelected == 1", argumentArray: nil)
-        var error: NSError? = nil
         
-        if let fuelFilters = managedObjectContext.executeFetchRequest(request, error: &error) as? [FuelFilter] {
-            return fuelFilters
-        } else {
-            println("Error: \(error)")
+        do {
+            if let fuelFilters = try managedObjectContext.executeFetchRequest(request) as? [FuelFilter] {
+                return fuelFilters
+            }
+        } catch let error as NSError {
+            print("Error: \(error)")
         }
-        
+       
         return [FuelFilter]()
     }
 }

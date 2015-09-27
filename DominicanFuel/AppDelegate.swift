@@ -27,11 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Sound | .Badge | .Alert, categories: nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Badge, .Alert], categories: nil))
         application.registerForRemoteNotifications()
         
         
-        if let notificationsDictionary = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject: AnyObject] {
+        if let _ = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? [NSObject: AnyObject] {
             application.applicationIconBadgeNumber = 0
             
         }
@@ -73,12 +73,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
         var token = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
         token = token.stringByReplacingOccurrencesOfString(" ", withString: "")
         
-        var mobileDevice = MobileDevice(pushNotificationToken: token)
+        let mobileDevice = MobileDevice(pushNotificationToken: token)
         MobileDeviceRepository().create(mobileDevice, callback: { (response) -> Void in
             // NO ACTION
         })
         
-        println("Device Token: \(token)")
+        print("Device Token: \(token)")
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
                 fuelsTableViewController.document = document
             }
             
-            if let splitViewController = tabBarController.viewControllers?.last as? UISplitViewController {
+            if let splitViewController = tabBarController.viewControllers?[1] as? UISplitViewController {
                 
                 if let timestampViewController = splitViewController.viewControllers.first?.contentViewController as? ChartTimespanTableViewController {
                     timestampViewController.document = document
@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
     
     func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {
         // Handle error
-        println("Error: \(error)")
+        print("Error: \(error)")
     }
     
 }

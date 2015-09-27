@@ -38,10 +38,10 @@ extension Fuel {
     }
     
     func historicFuelAtDate(date: NSDate) -> Fuel? {
-        var request = NSFetchRequest(entityName: Fuel.entityName())
+        let request = NSFetchRequest(entityName: Fuel.entityName())
         request.fetchLimit = 1
         request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt < %@) AND type = %@", argumentArray: [date.beginningOfDay, date.tomorrow.beginningOfDay, self.type])
         request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
-        return self.managedObjectContext?.executeFetchRequest(request, error: nil)?.first as? Fuel
+        return (try? self.managedObjectContext?.executeFetchRequest(request))??.first as? Fuel
     }
 }

@@ -9,9 +9,9 @@
 import UIKit
 
 class DeltaAssetsManager: NSObject {
-    lazy var upArrow = UIImage(named: "big_up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var downArrow = UIImage(named: "big_down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var equalSign = UIImage(named: "big_equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
+    lazy var upArrow: UIImage! = UIImage(named: "big_up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
+    lazy var downArrow: UIImage! = UIImage(named: "big_down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
+    lazy var equalSign: UIImage! = UIImage(named: "big_equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
     lazy var upArrowTintColor = UIColor.redColor()
     lazy var downArrowTintColor = UIColor.greenColor()
     lazy var equalSignTintColor = UIColor.orangeColor()

@@ -13,7 +13,7 @@ class FuelFilterSeeder {
     class func seed(context: NSManagedObjectContext) {
         let request = NSFetchRequest(entityName: FuelFilter.entityName())
         var error: NSError? = nil
-        var count = context.countForFetchRequest(request, error: &error)
+        let count = context.countForFetchRequest(request, error: &error)
         if error == nil && count == 0 {
             let types = ["Gasolina Premium", "Gasolina Regular", "Gasoil Óptimo","Gasoil Premium", "Gasoil Regular", "Gas Licuado de Petróleo (GLP)", "Kerosene", "Gas Natural Vehicular (GNV)"]
             
@@ -25,7 +25,7 @@ class FuelFilterSeeder {
                 }
             }
         } else if error != nil {
-            println("Couldn't perform fetch request: \(error)")
+            print("Couldn't perform fetch request: \(error)")
         }
     }
     

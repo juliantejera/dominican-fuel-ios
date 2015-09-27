@@ -70,26 +70,26 @@ class FuelDetailsTableViewController: UITableViewController {
         
         // Historic labels
         // TODO: Move all this logic to a new class and load this dynamically
-        var today = NSDate()
-        if let oneMonthAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -1, toDate: today, options: nil) {
-            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: oneMonthAgo)) {
+        let today = NSDate()
+        if let oneMonthAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: today, options: []) {
+            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(oneMonthAgo)) {
                 historyOneMonthAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
-        if let threeMonthsAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -3, toDate: today, options: nil) {
-            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: threeMonthsAgo)) {
+        if let threeMonthsAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -3, toDate: today, options: []) {
+            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(threeMonthsAgo)) {
                 historyThreeMonthsAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
         
-        if let sixMonthsAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -6, toDate: today, options: nil) {
-            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: sixMonthsAgo)) {
+        if let sixMonthsAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -6, toDate: today, options: []) {
+            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(sixMonthsAgo)) {
                 historySixMonthsAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
         
-        if let oneYearAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitYear, value: -1, toDate: today, options: nil) {
-            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(date: oneYearAgo)) {
+        if let oneYearAgo = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -1, toDate: today, options: []) {
+            if let historicFuel = self.fuel?.historicFuelAtDate(NSDate.lastSaturday(oneYearAgo)) {
                 historyOneYearAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }

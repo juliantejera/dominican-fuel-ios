@@ -11,7 +11,7 @@ import UIKit
 class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource, JBLineChartViewDelegate, UIPopoverPresentationControllerDelegate {
 
     var document: UIManagedDocument? 
-    var selectedDate: NSDate! = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitMonth, value: -1, toDate: NSDate(), options: NSCalendarOptions.MatchFirst) {
+    var selectedDate: NSDate! = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: NSDate(), options: NSCalendarOptions.MatchFirst) {
         didSet {
             reloadFetchedResultsController()
         }
@@ -37,29 +37,29 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     lazy var assetsManager = DeltaAssetsManager()
 
     var firstFuel: Fuel? {
-        if let firstSection = self.fetchedResultsController.sections?.first as? NSFetchedResultsSectionInfo, let fuel = firstSection.objects.first as? Fuel {
+        if let firstSection = self.fetchedResultsController.sections?.first, let fuel = firstSection.objects?.first as? Fuel {
             return fuel
         }
         return nil
     }
     
     var lastFuel: Fuel? {
-        if let firstSection = self.fetchedResultsController.sections?.last as? NSFetchedResultsSectionInfo, let fuel = firstSection.objects.last as? Fuel {
+        if let firstSection = self.fetchedResultsController.sections?.last, let fuel = firstSection.objects?.last as? Fuel {
             return fuel
         }
         return nil
     }
     
     lazy var leftToolbarItem: UIBarButtonItem =  {
-       return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: self, action: "didSelectLeftToolbarItem")
+       return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "didSelectLeftToolbarItem")
     }()
     
     lazy var rightToolbarItem: UIBarButtonItem =  {
-        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: self, action: "didSelectRightToolbarItem")
+        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "didSelectRightToolbarItem")
     }()
     
     lazy var middleToolbarItem: UIBarButtonItem = {
-        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Bordered, target: nil, action: nil)
+        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
     }()
     
     lazy var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
@@ -115,16 +115,17 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
             if selectedFuelFiltersTypes.count > 0 {
                 request.predicate = NSPredicate(format: "publishedAt >= %@ AND type IN %@", selectedDate.beginningOfDay, selectedFuelFiltersTypes)
             }
-            var typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
+            let typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
             let publishedAtAscending = NSSortDescriptor(key: "publishedAt", ascending: true, selector: "compare:")
             request.sortDescriptors = [typeAscending, publishedAtAscending]
             
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "type", cacheName: nil)
             
-            var error: NSError?
-            if self.fetchedResultsController.performFetch(&error) {
+            do {
+                try self.fetchedResultsController.performFetch()
                 lineChart.reloadData()
                 assignDefaultValues()
+            } catch _ {
             }
         }
     }
@@ -135,7 +136,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
         coordinator.animateAlongsideTransition({ (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
-            self.lineChart.reloadData()
+            self.lineChart?.reloadData()
         }, completion: nil)
     }
 
@@ -173,7 +174,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
 
     func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
-        if let section = self.fetchedResultsController?.sections?[Int(lineIndex)] as? NSFetchedResultsSectionInfo {
+        if let section = self.fetchedResultsController?.sections?[Int(lineIndex)] {
             return UInt(section.numberOfObjects)
         }
         return 0

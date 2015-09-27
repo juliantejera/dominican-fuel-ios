@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FuelViewModel: Printable {
+class FuelViewModel: CustomStringConvertible {
     var type = ""
     var price = ""
     var delta = ""
@@ -21,7 +21,7 @@ class FuelViewModel: Printable {
         self.delta = numberFormatter.stringFromNumber(fuel.delta) ?? ""
         if let date = fuel.publishedAt {
             let sixDaysInSeconds: NSTimeInterval = 60*60*24*6
-            var effectiveUntil = NSDate(timeInterval: sixDaysInSeconds, sinceDate: date)
+            let effectiveUntil = NSDate(timeInterval: sixDaysInSeconds, sinceDate: date)
             self.timespan = "\(dateFormatter.stringFromDate(date)) - \(dateFormatter.stringFromDate(effectiveUntil))"
         }
     }

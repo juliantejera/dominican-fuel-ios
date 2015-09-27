@@ -20,44 +20,45 @@ class MobileDeviceRepository: NSObject, NSURLSessionDelegate {
         self.endPoint = NSURL(string: "\(APIConfiguration.host())/mobile_devices")!
         
         super.init()
-        var config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
         config.HTTPAdditionalHeaders = [kAcceptHeaderKey: kJsonContentType, kContentTypeKey: kJsonContentType]
         self.session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
     }
     
     func create(item: MobileDevice, callback: (response: SingleItemNetworkResponse) -> Void) {
         
-        var jsonSerializationError: NSError?
-        if let data = NSJSONSerialization.dataWithJSONObject(item.toDictionary(), options: NSJSONWritingOptions.PrettyPrinted, error: &jsonSerializationError) {
-            
-            var request = NSMutableURLRequest(URL: self.endPoint)
+        do {
+            let request = NSMutableURLRequest(URL: self.endPoint)
             request.HTTPMethod = "POST"
-            request.HTTPBody = data
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(item.toDictionary(), options: NSJSONWritingOptions.PrettyPrinted)
             
-            println("Request: \(request)")
+            print("Request: \(request)")
             NetworkActivityIndicator.sharedInstance().addConnection()
-            var dataTask = session?.dataTaskWithRequest(request, completionHandler: { (data, response, connectionError) -> Void in
+            let dataTask = session?.dataTaskWithRequest(request, completionHandler: { (data, response, connectionError) -> Void in
                 NetworkActivityIndicator.sharedInstance().removeConnection()
-                println("Response: \(response)")
+                print("Response: \(response)")
                 
                 if let error = connectionError {
                     callback(response: .Failure(error))
                     return
                 }
                 
-                var innerJsonSerializationError: NSError?
-                if let dictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves, error: &innerJsonSerializationError) as? [NSObject: AnyObject] {
-                    callback(response: .Success(dictionary))
-                } else if let error = innerJsonSerializationError {
+                do {
+                    if let data = data, let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves) as? [NSObject: AnyObject] {
+                        callback(response: .Success(dictionary))
+                    }
+                    
+                } catch let error as NSError {
                     callback(response: .Failure(error))
+
                 }
-                
+
             })
             
             dataTask?.resume()
             
-        } else {
-            callback(response: .Failure(jsonSerializationError!))
+        } catch let error as NSError {
+            callback(response: .Failure(error))
         }
     }
 }

@@ -25,7 +25,7 @@ class ManagedDocumentCoordinator {
     }
     
     func setupDocument(documentName: String) {
-        if let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).first as? NSURL {
+        if let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).first {
             self.documentURL = documentsDirectory.URLByAppendingPathComponent(documentName)
             self.document = UIManagedDocument(fileURL: documentURL)
             open()

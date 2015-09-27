@@ -13,57 +13,65 @@ class FuelSeeder {
     class func seed(context: NSManagedObjectContext) {
         let request = NSFetchRequest(entityName: Fuel.entityName())
         var error: NSError? = nil
-        var count = context.countForFetchRequest(request, error: &error)
+        let count = context.countForFetchRequest(request, error: &error)
         if error == nil && count == 0 {
             // Seed
             
             if let url = NSBundle.mainBundle().URLForResource("fuels", withExtension: "json") {
                 if let data = NSData(contentsOfURL: url) {
-                    var error: NSError? = nil
                     
-                    if let array = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as? [[NSObject: AnyObject]] {
-                        
-                        for dictionary in array {
-                            if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
-                                fuel.populateWithDictionary(dictionary)
+                    do {
+                        if let array = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [[NSObject: AnyObject]] {
+                            
+                            
+                            for dictionary in array {
+                                if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
+                                    fuel.populateWithDictionary(dictionary)
+                                }
                             }
                         }
-                    }                    
+                    } catch _ {
+                        
+                    }
                 }
             }
             
         } else if error != nil {
-            println("Couldn't perform fetch request: \(error)")
+            print("Couldn't perform fetch request: \(error)")
         } else if count > 0 {
             FuelSeeder.updateFuels(FuelRepository(), context: context)
         }
     }
     
     class func updateFuels(repository: FuelRepository, context: NSManagedObjectContext) {
-        var request = NSFetchRequest(entityName: Fuel.entityName())
-        var error: NSError? = nil
+        let request = NSFetchRequest(entityName: Fuel.entityName())
         request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
         request.fetchLimit = 1
         
-        if let result = context.executeFetchRequest(request, error: &error)?.first as? Fuel {
-            if let date = result.publishedAt?.description {
-                let parameters = ["published_at": date]
-                
-                repository.findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
-                    switch response {
-                    case .Failure(let error):
-                        println("Error: \(error)")
-                    case .Success(let items):
-                        for dictionary in items {
-                            if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
-                                fuel.populateWithDictionary(dictionary)
+        do {
+            if let result = try context.executeFetchRequest(request).first as? Fuel {
+                if let date = result.publishedAt?.description {
+                    let parameters = ["published_at": date]
+                    
+                    repository.findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
+                        switch response {
+                        case .Failure(let error):
+                            print("Error: \(error)")
+                        case .Success(let items):
+                            for dictionary in items {
+                                if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
+                                    fuel.populateWithDictionary(dictionary)
+                                }
                             }
                         }
                     }
                 }
+                
             }
+        } catch _ {
             
         }
+
         
         
     }
