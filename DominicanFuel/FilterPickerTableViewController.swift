@@ -21,6 +21,10 @@ class FilterPickerTableViewController: CoreDataTableViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Combustibles"
+    }
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -41,6 +45,7 @@ class FilterPickerTableViewController: CoreDataTableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
+        self.title = ""
         if segue.identifier == "ChartsSegue" {
             if let chartViewController = segue.destinationViewController.contentViewController as? ChartViewController, let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPathForCell(cell), let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter  {
                 chartViewController.document = self.document

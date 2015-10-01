@@ -78,7 +78,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
             self.title = fuel.type
             let viewModel = fuelViewModelFactory.mapToViewModel(fuel)
             self.priceLabel.text = viewModel.price
-            self.deltaLabel.text = viewModel.delta
+            self.deltaLabel.text = "\(viewModel.delta) esta semana"
             self.deltaLabel.textColor = assetsManager.colorForDelta(fuel.delta)
         }
     }

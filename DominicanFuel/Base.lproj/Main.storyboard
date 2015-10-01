@@ -436,9 +436,7 @@
                             <constraint firstItem="73V-q0-fbl" firstAttribute="top" secondItem="7hL-hS-F0U" secondAttribute="bottom" constant="5" id="mKs-yR-Tow"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Gasolina Premium" id="2Yh-Ok-OV1">
-                        <barButtonItem key="backBarButtonItem" title=" " id="fYa-Gh-MU4"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Gasolina Premium" id="2Yh-Ok-OV1"/>
                     <connections>
                         <outlet property="deltaLabel" destination="9aE-C3-oao" id="wvP-QX-vXu"/>
                         <outlet property="lineChart" destination="7hL-hS-F0U" id="HVX-px-ra1"/>
@@ -450,7 +448,7 @@
             </objects>
             <point key="canvasLocation" x="2691" y="1251"/>
         </scene>
-        <!--Combustible-->
+        <!--Combustibles-->
         <scene sceneID="3Xl-Ys-ioc">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="v8V-FJ-T0W" customClass="FilterPickerTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
@@ -485,7 +483,7 @@
                             <outlet property="delegate" destination="v8V-FJ-T0W" id="iT6-cK-d7V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Combustible" id="v7X-0x-Ger"/>
+                    <navigationItem key="navigationItem" title="Combustibles" id="v7X-0x-Ger"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOy-Tg-9nF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -657,7 +655,7 @@
         <image name="wallpaper" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6tP-CZ-DZd"/>
+        <segue reference="Osj-HV-bEn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
