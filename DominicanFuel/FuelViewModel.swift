@@ -17,8 +17,19 @@ class FuelViewModel: CustomStringConvertible {
     convenience init(fuel: Fuel, numberFormatter: NSNumberFormatter, dateFormatter: NSDateFormatter) {
         self.init()
         self.type = fuel.type
+        
+        let percentageFormatter = NSNumberFormatter()
+        percentageFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
+        percentageFormatter.maximumFractionDigits = 2
+        let percentualDelta = fuel.delta / (fuel.price - fuel.delta)
+        if let delta = numberFormatter.stringFromNumber(fuel.delta), percentage = percentageFormatter.stringFromNumber(percentualDelta) where !percentualDelta.isNaN {
+            self.delta = "\(delta) (\(percentage))"
+        } else {
+            self.delta = ""
+        }
+        
         self.price = numberFormatter.stringFromNumber(fuel.price) ?? ""
-        self.delta = numberFormatter.stringFromNumber(fuel.delta) ?? ""
+
         if let date = fuel.publishedAt {
             let sixDaysInSeconds: NSTimeInterval = 60*60*24*6
             let effectiveUntil = NSDate(timeInterval: sixDaysInSeconds, sinceDate: date)
