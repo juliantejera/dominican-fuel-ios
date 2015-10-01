@@ -17,14 +17,27 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         }
     }
     
+    var filter: FuelFilter?
+    
+    @IBOutlet weak var priceLabel: UILabel! {
+        didSet {
+            priceLabel.textColor = UIColor.whiteColor()
+        }
+    }
+    @IBOutlet weak var deltaLabel: UILabel!
+    
+    
     @IBOutlet weak var lineChart: JBLineChartView! {
         didSet {
             lineChart.delegate = self
             lineChart.dataSource = self
             lineChart.headerPadding = 20.0
-            lineChart.backgroundColor = UIColor.darkGrayColor()
+            lineChart.footerPadding = 10.0
+            lineChart.backgroundColor = UIColor.blackColor()
         }
     }
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     lazy var dateFormatter: NSDateFormatter = {
         var formatter = NSDateFormatter()
@@ -50,71 +63,37 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         return nil
     }
     
-    lazy var leftToolbarItem: UIBarButtonItem =  {
-       return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "didSelectLeftToolbarItem")
-    }()
-    
-    lazy var rightToolbarItem: UIBarButtonItem =  {
-        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "didSelectRightToolbarItem")
-    }()
-    
-    lazy var middleToolbarItem: UIBarButtonItem = {
-        return UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-    }()
-    
-    lazy var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGrayColor()
-        self.navigationController?.toolbarHidden = false
-        let items = [self.leftToolbarItem,self.flexibleSpace, self.middleToolbarItem,self.flexibleSpace, self.rightToolbarItem]
-        for item in items {
-            item.tintColor = self.view.tintColor
-        }
-        self.toolbarItems = items
+        self.view.backgroundColor = UIColor.blackColor()
     }
-    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         reloadFetchedResultsController()
+    }
 
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
-    func didSelectLeftToolbarItem() {
-        
-    }
-    
-    func didSelectRightToolbarItem() {
-        
-    }
-    
     func assignDefaultValues() {
-        self.title = "Seleccione una línea"
-        if let firstDate = firstFuel?.publishedAt, let lastDate = lastFuel?.publishedAt {
-            self.leftToolbarItem.title = dateFormatter.stringFromDate(firstDate)
-            self.middleToolbarItem.title = "---"
-            self.rightToolbarItem.title = dateFormatter.stringFromDate(lastDate)
+        if let fuel = self.lastFuel {
+            self.title = fuel.type
+            let viewModel = fuelViewModelFactory.mapToViewModel(fuel)
+            self.priceLabel.text = viewModel.price
+            self.deltaLabel.text = viewModel.delta
+            self.deltaLabel.textColor = assetsManager.colorForDelta(fuel.delta)
         }
     }
     
-    
+    @IBAction func segmentedControlDidChange(sender: UISegmentedControl) {
+        if let chartRange = ChartRangeSegment(rawValue: sender.selectedSegmentIndex) {
+            self.selectedDate = chartRange.date
+        }
+    }
+
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
             let request = NSFetchRequest(entityName: Fuel.entityName())
-            let selectedFuelFiltersTypes = FuelFilter.selectedFuelFilters(managedObjectContext).map({ $0.type })
-            if selectedFuelFiltersTypes.count > 0 {
-                request.predicate = NSPredicate(format: "publishedAt >= %@ AND type IN %@", selectedDate.beginningOfDay, selectedFuelFiltersTypes)
-            }
+            let type = self.filter?.type ?? "Gasolina Premium"
+            request.predicate = NSPredicate(format: "publishedAt >= %@ AND type IN %@", selectedDate.beginningOfDay, [type])
             let typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
             let publishedAtAscending = NSSortDescriptor(key: "publishedAt", ascending: true, selector: "compare:")
             request.sortDescriptors = [typeAscending, publishedAtAscending]
@@ -123,8 +102,8 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
             
             do {
                 try self.fetchedResultsController.performFetch()
-                lineChart.reloadData()
-                assignDefaultValues()
+                lineChart?.reloadData()
+                self.assignDefaultValues()
             } catch _ {
             }
         }
@@ -146,12 +125,6 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "FilterSegue" {
-            if let controller = segue.destinationViewController as? FilterTableViewController {
-                controller.document = self.document
-                controller.popoverPresentationController?.delegate = self
-            }
-        }
     }
     
     
@@ -182,7 +155,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     
     func shouldExtendSelectionViewIntoFooterPaddingForChartView(chartView: JBChartView!) -> Bool {
-        return false
+        return true
     }
     
     func shouldExtendSelectionViewIntoHeaderPaddingForChartView(chartView: JBChartView!) -> Bool {
@@ -202,24 +175,20 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         let indexPath = NSIndexPath(forRow: Int(horizontalIndex), inSection: Int(lineIndex))
         if let fuel = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Fuel {
             let viewModel = fuelViewModelFactory.mapToViewModel(fuel)
-            self.navigationItem.title = viewModel.type
-            self.navigationItem.prompt = viewModel.timespan
-            self.middleToolbarItem.title = "Precio: \(viewModel.price)"
+            self.priceLabel.text = viewModel.price
+            self.deltaLabel.text = viewModel.delta
+            self.deltaLabel.textColor = self.assetsManager.colorForDelta(fuel.delta)
             
             self.setTooltipVisible(true, animated: true, atTouchPoint: touchPoint)
-            self.assetsManager.updateImageView(self.tooltipView.imageView, delta: fuel.delta)
+            self.tooltipView.textLabel.backgroundColor = self.view.tintColor
+            self.tooltipView.textLabel.textColor = UIColor.whiteColor()
+            self.tooltipView.setText(viewModel.timespan)
         }
-        
-        
-        self.leftToolbarItem.title = ""
-        self.rightToolbarItem.title = ""
     }
     
     
     func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
         self.setTooltipVisible(false, animated: true)
-        self.navigationItem.title = nil
-        self.navigationItem.prompt = nil
         assignDefaultValues()
     }
     
@@ -240,7 +209,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
-        return 3.0
+        return 2.0
     }
     
     func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -248,7 +217,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
-        return true
+        return false
     }
     
     func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
@@ -264,5 +233,35 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         return lineChart
     }
     
-    
 }
+
+
+enum ChartRangeSegment: Int {
+    case OneMonth
+    case ThreeMonths
+    case SixMonths
+    case OneYear
+    case TwoYears
+    case ThreeYears
+    
+    var date: NSDate {
+        let lastSaturday = NSDate.lastSaturday().beginningOfDay
+        
+        switch self {
+        case .OneMonth:
+            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: lastSaturday, options: [])!
+        case .ThreeMonths:
+            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -3, toDate: lastSaturday, options: [])!
+        case .SixMonths:
+            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -6, toDate: lastSaturday, options: [])!
+        case .OneYear:
+            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -1, toDate: lastSaturday, options: [])!
+        case .TwoYears:
+            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -2, toDate: lastSaturday, options: [])!
+        case .ThreeYears:
+            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -3, toDate: lastSaturday, options: [])!
+        }
+    }
+}
+
+

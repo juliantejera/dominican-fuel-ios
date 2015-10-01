@@ -100,8 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
             
             if let splitViewController = tabBarController.viewControllers?[1] as? UISplitViewController {
                 
-                if let timestampViewController = splitViewController.viewControllers.first?.contentViewController as? ChartTimespanTableViewController {
-                    timestampViewController.document = document
+                if let filterPickerController = splitViewController.viewControllers.first?.contentViewController as? FilterPickerTableViewController {
+                    filterPickerController.document = document
                 }
                 
                 if let chartViewController = splitViewController.viewControllers.last?.contentViewController as? ChartViewController {

@@ -18,7 +18,7 @@ extension Fuel {
     class func kType() -> String { return "fuel_type" }
     class func kPrice() -> String { return "price" }
     class func kDelta() -> String { return "delta" }
-    
+
     func populateWithDictionary(dictionary: [NSObject: AnyObject]) {
         if let date = dictionary[Fuel.kPublishedAt()] as? String {
             self.publishedAt = NSDateFormatter.sharedISO8601DateFormatter().dateFromString(date)
