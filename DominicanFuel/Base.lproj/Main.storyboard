@@ -388,7 +388,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hL-hS-F0U" customClass="JBLineChartView">
-                                <rect key="frame" x="20" y="142" width="560" height="368"/>
+                                <rect key="frame" x="20" y="142" width="560" height="417"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gks-fI-v5x">
@@ -407,7 +407,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="73V-q0-fbl">
-                                <rect key="frame" x="20" y="515" width="560" height="29"/>
+                                <rect key="frame" x="20" y="564" width="560" height="29"/>
                                 <segments>
                                     <segment title="1M"/>
                                     <segment title="3M"/>

@@ -12,6 +12,6 @@ class APIConfiguration: NSObject {
    
     class func host() -> String {
         return "http://www.combustiblesdominicanos.com"
-        //return "http://localhost:3000"
+//        return "http://localhost:3000"
     }
 }
