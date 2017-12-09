@@ -17,20 +17,15 @@ class FuelSeeder {
             let count = try context.count(for: request)
             if count == 0 {
                 if let url = Bundle.main.url(forResource: "fuels", withExtension: "json") {
-                    if let data = try? Data(contentsOf: url) {
+                    let data = try Data(contentsOf: url)
                         
-                        do {
-                            if let array = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[AnyHashable: Any]] {
-                                
-                                
-                                for dictionary in array {
-                                    if let fuel = NSEntityDescription.insertNewObject(forEntityName: Fuel.entityName(), into: context) as? Fuel {
-                                        fuel.populateWithDictionary(dictionary)
-                                    }
-                                }
+                    if let array = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[AnyHashable: Any]] {
+                        
+                        
+                        for dictionary in array {
+                            if let fuel = NSEntityDescription.insertNewObject(forEntityName: Fuel.entityName(), into: context) as? Fuel {
+                                fuel.populateWithDictionary(dictionary)
                             }
-                        } catch _ {
-                            
                         }
                     }
                 } else {
@@ -44,12 +39,12 @@ class FuelSeeder {
     }
     
     class func updateFuels(_ repository: FuelRepository, context: NSManagedObjectContext) {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
+        let request = NSFetchRequest<Fuel>(entityName: Fuel.entityName())
         request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
         request.fetchLimit = 1
         
         do {
-            if let result = try context.fetch(request).first as? Fuel {
+            if let result = try context.fetch(request).first {
                 if let date = result.publishedAt?.description {
                     let parameters = ["published_at": date]
                     

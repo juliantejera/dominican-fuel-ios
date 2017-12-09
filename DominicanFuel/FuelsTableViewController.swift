@@ -39,7 +39,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         let request = GADRequest()
-        request.testDevices = ["97cae6e4f669f3e8527d82ad261cc092", kGADSimulatorID]
+        request.testDevices = [kGADSimulatorID]
         googleAdView?.load(request)
     }
 
