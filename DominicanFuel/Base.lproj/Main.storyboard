@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GEm-aL-y1S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GEm-aL-y1S">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -312,40 +311,33 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="equal_sign" translatesAutoresizingMaskIntoConstraints="NO" id="Agx-92-7Je">
-                                            <rect key="frame" x="16" y="14" width="22" height="17"/>
+                                            <rect key="frame" x="16" y="11" width="22" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="17" id="huR-Yq-6hB"/>
-                                                <constraint firstAttribute="width" constant="22" id="nEI-3r-Hba"/>
+                                                <constraint firstAttribute="height" constant="22" id="gKk-hv-CTJ"/>
+                                                <constraint firstAttribute="width" constant="22" id="sB4-Ws-cU7"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYT-91-7ug">
-                                            <rect key="frame" x="289" y="14" width="70" height="15"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="KzG-kM-hNP"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aa-dS-tau">
-                                            <rect key="frame" x="46" y="14" width="228" height="15"/>
+                                            <rect key="frame" x="46" y="11.5" width="33.5" height="20.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYT-91-7ug">
+                                            <rect key="frame" x="314" y="11.5" width="45" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Agx-92-7Je" firstAttribute="top" secondItem="TZE-cJ-j3R" secondAttribute="topMargin" constant="3" id="2K8-yZ-pr2"/>
-                                        <constraint firstItem="gYT-91-7ug" firstAttribute="leading" secondItem="0aa-dS-tau" secondAttribute="trailing" constant="15" id="CUT-59-Hm2"/>
-                                        <constraint firstItem="gYT-91-7ug" firstAttribute="firstBaseline" secondItem="0aa-dS-tau" secondAttribute="firstBaseline" id="GEy-nM-EM9"/>
-                                        <constraint firstItem="0aa-dS-tau" firstAttribute="baseline" secondItem="gYT-91-7ug" secondAttribute="baseline" id="MrD-rT-vbk"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Agx-92-7Je" secondAttribute="bottom" constant="2" id="R0H-0H-3gf"/>
-                                        <constraint firstItem="Agx-92-7Je" firstAttribute="leading" secondItem="TZE-cJ-j3R" secondAttribute="leadingMargin" id="TlS-b3-BMa"/>
-                                        <constraint firstItem="gYT-91-7ug" firstAttribute="trailing" secondItem="TZE-cJ-j3R" secondAttribute="trailingMargin" id="Y1X-om-oM8"/>
-                                        <constraint firstItem="0aa-dS-tau" firstAttribute="top" secondItem="Agx-92-7Je" secondAttribute="top" id="efw-IS-DEd"/>
-                                        <constraint firstAttribute="centerY" secondItem="gYT-91-7ug" secondAttribute="centerY" id="fTe-aD-fMT"/>
-                                        <constraint firstItem="0aa-dS-tau" firstAttribute="leading" secondItem="Agx-92-7Je" secondAttribute="trailing" constant="8" id="qiM-hF-Dyf"/>
-                                        <constraint firstAttribute="centerY" secondItem="Agx-92-7Je" secondAttribute="centerY" constant="-0.5" id="tfK-K4-jLj"/>
+                                        <constraint firstAttribute="trailing" secondItem="gYT-91-7ug" secondAttribute="trailing" constant="16" id="5Lb-AR-wpc"/>
+                                        <constraint firstItem="0aa-dS-tau" firstAttribute="centerY" secondItem="Agx-92-7Je" secondAttribute="centerY" id="Bgu-zO-tkK"/>
+                                        <constraint firstItem="0aa-dS-tau" firstAttribute="leading" secondItem="Agx-92-7Je" secondAttribute="trailing" constant="8" id="M6H-AN-CCM"/>
+                                        <constraint firstItem="gYT-91-7ug" firstAttribute="centerY" secondItem="0aa-dS-tau" secondAttribute="centerY" id="Shw-tT-HOM"/>
+                                        <constraint firstItem="Agx-92-7Je" firstAttribute="leading" secondItem="TZE-cJ-j3R" secondAttribute="leading" constant="16" id="XeX-cV-VCA"/>
+                                        <constraint firstItem="gYT-91-7ug" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0aa-dS-tau" secondAttribute="trailing" constant="10" id="iH2-LK-AaU"/>
+                                        <constraint firstItem="Agx-92-7Je" firstAttribute="centerY" secondItem="TZE-cJ-j3R" secondAttribute="centerY" id="mZl-EL-pFG"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

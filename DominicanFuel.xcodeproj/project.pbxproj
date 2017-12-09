@@ -377,21 +377,21 @@
 		906CE7C91ABDDE6000B45CCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */,
-				90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */,
-				90B3C7E61B535C0200354846 /* JBChartTooltipView.h */,
-				90B3C7E71B535C0200354846 /* JBChartTooltipView.m */,
-				90B3C7E91B535D1000354846 /* JBChartTooltipTipView.h */,
-				90B3C7EA1B535D1000354846 /* JBChartTooltipTipView.m */,
-				90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */,
+				90B695671AC4F45100BC8B7B /* ChartViewController.swift */,
 				902EF57D1ACC0D3200661600 /* CoreDataTableViewController.h */,
 				902EF57E1ACC0D3200661600 /* CoreDataTableViewController.m */,
-				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
-				90B695671AC4F45100BC8B7B /* ChartViewController.swift */,
 				90734EAA1BBB7AEB00317387 /* FilterPickerTableViewController.swift */,
 				902EF5601AC9692100661600 /* FilterTableViewController.swift */,
 				90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */,
+				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
+				90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */,
+				90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */,
+				90B3C7E91B535D1000354846 /* JBChartTooltipTipView.h */,
+				90B3C7EA1B535D1000354846 /* JBChartTooltipTipView.m */,
+				90B3C7E61B535C0200354846 /* JBChartTooltipView.h */,
+				90B3C7E71B535C0200354846 /* JBChartTooltipView.m */,
 				905E526F1B5B1FF70019E419 /* SettingsViewController.swift */,
+				90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
