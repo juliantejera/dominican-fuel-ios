@@ -39,14 +39,12 @@
 		902EF5971AD0B09700661600 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902EF5951AD0B09700661600 /* DateFormatter.swift */; };
 		903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
 		903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
-		903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */; };
 		905067EC1B0AE89E00B63BEC /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */; };
 		905067ED1B0AE8C100B63BEC /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */; };
 		9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA721ABA657C007740B0 /* AppDelegate.swift */; };
 		9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */; };
 		9057CA7B1ABA657C007740B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA791ABA657C007740B0 /* Main.storyboard */; };
 		9057CA7D1ABA657C007740B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA7C1ABA657C007740B0 /* Images.xcassets */; };
-		9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */; };
 		9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */; };
 		9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */; };
 		9057CAA51ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */; };
@@ -89,7 +87,6 @@
 		90AD3B3D1AD61B1D00785573 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3B1AD61B1D00785573 /* ViewController.swift */; };
 		90AD3B3F1AD69F2800785573 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3E1AD69F2800785573 /* Date.swift */; };
 		90AD3B401AD69F2C00785573 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3E1AD69F2800785573 /* Date.swift */; };
-		90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */; };
 		90AD3B441AD7D43B00785573 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartViewController.swift */; };
 		90B3C7E51B535BC500354846 /* JBBaseChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */; };
 		90B3C7E81B535C0200354846 /* JBChartTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7E71B535C0200354846 /* JBChartTooltipView.m */; };
@@ -138,7 +135,6 @@
 		902EF5921AD0AD1900661600 /* fuels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fuels.json; sourceTree = "<group>"; };
 		902EF5951AD0B09700661600 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModel.swift; sourceTree = "<group>"; };
-		903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelTests.swift; sourceTree = "<group>"; };
 		905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCell.swift; sourceTree = "<group>"; };
 		9057CA6D1ABA657C007740B0 /* DominicanFuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DominicanFuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9057CA711ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,7 +144,6 @@
 		9057CA7C1ABA657C007740B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9057CA851ABA657C007740B0 /* DominicanFuelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DominicanFuelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9057CA8A1ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominicanFuelTests.swift; sourceTree = "<group>"; };
 		9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTests.swift; sourceTree = "<group>"; };
 		9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMapping.swift; sourceTree = "<group>"; };
 		9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
@@ -182,7 +177,6 @@
 		90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewController.swift; sourceTree = "<group>"; };
 		90AD3B3B1AD61B1D00785573 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90AD3B3E1AD69F2800785573 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
 		90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBaseChartViewController.h; sourceTree = "<group>"; };
 		90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBaseChartViewController.m; sourceTree = "<group>"; };
 		90B3C7E61B535C0200354846 /* JBChartTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipView.h; sourceTree = "<group>"; };
@@ -305,11 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				902EF57C1ACC0D3100661600 /* DominicanFuelTests-Bridging-Header.h */,
-				9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */,
 				9057CA891ABA657C007740B0 /* Supporting Files */,
 				9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */,
-				903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */,
-				90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */,
 			);
 			path = DominicanFuelTests;
 			sourceTree = "<group>";
@@ -729,14 +720,12 @@
 				907529FB1B24175200583DD6 /* FuelFetcher.swift in Sources */,
 				90AD3B441AD7D43B00785573 /* ChartViewController.swift in Sources */,
 				902EF5971AD0B09700661600 /* DateFormatter.swift in Sources */,
-				90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */,
 				903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				902EF5751ACB899100661600 /* ManagedDocumentCoordinator.swift in Sources */,
 				905E52711B5B20D40019E419 /* SettingsViewController.swift in Sources */,
 				9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */,
 				905FE8CA1AEC73BA00745D97 /* NetworkResponse.swift in Sources */,
-				903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */,
 				9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
 				902EF5721ACB878900661600 /* FuelFilter.swift in Sources */,
 				906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */,
@@ -750,7 +739,6 @@
 				905B0A361B16CFA200EABB6F /* APIConfiguration.swift in Sources */,
 				905B0A331B16CA9B00EABB6F /* FuelsTableViewControllerFetchRequest.swift in Sources */,
 				902EF5651ACA43E000661600 /* FuelType.swift in Sources */,
-				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
 				905B0A261B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */,
 				905B0A2D1B16C4FF00EABB6F /* DeltaAssetsManager.swift in Sources */,
 				902EF5781ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
