@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class TableViewCellViewModel {
     var title: String?
     var subtitle: String?

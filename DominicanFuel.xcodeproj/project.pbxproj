@@ -52,8 +52,6 @@
 		9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */; };
 		9057CAA81ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */; };
 		9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */; };
-		9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA21ABDB0D8007740B0 /* RestRepository.swift */; };
-		9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA21ABDB0D8007740B0 /* RestRepository.swift */; };
 		9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 		9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 		905B0A1F1B16BBA900EABB6F /* FuelTableViewCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */; };
@@ -148,7 +146,6 @@
 		9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMapping.swift; sourceTree = "<group>"; };
 		9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
 		9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepositoryProtocol.swift; sourceTree = "<group>"; };
-		9057CAA21ABDB0D8007740B0 /* RestRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepository.swift; sourceTree = "<group>"; };
 		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
 		905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCellFactory.swift; sourceTree = "<group>"; };
 		905B0A241B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewHeaderImageView.swift; sourceTree = "<group>"; };
@@ -349,7 +346,6 @@
 				9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */,
 				9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */,
 				9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */,
-				9057CAA21ABDB0D8007740B0 /* RestRepository.swift */,
 				9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */,
 				905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */,
 				905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */,
@@ -698,7 +694,6 @@
 				906093131AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */,
 				90B3C7EB1B535D1000354846 /* JBChartTooltipTipView.m in Sources */,
 				9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */,
-				9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				902EF57F1ACC0D3200661600 /* CoreDataTableViewController.m in Sources */,
 				902EF5611AC9692100661600 /* FilterTableViewController.swift in Sources */,
 				902EF5711ACB878900661600 /* FuelFilter.swift in Sources */,
@@ -749,7 +744,6 @@
 				902EF5831ACCDF1E00661600 /* CoreDataSeeder.swift in Sources */,
 				906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */,
 				905FE8C71AEC6C6400745D97 /* AbstractFactory.swift in Sources */,
-				9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
 				902EF58A1AD0242400661600 /* FuelExtension.swift in Sources */,
 				905B0A201B16BC7D00EABB6F /* FuelTableViewCellFactory.swift in Sources */,
