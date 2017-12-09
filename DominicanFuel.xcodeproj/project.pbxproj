@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B03FB44D76994044AF7D56A /* libPods-DominicanFuelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */; };
+		8D13D918716CB0C0D766E609 /* libPods-DominicanFuelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 010FFD56CC45225606F73ADC /* libPods-DominicanFuelTests.a */; };
 		901348B41B093CE2009E9AE3 /* MobileDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901348B31B093CE2009E9AE3 /* MobileDevice.swift */; };
 		901348B61B093D91009E9AE3 /* MobileDeviceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901348B51B093D91009E9AE3 /* MobileDeviceRepository.swift */; };
 		902EF5611AC9692100661600 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902EF5601AC9692100661600 /* FilterTableViewController.swift */; };
@@ -78,8 +78,8 @@
 		906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906093121AE295A3003FFEE2 /* FuelViewModelFactory.swift */; };
 		906CE7CB1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
 		906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */; };
-		90734EAB1BBB7AEB00317387 /* FilterPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90734EAA1BBB7AEB00317387 /* FilterPickerTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		90734EAD1BBB92DE00317387 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90734EAC1BBB92DE00317387 /* UIColor.swift */; settings = {ASSET_TAGS = (); }; };
+		90734EAB1BBB7AEB00317387 /* FilterPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90734EAA1BBB7AEB00317387 /* FilterPickerTableViewController.swift */; };
+		90734EAD1BBB92DE00317387 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90734EAC1BBB92DE00317387 /* UIColor.swift */; };
 		907529FA1B24175200583DD6 /* FuelFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907529F91B24175200583DD6 /* FuelFetcher.swift */; };
 		907529FB1B24175200583DD6 /* FuelFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907529F91B24175200583DD6 /* FuelFetcher.swift */; };
 		909587611B04530500E30362 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 909587601B04530500E30362 /* iAd.framework */; };
@@ -101,7 +101,7 @@
 		90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BA14471AE74451007BB5F9 /* FuelRepository.swift */; };
 		90E12E0A1B18901D00AF3A52 /* TableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E12E091B18901D00AF3A52 /* TableViewCellViewModel.swift */; };
 		90E12E0C1B1BE55D00AF3A52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90E12E0B1B1BE55D00AF3A52 /* LaunchScreen.storyboard */; };
-		AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */; };
+		9C8A6D25D6A6FBA6BFA25C9E /* libPods-DominicanFuel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59DEA0BA2D867A4E58F095D0 /* libPods-DominicanFuel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,8 +115,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		19F066EF8FB36E01E5A54308 /* Pods-DominicanFuelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.release.xcconfig"; sourceTree = "<group>"; };
-		6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DominicanFuel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		010FFD56CC45225606F73ADC /* libPods-DominicanFuelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DominicanFuelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B8FB85BCB124C9F444ABDB /* Pods-DominicanFuelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.release.xcconfig"; sourceTree = "<group>"; };
+		59DEA0BA2D867A4E58F095D0 /* libPods-DominicanFuel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DominicanFuel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		901348B31B093CE2009E9AE3 /* MobileDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileDevice.swift; sourceTree = "<group>"; };
 		901348B51B093D91009E9AE3 /* MobileDeviceRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileDeviceRepository.swift; sourceTree = "<group>"; };
 		902EF5601AC9692100661600 /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
@@ -194,10 +195,9 @@
 		90BA14471AE74451007BB5F9 /* FuelRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepository.swift; sourceTree = "<group>"; };
 		90E12E091B18901D00AF3A52 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		90E12E0B1B1BE55D00AF3A52 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		944AA7BC5C89A49589B2E2DE /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
-		A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DominicanFuelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7524CAA300D5DBD1311CD27 /* Pods-DominicanFuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.debug.xcconfig"; sourceTree = "<group>"; };
-		FFFBBE4C694049954BE45151 /* Pods-DominicanFuelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BEE9B81CD160F482367850A1 /* Pods-DominicanFuelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C90E4531F9993C447E596310 /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
+		E863179124E12B428385C5A0 /* Pods-DominicanFuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				909587611B04530500E30362 /* iAd.framework in Frameworks */,
-				AA65E249153437B8731E5FDE /* libPods-DominicanFuel.a in Frameworks */,
+				9C8A6D25D6A6FBA6BFA25C9E /* libPods-DominicanFuel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B03FB44D76994044AF7D56A /* libPods-DominicanFuelTests.a in Frameworks */,
+				8D13D918716CB0C0D766E609 /* libPods-DominicanFuelTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +254,8 @@
 				9057CA6F1ABA657C007740B0 /* DominicanFuel */,
 				9057CA881ABA657C007740B0 /* DominicanFuelTests */,
 				9057CA6E1ABA657C007740B0 /* Products */,
-				D048E441D1B89F2D686BD006 /* Pods */,
 				E152F87E5070B29D99557FC0 /* Frameworks */,
+				EC8670675F7E8B5883DB584A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -422,17 +422,6 @@
 			name = Enum;
 			sourceTree = "<group>";
 		};
-		D048E441D1B89F2D686BD006 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B7524CAA300D5DBD1311CD27 /* Pods-DominicanFuel.debug.xcconfig */,
-				944AA7BC5C89A49589B2E2DE /* Pods-DominicanFuel.release.xcconfig */,
-				FFFBBE4C694049954BE45151 /* Pods-DominicanFuelTests.debug.xcconfig */,
-				19F066EF8FB36E01E5A54308 /* Pods-DominicanFuelTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E152F87E5070B29D99557FC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,10 +435,21 @@
 				909587521B044F1B00E30362 /* CoreGraphics.framework */,
 				909587501B044F1600E30362 /* AdSupport.framework */,
 				9095874E1B044F1000E30362 /* AudioToolbox.framework */,
-				6207C26A349907EABA381A79 /* libPods-DominicanFuel.a */,
-				A6413DFB845310199DBB3C8B /* libPods-DominicanFuelTests.a */,
+				59DEA0BA2D867A4E58F095D0 /* libPods-DominicanFuel.a */,
+				010FFD56CC45225606F73ADC /* libPods-DominicanFuelTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC8670675F7E8B5883DB584A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E863179124E12B428385C5A0 /* Pods-DominicanFuel.debug.xcconfig */,
+				C90E4531F9993C447E596310 /* Pods-DominicanFuel.release.xcconfig */,
+				BEE9B81CD160F482367850A1 /* Pods-DominicanFuelTests.debug.xcconfig */,
+				16B8FB85BCB124C9F444ABDB /* Pods-DominicanFuelTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,11 +459,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9057CA8F1ABA657C007740B0 /* Build configuration list for PBXNativeTarget "DominicanFuel" */;
 			buildPhases = (
-				B91705DEEB0333A1C8589B9D /* Check Pods Manifest.lock */,
+				4E87FDED4C0E4F30E3470F68 /* [CP] Check Pods Manifest.lock */,
 				9057CA691ABA657C007740B0 /* Sources */,
 				9057CA6A1ABA657C007740B0 /* Frameworks */,
 				9057CA6B1ABA657C007740B0 /* Resources */,
-				69F3016823761D9C8DFD898E /* Copy Pods Resources */,
+				4FE46A08F2F03CC6FFB15FC5 /* [CP] Embed Pods Frameworks */,
+				17A35C6C239B1AB792A1B5B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -478,11 +479,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9057CA921ABA657C007740B0 /* Build configuration list for PBXNativeTarget "DominicanFuelTests" */;
 			buildPhases = (
-				FE88B80A7F2866720FFF7DAC /* Check Pods Manifest.lock */,
+				EEE360C94E7891AD56041407 /* [CP] Check Pods Manifest.lock */,
 				9057CA811ABA657C007740B0 /* Sources */,
 				9057CA821ABA657C007740B0 /* Frameworks */,
 				9057CA831ABA657C007740B0 /* Resources */,
-				D50B96BFA1905848670A90CE /* Copy Pods Resources */,
+				50274F3296849DA3E9790BC0 /* [CP] Embed Pods Frameworks */,
+				8C58D24FB9295D6F5197DB95 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -508,10 +510,12 @@
 					9057CA6C1ABA657C007740B0 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = VDYWQG4YL7;
+						LastSwiftMigration = 0910;
 					};
 					9057CA841ABA657C007740B0 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = VDYWQG4YL7;
+						LastSwiftMigration = 0910;
 						TestTargetID = 9057CA6C1ABA657C007740B0;
 					};
 				};
@@ -558,64 +562,106 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		69F3016823761D9C8DFD898E /* Copy Pods Resources */ = {
+		17A35C6C239B1AB792A1B5B5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/Appirater/Appirater.bundle,
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B91705DEEB0333A1C8589B9D /* Check Pods Manifest.lock */ = {
+		4E87FDED4C0E4F30E3470F68 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DominicanFuel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FE46A08F2F03CC6FFB15FC5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D50B96BFA1905848670A90CE /* Copy Pods Resources */ = {
+		50274F3296849DA3E9790BC0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C58D24FB9295D6F5197DB95 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/Appirater/Appirater.bundle,
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FE88B80A7F2866720FFF7DAC /* Check Pods Manifest.lock */ = {
+		EEE360C94E7891AD56041407 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DominicanFuelTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -830,12 +876,13 @@
 		};
 		9057CA901ABA657C007740B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7524CAA300D5DBD1311CD27 /* Pods-DominicanFuel.debug.xcconfig */;
+			baseConfigurationReference = E863179124E12B428385C5A0 /* Pods-DominicanFuel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = VDYWQG4YL7;
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.juliantejera.$(PRODUCT_NAME:rfc1034identifier)";
@@ -843,29 +890,34 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		9057CA911ABA657C007740B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 944AA7BC5C89A49589B2E2DE /* Pods-DominicanFuel.release.xcconfig */;
+			baseConfigurationReference = C90E4531F9993C447E596310 /* Pods-DominicanFuel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = VDYWQG4YL7;
 				INFOPLIST_FILE = DominicanFuel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.juliantejera.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 		9057CA931ABA657C007740B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFFBBE4C694049954BE45151 /* Pods-DominicanFuelTests.debug.xcconfig */;
+			baseConfigurationReference = BEE9B81CD160F482367850A1 /* Pods-DominicanFuelTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -886,13 +938,15 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
 			};
 			name = Debug;
 		};
 		9057CA941ABA657C007740B0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19F066EF8FB36E01E5A54308 /* Pods-DominicanFuelTests.release.xcconfig */;
+			baseConfigurationReference = 16B8FB85BCB124C9F444ABDB /* Pods-DominicanFuelTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -908,6 +962,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
 			};
 			name = Release;

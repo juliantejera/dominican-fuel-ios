@@ -9,19 +9,19 @@
 import UIKit
 
 class DeltaAssetsManager: NSObject {
-    lazy var upArrow: UIImage! = UIImage(named: "big_up_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var downArrow: UIImage! = UIImage(named: "big_down_arrow")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var equalSign: UIImage! = UIImage(named: "big_equal_sign")?.imageWithRenderingMode(.AlwaysTemplate)
-    lazy var upArrowTintColor = UIColor.redColor()
-    lazy var downArrowTintColor = UIColor.greenColor()
-    lazy var equalSignTintColor = UIColor.orangeColor()
+    lazy var upArrow: UIImage! = UIImage(named: "big_up_arrow")?.withRenderingMode(.alwaysTemplate)
+    lazy var downArrow: UIImage! = UIImage(named: "big_down_arrow")?.withRenderingMode(.alwaysTemplate)
+    lazy var equalSign: UIImage! = UIImage(named: "big_equal_sign")?.withRenderingMode(.alwaysTemplate)
+    lazy var upArrowTintColor = UIColor.red
+    lazy var downArrowTintColor = UIColor.green
+    lazy var equalSignTintColor = UIColor.orange
     
-    func updateImageView(imageView: UIImageView, delta: Double) {
+    func updateImageView(_ imageView: UIImageView, delta: Double) {
         imageView.tintColor = colorForDelta(delta)
         imageView.image = imageForDelta(delta)
     }
     
-    func colorForDelta(delta: Double) -> UIColor {
+    func colorForDelta(_ delta: Double) -> UIColor {
         var color: UIColor
         if delta > 0 {
             color = upArrowTintColor
@@ -33,7 +33,7 @@ class DeltaAssetsManager: NSObject {
         return color
     }
     
-    func imageForDelta(delta: Double) -> UIImage? {
+    func imageForDelta(_ delta: Double) -> UIImage? {
         var image: UIImage?
         if delta > 0 {
             image = upArrow

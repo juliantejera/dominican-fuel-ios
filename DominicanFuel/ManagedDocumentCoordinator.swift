@@ -10,13 +10,13 @@ import UIKit
 
 
 protocol ManagedDocumentCoordinatorDelegate: class {
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument)
-    func managedDocumentCoordinator(coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError)
+    func managedDocumentCoordinator(_ coordinator: ManagedDocumentCoordinator, didOpenDocument document: UIManagedDocument)
+    func managedDocumentCoordinator(_ coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError)
 }
 
 class ManagedDocumentCoordinator {
     
-    private var documentURL: NSURL!
+    fileprivate var documentURL: URL!
     var document: UIManagedDocument?
     weak var delegate: ManagedDocumentCoordinatorDelegate?
     
@@ -24,26 +24,23 @@ class ManagedDocumentCoordinator {
         
     }
     
-    func setupDocument(documentName: String) {
-        if let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).first {
-            self.documentURL = documentsDirectory.URLByAppendingPathComponent(documentName)
+    func setupDocument(_ documentName: String) {
+        if let documentsDirectory = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first {
+            self.documentURL = documentsDirectory.appendingPathComponent(documentName)
             self.document = UIManagedDocument(fileURL: documentURL)
             open()
         }
     }
     
-    private func open() {
-        if let path = self.documentURL.path {
-            if NSFileManager.defaultManager().fileExistsAtPath(path) {
-                document?.openWithCompletionHandler(openOrCreateCompletionHandler)
-            } else {
-                document?.saveToURL(self.documentURL, forSaveOperation: UIDocumentSaveOperation.ForCreating, completionHandler: openOrCreateCompletionHandler)
-            }
+    fileprivate func open() {
+        if FileManager.default.fileExists(atPath: self.documentURL.path) {
+            document?.open(completionHandler: openOrCreateCompletionHandler)
+        } else {
+            document?.save(to: self.documentURL, for: UIDocumentSaveOperation.forCreating, completionHandler: openOrCreateCompletionHandler)
         }
-        
     }
     
-    private func openOrCreateCompletionHandler(success: Bool) {
+    fileprivate func openOrCreateCompletionHandler(_ success: Bool) {
         if success {
             documentIsReady()
         } else {
@@ -53,8 +50,8 @@ class ManagedDocumentCoordinator {
         }
     }
     
-    private func documentIsReady() {
-        if let document = self.document where document.documentState == UIDocumentState.Normal {
+    fileprivate func documentIsReady() {
+        if let document = self.document, document.documentState == UIDocumentState() {
             delegate?.managedDocumentCoordinator(self, didOpenDocument: document)
         } else {
             // Try to open it again

@@ -10,57 +10,57 @@ import Foundation
 import CoreData
 class FuelSeeder {
     
-    class func seed(context: NSManagedObjectContext) {
-        let request = NSFetchRequest(entityName: Fuel.entityName())
-        var error: NSError? = nil
-        let count = context.countForFetchRequest(request, error: &error)
-        if error == nil && count == 0 {
-            // Seed
-            
-            if let url = NSBundle.mainBundle().URLForResource("fuels", withExtension: "json") {
-                if let data = NSData(contentsOfURL: url) {
-                    
-                    do {
-                        if let array = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? [[NSObject: AnyObject]] {
-                            
-                            
-                            for dictionary in array {
-                                if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
-                                    fuel.populateWithDictionary(dictionary)
+    class func seed(_ context: NSManagedObjectContext) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
+        
+        do {
+            let count = try context.count(for: request)
+            if count == 0 {
+                if let url = Bundle.main.url(forResource: "fuels", withExtension: "json") {
+                    if let data = try? Data(contentsOf: url) {
+                        
+                        do {
+                            if let array = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[AnyHashable: Any]] {
+                                
+                                
+                                for dictionary in array {
+                                    if let fuel = NSEntityDescription.insertNewObject(forEntityName: Fuel.entityName(), into: context) as? Fuel {
+                                        fuel.populateWithDictionary(dictionary)
+                                    }
                                 }
                             }
+                        } catch _ {
+                            
                         }
-                    } catch _ {
-                        
                     }
+                } else {
+                    FuelSeeder.updateFuels(FuelRepository(), context: context)
                 }
             }
-            
-        } else if error != nil {
-            print("Couldn't perform fetch request: \(error)")
-        } else if count > 0 {
-            FuelSeeder.updateFuels(FuelRepository(), context: context)
+        } catch let error {
+            print("Couldn't perform fetch request: \(error.localizedDescription)")
         }
+
     }
     
-    class func updateFuels(repository: FuelRepository, context: NSManagedObjectContext) {
-        let request = NSFetchRequest(entityName: Fuel.entityName())
+    class func updateFuels(_ repository: FuelRepository, context: NSManagedObjectContext) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
         request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
         request.fetchLimit = 1
         
         do {
-            if let result = try context.executeFetchRequest(request).first as? Fuel {
+            if let result = try context.fetch(request).first as? Fuel {
                 if let date = result.publishedAt?.description {
                     let parameters = ["published_at": date]
                     
                     repository.findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
                         switch response {
-                        case .Failure(let error):
+                        case .failure(let error):
                             print("Error: \(error)")
-                        case .Success(let items):
+                        case .success(let items):
                             for dictionary in items {
                                 if !self.isDuplicateFuel(dictionary, context: context) {
-                                    if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: context) as? Fuel {
+                                    if let fuel = NSEntityDescription.insertNewObject(forEntityName: Fuel.entityName(), into: context) as? Fuel {
                                         fuel.populateWithDictionary(dictionary)
                                     }
                                 }
@@ -76,11 +76,11 @@ class FuelSeeder {
     }
     
     
-    class func isDuplicateFuel(dictionary: [NSObject: AnyObject], context: NSManagedObjectContext) -> Bool {
-        if let publishedAtString = dictionary[Fuel.kPublishedAt()] as? String,let publishedAt = NSDateFormatter.sharedISO8601DateFormatter().dateFromString(publishedAtString),let type = dictionary[Fuel.kType()] as? String {
-            let request = NSFetchRequest(entityName: Fuel.entityName())
-            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt, type)
-            let count = context.countForFetchRequest(request, error: nil)
+    class func isDuplicateFuel(_ dictionary: [AnyHashable: Any], context: NSManagedObjectContext) -> Bool {
+        if let publishedAtString = dictionary[Fuel.kPublishedAt()] as? String,let publishedAt = DateFormatter.sharedISO8601DateFormatter().date(from: publishedAtString),let type = dictionary[Fuel.kType()] as? String {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
+            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt as CVarArg, type)
+            let count = (try? context.count(for: request)) ?? 0
             return count > 0
         }
         return false

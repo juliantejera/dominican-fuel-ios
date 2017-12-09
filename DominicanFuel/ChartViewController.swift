@@ -11,7 +11,7 @@ import UIKit
 class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource, JBLineChartViewDelegate, UIPopoverPresentationControllerDelegate {
 
     var document: UIManagedDocument? 
-    var selectedDate: NSDate! = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: NSDate(), options: NSCalendarOptions.MatchFirst) {
+    var selectedDate: Date! = (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: -1, to: Date(), options: NSCalendar.Options.matchFirst) {
         didSet {
             reloadFetchedResultsController()
         }
@@ -21,7 +21,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     @IBOutlet weak var priceLabel: UILabel! {
         didSet {
-            priceLabel.textColor = UIColor.whiteColor()
+            priceLabel.textColor = UIColor.white
         }
     }
     @IBOutlet weak var deltaLabel: UILabel!
@@ -33,19 +33,19 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
             lineChart.dataSource = self
             lineChart.headerPadding = 20.0
             lineChart.footerPadding = 10.0
-            lineChart.backgroundColor = UIColor.blackColor()
+            lineChart.backgroundColor = UIColor.black
         }
     }
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    lazy var dateFormatter: NSDateFormatter = {
-        var formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+    lazy var dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
         return formatter
         }()
     
-    var fetchedResultsController: NSFetchedResultsController!
+    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     lazy var fuelViewModelFactory = FuelViewModelFactory()
     lazy var assetsManager = DeltaAssetsManager()
 
@@ -65,10 +65,10 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.black
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         reloadFetchedResultsController()
     }
@@ -83,7 +83,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
         }
     }
     
-    @IBAction func segmentedControlDidChange(sender: UISegmentedControl) {
+    @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
         if let chartRange = ChartRangeSegment(rawValue: sender.selectedSegmentIndex) {
             self.selectedDate = chartRange.date
         }
@@ -91,11 +91,11 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
 
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
-            let request = NSFetchRequest(entityName: Fuel.entityName())
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
             let type = self.filter?.type ?? "Gasolina Premium"
-            request.predicate = NSPredicate(format: "publishedAt >= %@ AND type IN %@", selectedDate.beginningOfDay, [type])
-            let typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
-            let publishedAtAscending = NSSortDescriptor(key: "publishedAt", ascending: true, selector: "compare:")
+            request.predicate = NSPredicate(format: "publishedAt >= %@ AND type IN %@", selectedDate.beginningOfDay as NSDate, [type])
+            let typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+            let publishedAtAscending = NSSortDescriptor(key: "publishedAt", ascending: true, selector: #selector(NSNumber.compare(_:)))
             request.sortDescriptors = [typeAscending, publishedAtAscending]
             
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "type", cacheName: nil)
@@ -110,11 +110,11 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        super.viewWillTransition(to: size, with: coordinator)
         
-        coordinator.animateAlongsideTransition({ (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
+        coordinator.animate(alongsideTransition: { (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
             self.lineChart?.reloadData()
         }, completion: nil)
     }
@@ -122,7 +122,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
@@ -131,22 +131,22 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     // MARK: - UIPopoverPresentationControllerDelegate
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
     
-    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         self.reloadFetchedResultsController()
     }
     
     
     // MARK: JBLineChartView Data Source
     
-    func numberOfLinesInLineChartView(lineChartView: JBLineChartView!) -> UInt {
+    func numberOfLines(in lineChartView: JBLineChartView!) -> UInt {
         return UInt(self.fetchedResultsController?.sections?.count ?? 0)
     }
 
-    func lineChartView(lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
+    func lineChartView(_ lineChartView: JBLineChartView!, numberOfVerticalValuesAtLineIndex lineIndex: UInt) -> UInt {
         if let section = self.fetchedResultsController?.sections?[Int(lineIndex)] {
             return UInt(section.numberOfObjects)
         }
@@ -154,77 +154,77 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     
-    func shouldExtendSelectionViewIntoFooterPaddingForChartView(chartView: JBChartView!) -> Bool {
+    func shouldExtendSelectionViewIntoFooterPadding(for chartView: JBChartView!) -> Bool {
         return true
     }
     
-    func shouldExtendSelectionViewIntoHeaderPaddingForChartView(chartView: JBChartView!) -> Bool {
+    func shouldExtendSelectionViewIntoHeaderPadding(for chartView: JBChartView!) -> Bool {
         return true
     }
     // MARK: Line Chart View Delegate
-    func lineChartView(lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
-        let indexPath = NSIndexPath(forRow: Int(horizontalIndex), inSection: Int(lineIndex))
+    func lineChartView(_ lineChartView: JBLineChartView!, verticalValueForHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
+        let indexPath = IndexPath(row: Int(horizontalIndex), section: Int(lineIndex))
         
-        if let fuel = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Fuel {
+        if let fuel = self.fetchedResultsController?.object(at: indexPath) as? Fuel {
             return CGFloat(fuel.price)
         }
         return 0.0
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, didSelectLineAtIndex lineIndex: UInt, horizontalIndex: UInt, touchPoint: CGPoint) {
-        let indexPath = NSIndexPath(forRow: Int(horizontalIndex), inSection: Int(lineIndex))
-        if let fuel = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Fuel {
+    func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt, touch touchPoint: CGPoint) {
+        let indexPath = IndexPath(row: Int(horizontalIndex), section: Int(lineIndex))
+        if let fuel = self.fetchedResultsController?.object(at: indexPath) as? Fuel {
             let viewModel = fuelViewModelFactory.mapToViewModel(fuel)
             self.priceLabel.text = viewModel.price
             self.deltaLabel.text = viewModel.delta
             self.deltaLabel.textColor = self.assetsManager.colorForDelta(fuel.delta)
             
-            self.setTooltipVisible(true, animated: true, atTouchPoint: touchPoint)
+            self.setTooltipVisible(true, animated: true, atTouch: touchPoint)
             self.tooltipView.textLabel.backgroundColor = self.view.tintColor
-            self.tooltipView.textLabel.textColor = UIColor.whiteColor()
+            self.tooltipView.textLabel.textColor = UIColor.white
             self.tooltipView.setText(viewModel.timespan)
         }
     }
     
     
-    func didDeselectLineInLineChartView(lineChartView: JBLineChartView!) {
+    func didDeselectLine(in lineChartView: JBLineChartView!) {
         self.setTooltipVisible(false, animated: true)
         assignDefaultValues()
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+    func lineChartView(_ lineChartView: JBLineChartView!, colorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
         return self.view.tintColor
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
+    func lineChartView(_ lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
         return self.view.tintColor
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, lineStyleForLineAtLineIndex lineIndex: UInt) -> JBLineChartViewLineStyle {
-        return JBLineChartViewLineStyle.Solid
+    func lineChartView(_ lineChartView: JBLineChartView!, lineStyleForLineAtLineIndex lineIndex: UInt) -> JBLineChartViewLineStyle {
+        return JBLineChartViewLineStyle.solid
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, dotRadiusForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
+    func lineChartView(_ lineChartView: JBLineChartView!, dotRadiusForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
         return 4.0
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
+    func lineChartView(_ lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
         return 2.0
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
+    func lineChartView(_ lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
         return false
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
+    func lineChartView(_ lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
         return false
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+    func lineChartView(_ lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
         return self.view.tintColor
     }
     
-    func lineChartView(lineChartView: JBLineChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
+    func lineChartView(_ lineChartView: JBLineChartView!, selectionColorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
         return self.view.tintColor
     }
     
@@ -237,29 +237,29 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
 
 
 enum ChartRangeSegment: Int {
-    case OneMonth
-    case ThreeMonths
-    case SixMonths
-    case OneYear
-    case TwoYears
-    case ThreeYears
+    case oneMonth
+    case threeMonths
+    case sixMonths
+    case oneYear
+    case twoYears
+    case threeYears
     
-    var date: NSDate {
-        let lastSaturday = NSDate.lastSaturday().beginningOfDay
+    var date: Date {
+        let lastSaturday = Date.lastSaturday().beginningOfDay
         
         switch self {
-        case .OneMonth:
-            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -1, toDate: lastSaturday, options: [])!
-        case .ThreeMonths:
-            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -3, toDate: lastSaturday, options: [])!
-        case .SixMonths:
-            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Month, value: -6, toDate: lastSaturday, options: [])!
-        case .OneYear:
-            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -1, toDate: lastSaturday, options: [])!
-        case .TwoYears:
-            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -2, toDate: lastSaturday, options: [])!
-        case .ThreeYears:
-            return NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Year, value: -3, toDate: lastSaturday, options: [])!
+        case .oneMonth:
+            return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: -1, to: lastSaturday, options: [])!
+        case .threeMonths:
+            return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: -3, to: lastSaturday, options: [])!
+        case .sixMonths:
+            return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.month, value: -6, to: lastSaturday, options: [])!
+        case .oneYear:
+            return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.year, value: -1, to: lastSaturday, options: [])!
+        case .twoYears:
+            return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.year, value: -2, to: lastSaturday, options: [])!
+        case .threeYears:
+            return (Calendar.current as NSCalendar).date(byAdding: NSCalendar.Unit.year, value: -3, to: lastSaturday, options: [])!
         }
     }
 }

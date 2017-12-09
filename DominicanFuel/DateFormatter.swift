@@ -9,9 +9,9 @@
 import Foundation
 
 
-private let iso8601DateFormatterInstance = NSDateFormatter()
-extension NSDateFormatter {
-    class func sharedISO8601DateFormatter() -> NSDateFormatter {
+private let iso8601DateFormatterInstance = DateFormatter()
+extension DateFormatter {
+    class func sharedISO8601DateFormatter() -> DateFormatter {
         iso8601DateFormatterInstance.dateFormat = "yyyy-MM-dd"
         return iso8601DateFormatterInstance
     }

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol AbstractFactory {
-    typealias T
+    associatedtype T
     func create() -> T
 }

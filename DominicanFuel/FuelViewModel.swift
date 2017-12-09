@@ -14,26 +14,26 @@ class FuelViewModel: CustomStringConvertible {
     var delta = ""
     var timespan = ""
     
-    convenience init(fuel: Fuel, numberFormatter: NSNumberFormatter, dateFormatter: NSDateFormatter) {
+    convenience init(fuel: Fuel, numberFormatter: NumberFormatter, dateFormatter: DateFormatter) {
         self.init()
         self.type = fuel.type
         
-        let percentageFormatter = NSNumberFormatter()
-        percentageFormatter.numberStyle = NSNumberFormatterStyle.PercentStyle
+        let percentageFormatter = NumberFormatter()
+        percentageFormatter.numberStyle = NumberFormatter.Style.percent
         percentageFormatter.maximumFractionDigits = 2
         let percentualDelta = fuel.delta / (fuel.price - fuel.delta)
-        if let delta = numberFormatter.stringFromNumber(fuel.delta), percentage = percentageFormatter.stringFromNumber(percentualDelta) where !percentualDelta.isNaN {
+        if let delta = numberFormatter.string(from: NSNumber(value: fuel.delta)), let percentage = percentageFormatter.string(from: NSNumber(value: percentualDelta)), !percentualDelta.isNaN {
             self.delta = "\(delta) (\(percentage))"
         } else {
             self.delta = ""
         }
         
-        self.price = numberFormatter.stringFromNumber(fuel.price) ?? ""
+        self.price = numberFormatter.string(from: NSNumber(value: fuel.price)) ?? ""
 
         if let date = fuel.publishedAt {
-            let sixDaysInSeconds: NSTimeInterval = 60*60*24*6
-            let effectiveUntil = NSDate(timeInterval: sixDaysInSeconds, sinceDate: date)
-            self.timespan = "\(dateFormatter.stringFromDate(date)) - \(dateFormatter.stringFromDate(effectiveUntil))"
+            let sixDaysInSeconds: TimeInterval = 60*60*24*6
+            let effectiveUntil = Date(timeInterval: sixDaysInSeconds, since: date as Date)
+            self.timespan = "\(dateFormatter.string(from: date as Date)) - \(dateFormatter.string(from: effectiveUntil))"
         }
     }
     

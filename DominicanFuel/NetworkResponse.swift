@@ -9,11 +9,11 @@
 import Foundation
 
 enum MultipleItemsNetworkResponse {
-    case Failure(NSError)
-    case Success([[NSObject: AnyObject]])
+    case failure(Error)
+    case success([[AnyHashable: Any]])
 }
 
 enum SingleItemNetworkResponse {
-    case Failure(NSError)
-    case Success([NSObject: AnyObject])
+    case failure(Error)
+    case success([AnyHashable: Any])
 }

@@ -9,6 +9,6 @@
 import UIKit
 import CoreData
 
-class FuelsTableViewControllerFetchRequest: NSFetchRequest {
+class FuelsTableViewControllerFetchRequest: NSFetchRequest<NSFetchRequestResult> {
    // TODO: Isolate request logic here
 }

@@ -8,48 +8,47 @@
 
 import UIKit
 
-class MobileDeviceRepository: NSObject, NSURLSessionDelegate {
+class MobileDeviceRepository: NSObject, URLSessionDelegate {
     let kAcceptHeaderKey = "Accept"
     let kContentTypeKey = "Content-Type"
     let kJsonContentType = "application/json; charset=utf-8"
     
-    var endPoint: NSURL
-    var session: NSURLSession?
+    var endPoint: URL
+    var session: URLSession?
     
     override init() {
-        self.endPoint = NSURL(string: "\(APIConfiguration.host())/mobile_devices")!
+        self.endPoint = URL(string: "\(APIConfiguration.host())/mobile_devices")!
         
         super.init()
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        config.HTTPAdditionalHeaders = [kAcceptHeaderKey: kJsonContentType, kContentTypeKey: kJsonContentType]
-        self.session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        let config = URLSessionConfiguration.default
+        config.httpAdditionalHeaders = [kAcceptHeaderKey: kJsonContentType, kContentTypeKey: kJsonContentType]
+        self.session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue.main)
     }
     
-    func create(item: MobileDevice, callback: (response: SingleItemNetworkResponse) -> Void) {
+    func create(_ item: MobileDevice, callback: @escaping (_ response: SingleItemNetworkResponse) -> Void) {
         
         do {
-            let request = NSMutableURLRequest(URL: self.endPoint)
-            request.HTTPMethod = "POST"
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(item.toDictionary(), options: NSJSONWritingOptions.PrettyPrinted)
+            let request = NSMutableURLRequest(url: self.endPoint)
+            request.httpMethod = "POST"
+            request.httpBody = try JSONSerialization.data(withJSONObject: item.toDictionary(), options: JSONSerialization.WritingOptions.prettyPrinted)
             
             print("Request: \(request)")
             NetworkActivityIndicator.sharedInstance().addConnection()
-            let dataTask = session?.dataTaskWithRequest(request, completionHandler: { (data, response, connectionError) -> Void in
+            let dataTask = session?.dataTask(with: request as URLRequest, completionHandler: { (data, response, connectionError) -> Void in
                 NetworkActivityIndicator.sharedInstance().removeConnection()
-                print("Response: \(response)")
                 
                 if let error = connectionError {
-                    callback(response: .Failure(error))
+                    callback(.failure(error))
                     return
                 }
                 
                 do {
-                    if let data = data, let dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableLeaves) as? [NSObject: AnyObject] {
-                        callback(response: .Success(dictionary))
+                    if let data = data, let dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableLeaves) as? [AnyHashable: Any] {
+                        callback(.success(dictionary))
                     }
                     
                 } catch let error as NSError {
-                    callback(response: .Failure(error))
+                    callback(.failure(error))
 
                 }
 
@@ -58,7 +57,7 @@ class MobileDeviceRepository: NSObject, NSURLSessionDelegate {
             dataTask?.resume()
             
         } catch let error as NSError {
-            callback(response: .Failure(error))
+            callback(.failure(error))
         }
     }
 }

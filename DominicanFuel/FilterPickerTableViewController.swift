@@ -15,22 +15,23 @@ class FilterPickerTableViewController: CoreDataTableViewController {
         super.viewDidLoad()
     
         if let managedObjectContext = document?.managedObjectContext {
-            let request = NSFetchRequest(entityName: FuelFilter.entityName())
-            request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true, selector: "compare:")]
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: FuelFilter.entityName())
+            request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true, selector: #selector(NSNumber.compare(_:)))]
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Combustibles"
     }
+    
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FilterPickerCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterPickerCell", for: indexPath)
         
-        if let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter {
+        if let filter = self.fetchedResultsController.object(at: indexPath) as? FuelFilter {
             cell.textLabel?.text = filter.type
         }
         
@@ -41,18 +42,17 @@ class FilterPickerTableViewController: CoreDataTableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
 
         self.title = ""
         if segue.identifier == "ChartsSegue" {
-            if let chartViewController = segue.destinationViewController.contentViewController as? ChartViewController, let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPathForCell(cell), let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter  {
+            if let chartViewController = segue.destination.contentViewController as? ChartViewController, let cell = sender as? UITableViewCell, let indexPath = self.tableView.indexPath(for: cell), let filter = self.fetchedResultsController.object(at: indexPath) as? FuelFilter  {
                 chartViewController.document = self.document
                 chartViewController.filter = filter
             }
         }
     }
-
-
+    
 }

@@ -34,34 +34,34 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         super.viewDidLoad()
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: "updateFuels", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(FuelsTableViewController.updateFuels), for: UIControlEvents.valueChanged)
         self.tableView.estimatedRowHeight = self.tableView.rowHeight
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         let request = GADRequest()
         request.testDevices = ["97cae6e4f669f3e8527d82ad261cc092", kGADSimulatorID]
-        googleAdView?.loadRequest(request)
+        googleAdView?.load(request)
     }
 
-    func updateFuels() {
+    @objc func updateFuels() {
         if let managedObjectContext = document?.managedObjectContext {
             
-            let request = NSFetchRequest(entityName: Fuel.entityName())
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
             request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
             request.fetchLimit = 1
             
             do {
-                let result = try managedObjectContext.executeFetchRequest(request).first as? Fuel
+                let result = try managedObjectContext.fetch(request).first as? Fuel
                 if let date = result?.publishedAt?.description {
                     let parameters = ["published_at": date]
                     FuelRepository().findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
                         switch response {
-                        case .Failure(let error):
+                        case .failure(let error):
                             print("Error: \(error)")
-                        case .Success(let items):
+                        case .success(let items):
                             for dictionary in items {
                                 if !self.isDuplicateFuel(dictionary) {
-                                    if let fuel = NSEntityDescription.insertNewObjectForEntityForName(Fuel.entityName(), inManagedObjectContext: managedObjectContext) as? Fuel {
+                                    if let fuel = NSEntityDescription.insertNewObject(forEntityName: Fuel.entityName(), into: managedObjectContext) as? Fuel {
                                         fuel.populateWithDictionary(dictionary)
                                     }
                                 }
@@ -79,11 +79,12 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     }
     
     
-    func isDuplicateFuel(dictionary: [NSObject: AnyObject]) -> Bool {
-        if let publishedAtString = dictionary[Fuel.kPublishedAt()] as? String,let publishedAt = NSDateFormatter.sharedISO8601DateFormatter().dateFromString(publishedAtString),let type = dictionary[Fuel.kType()] as? String {
-            let request = NSFetchRequest(entityName: Fuel.entityName())
-            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt, type)
-            if let count = self.document?.managedObjectContext.countForFetchRequest(request, error: nil) {
+    func isDuplicateFuel(_ dictionary: [AnyHashable: Any]) -> Bool {
+        if let publishedAtString = dictionary[Fuel.kPublishedAt()] as? String,let publishedAt = DateFormatter.sharedISO8601DateFormatter().date(from: publishedAtString),let type = dictionary[Fuel.kType()] as? String {
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
+            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt as NSDate, type)
+            
+            if let document = document, let count = try? document.managedObjectContext.count(for: request) {
                 return count > 0
             }
         }
@@ -92,14 +93,14 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {
-            let request = NSFetchRequest(entityName: Fuel.entityName())
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
             let selectedFuelFiltersTypes = FuelFilter.selectedFuelFilters(managedObjectContext).map({ $0.type })
             if selectedFuelFiltersTypes.count > 0 {
                 request.predicate = NSPredicate(format: "type IN %@", selectedFuelFiltersTypes)
             }
             
-            let publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: "compare:")
-            let typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: "localizedStandardCompare:")
+            let publishedAtDescending = NSSortDescriptor(key: "publishedAt", ascending: false, selector: #selector(NSNumber.compare(_:)))
+            let typeAscending = NSSortDescriptor(key: "type", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
             request.sortDescriptors = [publishedAtDescending, typeAscending]
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "publishedAt", cacheName: nil)
         }
@@ -107,7 +108,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let sectionInfo = self.fetchedResultsController.sections?[section]  {
             if let fuel = sectionInfo.objects?.first as? Fuel {
                 return fuelViewModelFactory.mapToViewModel(fuel).timespan
@@ -116,10 +117,10 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         return nil
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FuelCell", forIndexPath: indexPath) as! FuelTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FuelCell", for: indexPath) as! FuelTableViewCell
 
-        if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
+        if let fuel = self.fetchedResultsController.object(at: indexPath) as? Fuel {
             fuelTableViewCellFactory.configureCell(cell, forFuel: fuel)
         }
         
@@ -152,15 +153,15 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FilterSegue" {
-            if let controller = segue.destinationViewController as? FilterTableViewController {
+            if let controller = segue.destination as? FilterTableViewController {
                 controller.document = self.document
                 controller.popoverPresentationController?.delegate = self
             }
         } else if segue.identifier == "FuelDetailsSegue" {
-            if let controller = segue.destinationViewController as? FuelDetailsTableViewController {
-                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPathForCell(cell), let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
+            if let controller = segue.destination as? FuelDetailsTableViewController {
+                if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell), let fuel = self.fetchedResultsController.object(at: indexPath) as? Fuel {
                     controller.fuel = fuel
                 }
             }
@@ -169,12 +170,12 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
 
     // MARK: - UIPopoverPresentationControllerDelegate
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
     
-    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        UIView.transitionWithView(self.tableView, duration: 0.3, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        UIView.transition(with: self.tableView, duration: 0.3, options: UIViewAnimationOptions(), animations: { () -> Void in
             self.reloadFetchedResultsController()
         }) { (success) -> Void in
             // TODO
@@ -183,36 +184,36 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     
     
     // MARK: - Google Ad Banner View Delegate
-    func adViewDidReceiveAd(view: GADBannerView!) {
+    func adViewDidReceiveAd(_ view: GADBannerView) {
         
-        UIView.transitionWithView(self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: { () -> Void in
+        UIView.transition(with: self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.transitionFlipFromRight, animations: { () -> Void in
             self.tableView.tableHeaderView = view
 
         }, completion: nil)
     }
     
-    func adView(view: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+    func adView(_ view: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print(error.localizedDescription)
         
-        UIView.transitionWithView(self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.TransitionFlipFromRight, animations: { () -> Void in
+        UIView.transition(with: self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.transitionFlipFromRight, animations: { () -> Void in
             self.tableView.tableHeaderView = nil
             
         }, completion: nil)
     }
     
-    func adViewWillPresentScreen(adView: GADBannerView!) {
+    func adViewWillPresentScreen(_ adView: GADBannerView) {
         
     }
     
-    func adViewWillDismissScreen(adView: GADBannerView!) {
+    func adViewWillDismissScreen(_ adView: GADBannerView) {
         
     }
     
-    func adViewDidDismissScreen(adView: GADBannerView!) {
+    func adViewDidDismissScreen(_ adView: GADBannerView) {
         
     }
     
-    func adViewWillLeaveApplication(adView: GADBannerView!) {
+    func adViewWillLeaveApplication(_ adView: GADBannerView) {
         
     }
 }

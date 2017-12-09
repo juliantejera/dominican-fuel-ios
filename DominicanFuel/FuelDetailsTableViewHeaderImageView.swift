@@ -12,18 +12,18 @@ class FuelDetailsTableViewHeaderImageView: UIImageView {
 
     lazy var deltaAssetsManager = DeltaAssetsManager()
     
-    func update(delta: Double) {
+    func update(_ delta: Double) {
         deltaAssetsManager.updateImageView(self, delta: delta)
-        animateBorderColor(deltaAssetsManager.colorForDelta(delta).CGColor)
+        animateBorderColor(deltaAssetsManager.colorForDelta(delta).cgColor)
     }
     
-    func animateBorderColor(color: CGColor) {
+    func animateBorderColor(_ color: CGColor) {
         let animation = CABasicAnimation(keyPath: "borderColor")
-        animation.fromValue = UIColor.clearColor().CGColor
+        animation.fromValue = UIColor.clear.cgColor
         animation.toValue = color
         animation.duration = 2.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        self.layer.addAnimation(animation, forKey: "borderColor")
+        self.layer.add(animation, forKey: "borderColor")
         self.layer.borderColor = color
     }
 }

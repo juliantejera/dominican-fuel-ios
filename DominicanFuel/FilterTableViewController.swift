@@ -27,40 +27,40 @@ class FilterTableViewController: CoreDataTableViewController {
         super.viewDidLoad()
         
         if let managedObjectContext = document?.managedObjectContext {
-            let request = NSFetchRequest(entityName: FuelFilter.entityName())
-            request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true, selector: "compare:")]
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: FuelFilter.entityName())
+            request.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true, selector: #selector(NSNumber.compare(_:)))]
             self.fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         }
     }
     
     // MARK: = Table view delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         toggleAccessoryViewOfCellAtIndexPath(indexPath)
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         toggleAccessoryViewOfCellAtIndexPath(indexPath)
     }
     
-    func toggleAccessoryViewOfCellAtIndexPath(indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter {
+    func toggleAccessoryViewOfCellAtIndexPath(_ indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        if let filter = self.fetchedResultsController.object(at: indexPath) as? FuelFilter {
             filter.isSelected = !filter.isSelected
-            cell?.accessoryType = filter.isSelected ? .Checkmark : .None
+            cell?.accessoryType = filter.isSelected ? .checkmark : .none
             
-            document?.saveToURL(document!.fileURL, forSaveOperation: UIDocumentSaveOperation.ForOverwriting, completionHandler: nil)
+            document?.save(to: document!.fileURL, for: UIDocumentSaveOperation.forOverwriting, completionHandler: nil)
         }
     }
     
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("FilterCell", forIndexPath: indexPath) 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath) 
         
-        if let filter = self.fetchedResultsController.objectAtIndexPath(indexPath) as? FuelFilter {
+        if let filter = self.fetchedResultsController.object(at: indexPath) as? FuelFilter {
             cell.textLabel?.text = filter.type
-            cell.accessoryType = filter.isSelected ? .Checkmark : .None
+            cell.accessoryType = filter.isSelected ? .checkmark : .none
         }
         
         return cell

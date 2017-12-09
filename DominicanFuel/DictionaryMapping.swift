@@ -8,6 +8,6 @@
 import Foundation
 
 protocol DictionaryMapping {
-    init(dictionary: [NSObject: AnyObject])
-    func toDictionary() -> [NSObject: AnyObject]
+    init(dictionary: [AnyHashable: Any])
+    func toDictionary() -> [AnyHashable: Any]
 }

@@ -16,12 +16,12 @@ extension FuelFilter {
     }
     
     
-    class func selectedFuelFilters(managedObjectContext: NSManagedObjectContext) -> [FuelFilter] {
-        let request = NSFetchRequest(entityName: FuelFilter.entityName())
+    class func selectedFuelFilters(_ managedObjectContext: NSManagedObjectContext) -> [FuelFilter] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: FuelFilter.entityName())
         request.predicate = NSPredicate(format: "isSelected == 1", argumentArray: nil)
         
         do {
-            if let fuelFilters = try managedObjectContext.executeFetchRequest(request) as? [FuelFilter] {
+            if let fuelFilters = try managedObjectContext.fetch(request) as? [FuelFilter] {
                 return fuelFilters
             }
         } catch let error as NSError {

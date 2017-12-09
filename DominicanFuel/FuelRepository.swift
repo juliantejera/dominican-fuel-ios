@@ -8,44 +8,44 @@
 
 import Foundation
 
-class FuelRepository: NSObject, NSURLSessionDelegate {
+class FuelRepository: NSObject, URLSessionDelegate {
     let kAcceptHeaderKey = "Accept"
     let kContentTypeKey = "Content-Type"
     let kJsonContentType = "application/json; charset=utf-8"
   
-    var endPoint: NSURL
-    var session: NSURLSession?
+    var endPoint: URL
+    var session: URLSession?
     
     override init() {
-        self.endPoint = NSURL(string: "\(APIConfiguration.host())/fuels")!
+        self.endPoint = URL(string: "\(APIConfiguration.host())/fuels")!
         
         super.init()
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-        config.HTTPAdditionalHeaders = [kAcceptHeaderKey: kJsonContentType, kContentTypeKey: kJsonContentType]
-        self.session = NSURLSession(configuration: config, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        let config = URLSessionConfiguration.default
+        config.httpAdditionalHeaders = [kAcceptHeaderKey: kJsonContentType, kContentTypeKey: kJsonContentType]
+        self.session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue.main)
     }
     
-    func findAll(parameters: [String: String]?, callback: (response: MultipleItemsNetworkResponse) -> Void) {
-        let request = NSMutableURLRequest(URL: self.endPoint.URLByAppendingParameters(parameters))
-        request.HTTPMethod = "GET"
+    func findAll(_ parameters: [String: String]?, callback: @escaping (_ response: MultipleItemsNetworkResponse) -> Void) {
+        let request = NSMutableURLRequest(url: self.endPoint.URLByAppendingParameters(parameters))
+        request.httpMethod = "GET"
         print("Request: \(request)")
         NetworkActivityIndicator.sharedInstance().addConnection()
         
-        let dataTask = self.session?.dataTaskWithRequest(request, completionHandler: { (data, response, connectionError) -> Void in
+        let dataTask = self.session?.dataTask(with: request as URLRequest, completionHandler: { (data, response, connectionError) -> Void in
             NetworkActivityIndicator.sharedInstance().removeConnection()
             print("Response: \(response)")
             
             if let error = connectionError {
-                callback(response: MultipleItemsNetworkResponse.Failure(error))
+                callback(MultipleItemsNetworkResponse.failure(error as NSError))
                 return
             }
             
             do {
-                if let array = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableLeaves) as? [[NSObject: AnyObject]] {
-                    callback(response: .Success(array))
+                if let array = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as? [[AnyHashable: Any]] {
+                    callback(.success(array))
                 }
             } catch let error as NSError {
-                callback(response: MultipleItemsNetworkResponse.Failure(error))
+                callback(MultipleItemsNetworkResponse.failure(error))
             }
         })
         

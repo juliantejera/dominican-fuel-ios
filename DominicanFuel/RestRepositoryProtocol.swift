@@ -10,17 +10,17 @@ import Foundation
 
 protocol RestRepositoryProtocol {
     
-    typealias T: DictionaryMapping
+    associatedtype T: DictionaryMapping
     
-    func find(id: String, callback: ((item: T?, error: NSError?) -> Void)?)
-    func findAll(callback: ((items: [T]?, error: NSError?) -> Void)? )
-    func create(item: T, callback: ((error: NSError?) -> Void)? )
-    func update(id: String, item: T, callback: ((error: NSError?) -> Void)?)
-    func delete(id: String, callback: ((error: NSError?) -> Void)?)
+    func find(_ id: String, callback: ((_ item: T?, _ error: NSError?) -> Void)?)
+    func findAll(_ callback: ((_ items: [T]?, _ error: NSError?) -> Void)? )
+    func create(_ item: T, callback: ((_ error: NSError?) -> Void)? )
+    func update(_ id: String, item: T, callback: ((_ error: NSError?) -> Void)?)
+    func delete(_ id: String, callback: ((_ error: NSError?) -> Void)?)
     
-    func find(id: String, parameters: [String: String]?, callback: ((item: T?, error: NSError?) -> Void)?)
-    func findAll(parameters: [String: String]?, callback: ((items: [T]?, error: NSError?) -> Void)? )
-    func create(item: T, parameters: [String: String]?, callback: ((error: NSError?) -> Void)? )
-    func update(id: String, item: T, parameters: [String: String]?, callback: ((error: NSError?) -> Void)?)
-    func delete(id: String, parameters: [String: String]?, callback: ((error: NSError?) -> Void)?)
+    func find(_ id: String, parameters: [String: String]?, callback: ((_ item: T?, _ error: NSError?) -> Void)?)
+    func findAll(_ parameters: [String: String]?, callback: ((_ items: [T]?, _ error: NSError?) -> Void)? )
+    func create(_ item: T, parameters: [String: String]?, callback: ((_ error: NSError?) -> Void)? )
+    func update(_ id: String, item: T, parameters: [String: String]?, callback: ((_ error: NSError?) -> Void)?)
+    func delete(_ id: String, parameters: [String: String]?, callback: ((_ error: NSError?) -> Void)?)
 }

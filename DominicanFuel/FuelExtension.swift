@@ -19,9 +19,9 @@ extension Fuel {
     class func kPrice() -> String { return "price" }
     class func kDelta() -> String { return "delta" }
 
-    func populateWithDictionary(dictionary: [NSObject: AnyObject]) {
+    func populateWithDictionary(_ dictionary: [AnyHashable: Any]) {
         if let date = dictionary[Fuel.kPublishedAt()] as? String {
-            self.publishedAt = NSDateFormatter.sharedISO8601DateFormatter().dateFromString(date)
+            self.publishedAt = DateFormatter.sharedISO8601DateFormatter().date(from: date)
         }
         
         if let type = dictionary[Fuel.kType()] as? String {
@@ -37,11 +37,11 @@ extension Fuel {
         }
     }
     
-    func historicFuelAtDate(date: NSDate) -> Fuel? {
-        let request = NSFetchRequest(entityName: Fuel.entityName())
+    func historicFuelAtDate(_ date: Date) -> Fuel? {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
         request.fetchLimit = 1
         request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt < %@) AND type = %@", argumentArray: [date.beginningOfDay, date.tomorrow.beginningOfDay, self.type])
         request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
-        return (try? self.managedObjectContext?.executeFetchRequest(request))??.first as? Fuel
+        return (try? self.managedObjectContext?.fetch(request))??.first as? Fuel
     }
 }

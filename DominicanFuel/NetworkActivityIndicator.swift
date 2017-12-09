@@ -10,7 +10,7 @@ import UIKit
 private let networkActivityIndicator = NetworkActivityIndicator()
 class NetworkActivityIndicator: NSObject {
     
-    private var count: Int = 0 {
+    fileprivate var count: Int = 0 {
         didSet {
             updateIndicator()
         }
@@ -21,14 +21,14 @@ class NetworkActivityIndicator: NSObject {
     }
     
     func addConnection() {
-        count++
+        count += 1
     }
     
     func removeConnection() {
-        count--
+        count -= 1
     }
     
     func updateIndicator() {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = (count > 0)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = (count > 0)
     }
 }

@@ -14,7 +14,7 @@ class FuelTableViewCellFactory: NSObject {
     lazy var fuelFactory = FuelViewModelFactory()
     
 
-    func configureCell(cell: FuelTableViewCell, forFuel fuel: Fuel)  {
+    func configureCell(_ cell: FuelTableViewCell, forFuel fuel: Fuel)  {
         let fuelViewModel = fuelFactory.mapToViewModel(fuel)
         cell.viewModel = fuelViewModel
         if let imageView = cell.signImageView {

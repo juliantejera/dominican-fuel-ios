@@ -8,72 +8,72 @@
 
 import Foundation
 
-extension NSDate {
+extension Date {
     
-    class func lastSaturday(date: NSDate = NSDate()) -> NSDate {
-        if date.weekday == Weekday.Saturday.rawValue {
+    static func lastSaturday(_ date: Date = Date()) -> Date {
+        if date.weekday == Weekday.saturday.rawValue {
             return date
         }
         
         return self.lastSaturday(date.yesterday)
     }
     
-    var dateComponents: NSDateComponents {
+    var dateComponents: DateComponents {
         get {
-            let flags: NSCalendarUnit = [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.TimeZone]
-            return NSCalendar.currentCalendar().components(flags, fromDate: self)
+            let flags: NSCalendar.Unit = [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.minute, NSCalendar.Unit.second, NSCalendar.Unit.timeZone]
+            return (Calendar.current as NSCalendar).components(flags, from: self)
         }
     }
     
-    var beginningOfDay: NSDate {
-        return NSCalendar.currentCalendar().startOfDayForDate(self)
+    var beginningOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
     }
         
     var weekday: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Weekday, fromDate: self)
+        return (Calendar.current as NSCalendar).component(NSCalendar.Unit.weekday, from: self)
     }
     
     var year: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Year, fromDate: self)
+        return (Calendar.current as NSCalendar).component(NSCalendar.Unit.year, from: self)
     }
     
     var month: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Month, fromDate: self)
+        return (Calendar.current as NSCalendar).component(NSCalendar.Unit.month, from: self)
     }
     
     var day: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Day, fromDate: self)
+        return (Calendar.current as NSCalendar).component(NSCalendar.Unit.day, from: self)
     }
     
     var hour: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Hour, fromDate: self)
+        return (Calendar.current as NSCalendar).component(NSCalendar.Unit.hour, from: self)
     }
     
     var minute: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Minute, fromDate: self)
+        return (Calendar.current as NSCalendar).component(NSCalendar.Unit.minute, from: self)
     }
     
     var second: Int {
-        return NSCalendar.currentCalendar().component(NSCalendarUnit.Second, fromDate: self)
+        return (Calendar.current as NSCalendar).component(NSCalendar.Unit.second, from: self)
     }
     
-    var yesterday: NSDate {
-        let oneDayInSeconds: NSTimeInterval = 60*60*24
-        return NSDate(timeInterval: -oneDayInSeconds, sinceDate: self)
+    var yesterday: Date {
+        let oneDayInSeconds: TimeInterval = 60*60*24
+        return Date(timeInterval: -oneDayInSeconds, since: self)
     }
     
-    var tomorrow: NSDate {
-        let oneDayInSeconds: NSTimeInterval = 60*60*24
-        return NSDate(timeInterval: oneDayInSeconds, sinceDate: self)
+    var tomorrow: Date {
+        let oneDayInSeconds: TimeInterval = 60*60*24
+        return Date(timeInterval: oneDayInSeconds, since: self)
     }
 }
 
 enum Weekday: Int {
-    case Sunday = 1
-    case Monday = 2
-    case Tuesday = 3
-    case Wednesday = 4
-    case Thursday = 5
-    case Friday = 6
-    case Saturday = 7
+    case sunday = 1
+    case monday = 2
+    case tuesday = 3
+    case wednesday = 4
+    case thursday = 5
+    case friday = 6
+    case saturday = 7
 }

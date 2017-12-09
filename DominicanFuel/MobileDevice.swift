@@ -16,8 +16,8 @@ class MobileDevice {
         self.pushNotificationToken = pushNotificationToken
     }
     
-    func toDictionary() -> [NSObject: AnyObject] {
-        var dictionary = [NSObject: AnyObject]()
+    func toDictionary() -> [AnyHashable: Any] {
+        var dictionary = [AnyHashable: Any]()
         dictionary[MobileDevice.kPushNotificationToken()] = self.pushNotificationToken
         dictionary[MobileDevice.kOperatingSystem()] = self.operatingSystem
         return dictionary

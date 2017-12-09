@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension NSURL {
+extension URL {
     
-    func URLByAppendingParameters(parameters: [String: String]?) -> NSURL{
+    func URLByAppendingParameters(_ parameters: [String: String]?) -> URL{
         
         if parameters == nil {
             return self
@@ -20,13 +20,13 @@ extension NSURL {
         for (key, value) in parameters! {
             
             
-            if let escapedKey = key.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet()), let escapedValue = value.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet()) {
+            if let escapedKey = key.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics), let escapedValue = value.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics) {
                 array.append("\(escapedKey)=\(escapedValue)")
             }
         }
         
-        let queryString = array.joinWithSeparator("&")
+        let queryString = array.joined(separator: "&")
         
-        return NSURL(string: "\(self.absoluteString)?\(queryString)")!
+        return URL(string: "\(self.absoluteString)?\(queryString)")!
     }
 }
