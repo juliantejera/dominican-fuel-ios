@@ -263,22 +263,22 @@
 		9057CA6F1ABA657C007740B0 /* DominicanFuel */ = {
 			isa = PBXGroup;
 			children = (
+				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
+				90A7FF911AE20A1900A8597C /* Cells */,
+				906CE7C91ABDDE6000B45CCF /* Controllers */,
+				902EF58B1AD0270800661600 /* Core Data Seeders */,
+				902EF56F1ACB872B00661600 /* CoreData */,
 				B970797B1FDC723D004EA2CC /* DominicanFuel.entitlements */,
 				90AD3B431AD7D26E00785573 /* Enum */,
 				90AD3B3A1AD61B0700785573 /* Extensions */,
-				902EF56F1ACB872B00661600 /* CoreData */,
-				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
-				9057CA951ABA6878007740B0 /* Models */,
-				9057CA9A1ABA6A19007740B0 /* View Models */,
-				906CE7C91ABDDE6000B45CCF /* Controllers */,
-				90A7FF911AE20A1900A8597C /* Cells */,
-				902EF58B1AD0270800661600 /* Core Data Seeders */,
 				902EF5981AD0C44E00661600 /* Fetch Requests */,
-				905B0A2A1B16C3FF00EABB6F /* Views */,
-				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
+				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
 				90E12E0B1B1BE55D00AF3A52 /* LaunchScreen.storyboard */,
 				9057CA791ABA657C007740B0 /* Main.storyboard */,
+				9057CA951ABA6878007740B0 /* Models */,
 				9057CA701ABA657C007740B0 /* Supporting Files */,
+				9057CA9A1ABA6A19007740B0 /* View Models */,
+				905B0A2A1B16C3FF00EABB6F /* Views */,
 			);
 			path = DominicanFuel;
 			sourceTree = "<group>";
