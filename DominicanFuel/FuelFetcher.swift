@@ -17,9 +17,9 @@ class FuelFetcher {
     }
     
     func mostRecentFuel() -> Fuel? {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
+        let request = NSFetchRequest<Fuel>(entityName: Fuel.entityName())
         request.fetchLimit = 1
         request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
-        return (try? managedObjectContext.fetch(request))?.first as? Fuel
+        return (try? managedObjectContext.fetch(request))?.first
     }
 }

@@ -21,19 +21,21 @@ class FuelRepository: NSObject, URLSessionDelegate {
         
         super.init()
         let config = URLSessionConfiguration.default
-        config.httpAdditionalHeaders = [kAcceptHeaderKey: kJsonContentType, kContentTypeKey: kJsonContentType]
+        config.httpAdditionalHeaders = [
+            kAcceptHeaderKey: kJsonContentType,
+            kContentTypeKey: kJsonContentType
+        ]
         self.session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue.main)
     }
     
     func findAll(_ parameters: [String: String]?, callback: @escaping (_ response: MultipleItemsNetworkResponse) -> Void) {
         let request = NSMutableURLRequest(url: self.endPoint.URLByAppendingParameters(parameters))
         request.httpMethod = "GET"
-        print("Request: \(request)")
         NetworkActivityIndicator.sharedInstance().addConnection()
         
         let dataTask = self.session?.dataTask(with: request as URLRequest, completionHandler: { (data, response, connectionError) -> Void in
             NetworkActivityIndicator.sharedInstance().removeConnection()
-            print("Response: \(response)")
+
             
             if let error = connectionError {
                 callback(MultipleItemsNetworkResponse.failure(error as NSError))
@@ -41,7 +43,7 @@ class FuelRepository: NSObject, URLSessionDelegate {
             }
             
             do {
-                if let array = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableLeaves) as? [[AnyHashable: Any]] {
+                if let data = data, let array = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [[AnyHashable: Any]] {
                     callback(.success(array))
                 }
             } catch let error as NSError {

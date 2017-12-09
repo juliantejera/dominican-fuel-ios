@@ -39,19 +39,19 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         let request = GADRequest()
-        request.testDevices = ["97cae6e4f669f3e8527d82ad261cc092", kGADSimulatorID]
+        request.testDevices = [kGADSimulatorID]
         googleAdView?.load(request)
     }
 
     @objc func updateFuels() {
         if let managedObjectContext = document?.managedObjectContext {
             
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
+            let request = NSFetchRequest<Fuel>(entityName: Fuel.entityName())
             request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
             request.fetchLimit = 1
             
             do {
-                let result = try managedObjectContext.fetch(request).first as? Fuel
+                let result = try managedObjectContext.fetch(request).first
                 if let date = result?.publishedAt?.description {
                     let parameters = ["published_at": date]
                     FuelRepository().findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
@@ -129,27 +129,27 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     
     // MARK: - Table View Delegate
     
-//    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-//        
-//        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Compartir") { (action, indexPath) -> Void in
-//            if let fuel = self.fetchedResultsController.objectAtIndexPath(indexPath) as? Fuel {
-//                var viewModel = self.fuelViewModelFactory.mapToViewModel(fuel)
-//                let textToShare = viewModel.description
-//                let controller = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
-//                controller.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
-//                self.presentViewController(controller, animated: true, completion: nil)
-//            }
-//        }
-//        
-//        shareAction.backgroundEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-//        
-//        return [shareAction]
-//    }
-//    
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//    }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let shareAction = UITableViewRowAction(style: .normal, title: "Compartir") { (action, indexPath) -> Void in
+            if let fuel = self.fetchedResultsController.object(at: indexPath) as? Fuel {
+                let viewModel = self.fuelViewModelFactory.mapToViewModel(fuel)
+                let textToShare = viewModel.description
+                let controller = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+                controller.popoverPresentationController?.barButtonItem = self.navigationItem.rightBarButtonItem
+                self.present(controller, animated: true, completion: nil)
+            }
+            
+        }
+        
+        shareAction.backgroundEffect = UIBlurEffect(style: .dark)
+        
+        return [shareAction]
+    }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44.0
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -186,7 +186,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     // MARK: - Google Ad Banner View Delegate
     func adViewDidReceiveAd(_ view: GADBannerView) {
         
-        UIView.transition(with: self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.transitionFlipFromRight, animations: { () -> Void in
+        UIView.transition(with: self.tableView.tableHeaderView!, duration: 0.2, options: .transitionFlipFromRight, animations: { () -> Void in
             self.tableView.tableHeaderView = view
 
         }, completion: nil)
@@ -195,7 +195,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     func adView(_ view: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         print(error.localizedDescription)
         
-        UIView.transition(with: self.tableView.tableHeaderView!, duration: 0.2, options: UIViewAnimationOptions.transitionFlipFromRight, animations: { () -> Void in
+        UIView.transition(with: self.tableView.tableHeaderView!, duration: 0.2, options: .transitionFlipFromRight, animations: { () -> Void in
             self.tableView.tableHeaderView = nil
             
         }, completion: nil)

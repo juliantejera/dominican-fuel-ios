@@ -39,14 +39,12 @@
 		902EF5971AD0B09700661600 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902EF5951AD0B09700661600 /* DateFormatter.swift */; };
 		903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
 		903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */; };
-		903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */; };
 		905067EC1B0AE89E00B63BEC /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */; };
 		905067ED1B0AE8C100B63BEC /* FuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */; };
 		9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA721ABA657C007740B0 /* AppDelegate.swift */; };
 		9057CA761ABA657C007740B0 /* DominicanFuel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA741ABA657C007740B0 /* DominicanFuel.xcdatamodeld */; };
 		9057CA7B1ABA657C007740B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA791ABA657C007740B0 /* Main.storyboard */; };
 		9057CA7D1ABA657C007740B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9057CA7C1ABA657C007740B0 /* Images.xcassets */; };
-		9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */; };
 		9057CA9E1ABA6B3B007740B0 /* FuelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */; };
 		9057CAA41ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */; };
 		9057CAA51ABDB0D8007740B0 /* DictionaryMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */; };
@@ -54,8 +52,6 @@
 		9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */; };
 		9057CAA81ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */; };
 		9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */; };
-		9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA21ABDB0D8007740B0 /* RestRepository.swift */; };
-		9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA21ABDB0D8007740B0 /* RestRepository.swift */; };
 		9057CAAC1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 		9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */; };
 		905B0A1F1B16BBA900EABB6F /* FuelTableViewCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */; };
@@ -89,7 +85,6 @@
 		90AD3B3D1AD61B1D00785573 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3B1AD61B1D00785573 /* ViewController.swift */; };
 		90AD3B3F1AD69F2800785573 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3E1AD69F2800785573 /* Date.swift */; };
 		90AD3B401AD69F2C00785573 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B3E1AD69F2800785573 /* Date.swift */; };
-		90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */; };
 		90AD3B441AD7D43B00785573 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B695671AC4F45100BC8B7B /* ChartViewController.swift */; };
 		90B3C7E51B535BC500354846 /* JBBaseChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */; };
 		90B3C7E81B535C0200354846 /* JBChartTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B3C7E71B535C0200354846 /* JBChartTooltipView.m */; };
@@ -138,7 +133,6 @@
 		902EF5921AD0AD1900661600 /* fuels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fuels.json; sourceTree = "<group>"; };
 		902EF5951AD0B09700661600 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		903DC21A1AC2CA690006EE71 /* FuelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModel.swift; sourceTree = "<group>"; };
-		903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelViewModelTests.swift; sourceTree = "<group>"; };
 		905067EB1B0AE89E00B63BEC /* FuelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCell.swift; sourceTree = "<group>"; };
 		9057CA6D1ABA657C007740B0 /* DominicanFuel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DominicanFuel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9057CA711ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,12 +142,10 @@
 		9057CA7C1ABA657C007740B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9057CA851ABA657C007740B0 /* DominicanFuelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DominicanFuelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9057CA8A1ABA657C007740B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominicanFuelTests.swift; sourceTree = "<group>"; };
 		9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTests.swift; sourceTree = "<group>"; };
 		9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryMapping.swift; sourceTree = "<group>"; };
 		9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
 		9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepositoryProtocol.swift; sourceTree = "<group>"; };
-		9057CAA21ABDB0D8007740B0 /* RestRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestRepository.swift; sourceTree = "<group>"; };
 		9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
 		905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelTableViewCellFactory.swift; sourceTree = "<group>"; };
 		905B0A241B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewHeaderImageView.swift; sourceTree = "<group>"; };
@@ -182,7 +174,6 @@
 		90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelDetailsTableViewController.swift; sourceTree = "<group>"; };
 		90AD3B3B1AD61B1D00785573 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		90AD3B3E1AD69F2800785573 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
 		90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBaseChartViewController.h; sourceTree = "<group>"; };
 		90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBaseChartViewController.m; sourceTree = "<group>"; };
 		90B3C7E61B535C0200354846 /* JBChartTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipView.h; sourceTree = "<group>"; };
@@ -195,6 +186,7 @@
 		90BA14471AE74451007BB5F9 /* FuelRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuelRepository.swift; sourceTree = "<group>"; };
 		90E12E091B18901D00AF3A52 /* TableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewModel.swift; sourceTree = "<group>"; };
 		90E12E0B1B1BE55D00AF3A52 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B970797B1FDC723D004EA2CC /* DominicanFuel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DominicanFuel.entitlements; sourceTree = "<group>"; };
 		BEE9B81CD160F482367850A1 /* Pods-DominicanFuelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C90E4531F9993C447E596310 /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
 		E863179124E12B428385C5A0 /* Pods-DominicanFuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -271,21 +263,22 @@
 		9057CA6F1ABA657C007740B0 /* DominicanFuel */ = {
 			isa = PBXGroup;
 			children = (
+				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
+				90A7FF911AE20A1900A8597C /* Cells */,
+				906CE7C91ABDDE6000B45CCF /* Controllers */,
+				902EF58B1AD0270800661600 /* Core Data Seeders */,
+				902EF56F1ACB872B00661600 /* CoreData */,
+				B970797B1FDC723D004EA2CC /* DominicanFuel.entitlements */,
 				90AD3B431AD7D26E00785573 /* Enum */,
 				90AD3B3A1AD61B0700785573 /* Extensions */,
-				902EF56F1ACB872B00661600 /* CoreData */,
-				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
-				9057CA951ABA6878007740B0 /* Models */,
-				9057CA9A1ABA6A19007740B0 /* View Models */,
-				906CE7C91ABDDE6000B45CCF /* Controllers */,
-				90A7FF911AE20A1900A8597C /* Cells */,
-				902EF58B1AD0270800661600 /* Core Data Seeders */,
 				902EF5981AD0C44E00661600 /* Fetch Requests */,
-				905B0A2A1B16C3FF00EABB6F /* Views */,
-				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
+				9057CAAE1ABDB0F8007740B0 /* JTRestRepository */,
 				90E12E0B1B1BE55D00AF3A52 /* LaunchScreen.storyboard */,
 				9057CA791ABA657C007740B0 /* Main.storyboard */,
+				9057CA951ABA6878007740B0 /* Models */,
 				9057CA701ABA657C007740B0 /* Supporting Files */,
+				9057CA9A1ABA6A19007740B0 /* View Models */,
+				905B0A2A1B16C3FF00EABB6F /* Views */,
 			);
 			path = DominicanFuel;
 			sourceTree = "<group>";
@@ -305,11 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				902EF57C1ACC0D3100661600 /* DominicanFuelTests-Bridging-Header.h */,
-				9057CA8B1ABA657C007740B0 /* DominicanFuelTests.swift */,
 				9057CA891ABA657C007740B0 /* Supporting Files */,
 				9057CA9D1ABA6B3B007740B0 /* FuelTests.swift */,
-				903DC21D1AC3ABFD0006EE71 /* FuelViewModelTests.swift */,
-				90AD3B411AD69F9000785573 /* DateExtensionsTests.swift */,
 			);
 			path = DominicanFuelTests;
 			sourceTree = "<group>";
@@ -358,7 +348,6 @@
 				9057CA9F1ABDB0D8007740B0 /* DictionaryMapping.swift */,
 				9057CAA01ABDB0D8007740B0 /* NetworkActivityIndicator.swift */,
 				9057CAA11ABDB0D8007740B0 /* RestRepositoryProtocol.swift */,
-				9057CAA21ABDB0D8007740B0 /* RestRepository.swift */,
 				9057CAA31ABDB0D8007740B0 /* NSURLExtension.swift */,
 				905FE8C51AEC6C6400745D97 /* AbstractFactory.swift */,
 				905FE8C81AEC73BA00745D97 /* NetworkResponse.swift */,
@@ -377,21 +366,21 @@
 		906CE7C91ABDDE6000B45CCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */,
-				90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */,
-				90B3C7E61B535C0200354846 /* JBChartTooltipView.h */,
-				90B3C7E71B535C0200354846 /* JBChartTooltipView.m */,
-				90B3C7E91B535D1000354846 /* JBChartTooltipTipView.h */,
-				90B3C7EA1B535D1000354846 /* JBChartTooltipTipView.m */,
-				90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */,
+				90B695671AC4F45100BC8B7B /* ChartViewController.swift */,
 				902EF57D1ACC0D3200661600 /* CoreDataTableViewController.h */,
 				902EF57E1ACC0D3200661600 /* CoreDataTableViewController.m */,
-				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
-				90B695671AC4F45100BC8B7B /* ChartViewController.swift */,
 				90734EAA1BBB7AEB00317387 /* FilterPickerTableViewController.swift */,
 				902EF5601AC9692100661600 /* FilterTableViewController.swift */,
 				90A7FF8F1AE2052700A8597C /* FuelDetailsTableViewController.swift */,
+				906CE7CA1ABDDE8400B45CCF /* FuelsTableViewController.swift */,
+				90B3C7E31B535BC500354846 /* JBBaseChartViewController.h */,
+				90B3C7E41B535BC500354846 /* JBBaseChartViewController.m */,
+				90B3C7E91B535D1000354846 /* JBChartTooltipTipView.h */,
+				90B3C7EA1B535D1000354846 /* JBChartTooltipTipView.m */,
+				90B3C7E61B535C0200354846 /* JBChartTooltipView.h */,
+				90B3C7E71B535C0200354846 /* JBChartTooltipView.m */,
 				905E526F1B5B1FF70019E419 /* SettingsViewController.swift */,
+				90B3C7EC1B53D01E00354846 /* TooltipViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -504,13 +493,18 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Julian Tejera";
 				TargetAttributes = {
 					9057CA6C1ABA657C007740B0 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = VDYWQG4YL7;
 						LastSwiftMigration = 0910;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					9057CA841ABA657C007740B0 = {
 						CreatedOnToolsVersion = 6.2;
@@ -707,7 +701,6 @@
 				906093131AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */,
 				90B3C7EB1B535D1000354846 /* JBChartTooltipTipView.m in Sources */,
 				9057CA731ABA657C007740B0 /* AppDelegate.swift in Sources */,
-				9057CAAA1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				902EF57F1ACC0D3200661600 /* CoreDataTableViewController.m in Sources */,
 				902EF5611AC9692100661600 /* FilterTableViewController.swift in Sources */,
 				902EF5711ACB878900661600 /* FuelFilter.swift in Sources */,
@@ -729,14 +722,12 @@
 				907529FB1B24175200583DD6 /* FuelFetcher.swift in Sources */,
 				90AD3B441AD7D43B00785573 /* ChartViewController.swift in Sources */,
 				902EF5971AD0B09700661600 /* DateFormatter.swift in Sources */,
-				90AD3B421AD69F9000785573 /* DateExtensionsTests.swift in Sources */,
 				903DC21C1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				902EF5751ACB899100661600 /* ManagedDocumentCoordinator.swift in Sources */,
 				905E52711B5B20D40019E419 /* SettingsViewController.swift in Sources */,
 				9057CAAD1ABDB0D8007740B0 /* NSURLExtension.swift in Sources */,
 				90BA14491AE74A04007BB5F9 /* FuelRepository.swift in Sources */,
 				905FE8CA1AEC73BA00745D97 /* NetworkResponse.swift in Sources */,
-				903DC21E1AC3ABFD0006EE71 /* FuelViewModelTests.swift in Sources */,
 				9057CAA71ABDB0D8007740B0 /* NetworkActivityIndicator.swift in Sources */,
 				902EF5721ACB878900661600 /* FuelFilter.swift in Sources */,
 				906093141AE295A3003FFEE2 /* FuelViewModelFactory.swift in Sources */,
@@ -750,7 +741,6 @@
 				905B0A361B16CFA200EABB6F /* APIConfiguration.swift in Sources */,
 				905B0A331B16CA9B00EABB6F /* FuelsTableViewControllerFetchRequest.swift in Sources */,
 				902EF5651ACA43E000661600 /* FuelType.swift in Sources */,
-				9057CA8C1ABA657C007740B0 /* DominicanFuelTests.swift in Sources */,
 				905B0A261B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */,
 				905B0A2D1B16C4FF00EABB6F /* DeltaAssetsManager.swift in Sources */,
 				902EF5781ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
@@ -761,7 +751,6 @@
 				902EF5831ACCDF1E00661600 /* CoreDataSeeder.swift in Sources */,
 				906CE7CC1ABDDE8400B45CCF /* FuelsTableViewController.swift in Sources */,
 				905FE8C71AEC6C6400745D97 /* AbstractFactory.swift in Sources */,
-				9057CAAB1ABDB0D8007740B0 /* RestRepository.swift in Sources */,
 				9057CAA91ABDB0D8007740B0 /* RestRepositoryProtocol.swift in Sources */,
 				902EF58A1AD0242400661600 /* FuelExtension.swift in Sources */,
 				905B0A201B16BC7D00EABB6F /* FuelTableViewCellFactory.swift in Sources */,
@@ -798,13 +787,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -814,6 +811,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -832,6 +830,7 @@
 				PROVISIONING_PROFILE = "afff5c17-805f-4236-b192-a2d82e2d0549";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -844,13 +843,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -859,6 +866,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -869,6 +877,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "afff5c17-805f-4236-b192-a2d82e2d0549";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -880,6 +890,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DominicanFuel/DominicanFuel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = VDYWQG4YL7;
@@ -890,7 +901,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -901,6 +912,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DominicanFuel/DominicanFuel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = VDYWQG4YL7;
@@ -910,7 +922,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
@@ -938,7 +950,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
 			};
@@ -962,7 +974,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DominicanFuel/DominicanFuel-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DominicanFuel.app/DominicanFuel";
 			};
