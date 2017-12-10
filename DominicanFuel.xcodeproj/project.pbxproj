@@ -454,6 +454,7 @@
 				9057CA6B1ABA657C007740B0 /* Resources */,
 				4FE46A08F2F03CC6FFB15FC5 /* [CP] Embed Pods Frameworks */,
 				17A35C6C239B1AB792A1B5B5 /* [CP] Copy Pods Resources */,
+				B999C54B1FDCBCE1006BCD4B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -639,6 +640,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B999C54B1FDCBCE1006BCD4B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 91df767dc78586a6578732f657ed85db9195b064 6a4185c5b300bcb1243a6882c598319010b8f730f5a7fe535b6bee3e4072794e";
 		};
 		EEE360C94E7891AD56041407 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

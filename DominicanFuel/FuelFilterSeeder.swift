@@ -16,7 +16,16 @@ class FuelFilterSeeder {
         do {
             let count = try context.count(for: request)
             if count == 0 {
-                let types = ["Gasolina Premium", "Gasolina Regular", "Gasoil Óptimo","Gasoil Premium", "Gasoil Regular", "Gas Licuado de Petróleo (GLP)", "Kerosene", "Gas Natural Vehicular (GNV)"]
+                let types = [
+                    "Gasolina Premium",
+                    "Gasolina Regular",
+                    "Gasoil Óptimo",
+                    "Gasoil Premium",
+                    "Gasoil Regular",
+                    "Gas Licuado de Petróleo (GLP)",
+                    "Kerosene",
+                    "Gas Natural Vehicular (GNV)"
+                ]
                 
                 for i in 0 ..< types.count {
                     if let fuelFilter = NSEntityDescription.insertNewObject(forEntityName: FuelFilter.entityName(), into: context) as? FuelFilter {
