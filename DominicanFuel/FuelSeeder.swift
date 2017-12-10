@@ -74,7 +74,7 @@ class FuelSeeder {
     class func isDuplicateFuel(_ dictionary: [AnyHashable: Any], context: NSManagedObjectContext) -> Bool {
         if let publishedAtString = dictionary[Fuel.kPublishedAt()] as? String,let publishedAt = DateFormatter.sharedISO8601DateFormatter().date(from: publishedAtString),let type = dictionary[Fuel.kType()] as? String {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
-            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt as CVarArg, type)
+            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt as NSDate, type)
             let count = (try? context.count(for: request)) ?? 0
             return count > 0
         }
