@@ -27,16 +27,19 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         }
     }
     
+    override var tableView: UITableView! {
+        didSet {
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl?.addTarget(self, action: #selector(FuelsTableViewController.updateFuels), for: UIControlEvents.valueChanged)
+        }
+    }
+    
     lazy var fuelViewModelFactory = FuelViewModelFactory()
     lazy var fuelTableViewCellFactory = FuelTableViewCellFactory()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(FuelsTableViewController.updateFuels), for: UIControlEvents.valueChanged)
-        self.tableView.estimatedRowHeight = self.tableView.rowHeight
-        self.tableView.rowHeight = UITableViewAutomaticDimension
         
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
@@ -44,52 +47,16 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     }
 
     @objc func updateFuels() {
-        if let managedObjectContext = document?.managedObjectContext {
-            
-            let request = NSFetchRequest<Fuel>(entityName: Fuel.entityName())
-            request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
-            request.fetchLimit = 1
-            
-            do {
-                let result = try managedObjectContext.fetch(request).first
-                if let date = result?.publishedAt?.description {
-                    let parameters = ["published_at": date]
-                    FuelRepository().findAll(parameters) { (response: MultipleItemsNetworkResponse) -> Void in
-                        switch response {
-                        case .failure(let error):
-                            print("Error: \(error)")
-                        case .success(let items):
-                            for dictionary in items {
-                                if !self.isDuplicateFuel(dictionary) {
-                                    if let fuel = NSEntityDescription.insertNewObject(forEntityName: Fuel.entityName(), into: managedObjectContext) as? Fuel {
-                                        fuel.populateWithDictionary(dictionary)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-            } catch _ {
-                
-            }
-            
+        guard let context = document?.managedObjectContext else {
             self.refreshControl?.endRefreshing()
+            return
         }
+        
+        let fuelSynchronizer = FuelPersistenceSynchronizer(context: context)
+        fuelSynchronizer.synchronize()
+        self.refreshControl?.endRefreshing()
     }
     
-    
-    func isDuplicateFuel(_ dictionary: [AnyHashable: Any]) -> Bool {
-        if let publishedAtString = dictionary[Fuel.kPublishedAt()] as? String,let publishedAt = DateFormatter.sharedISO8601DateFormatter().date(from: publishedAtString),let type = dictionary[Fuel.kType()] as? String {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
-            request.predicate = NSPredicate(format: "publishedAt = %@ AND type = %@", publishedAt as NSDate, type)
-            
-            if let document = document, let count = try? document.managedObjectContext.count(for: request) {
-                return count > 0
-            }
-        }
-        return false
-    }
     
     func reloadFetchedResultsController() {
         if let managedObjectContext = document?.managedObjectContext {

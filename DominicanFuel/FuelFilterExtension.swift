@@ -15,7 +15,6 @@ extension FuelFilter {
         return "FuelFilter"
     }
     
-    
     class func selectedFuelFilters(_ managedObjectContext: NSManagedObjectContext) -> [FuelFilter] {
         let request = NSFetchRequest<FuelFilter>(entityName: FuelFilter.entityName())
         request.predicate = NSPredicate(format: "isSelected == 1", argumentArray: nil)
