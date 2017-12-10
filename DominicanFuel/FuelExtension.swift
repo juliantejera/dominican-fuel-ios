@@ -14,34 +14,22 @@ extension Fuel {
         return "Fuel"
     }
     
-    class func kPublishedAt() -> String { return "published_at" }
-    class func kType() -> String { return "fuel_type" }
-    class func kPrice() -> String { return "price" }
-    class func kDelta() -> String { return "delta" }
-
-    func populateWithDictionary(_ dictionary: [AnyHashable: Any]) {
-        if let date = dictionary[Fuel.kPublishedAt()] as? String {
-            self.publishedAt = DateFormatter.sharedISO8601DateFormatter().date(from: date)
-        }
-        
-        if let type = dictionary[Fuel.kType()] as? String {
-            self.type = type
-        }
-        
-        if let price = dictionary[Fuel.kPrice()] as? Double {
-            self.price = price
-        }
-        
-        if let delta = dictionary[Fuel.kDelta()] as? Double {
-            self.delta = delta
-        }
+    static func createFetchRequest() -> NSFetchRequest<Fuel> {
+        return NSFetchRequest<Fuel>(entityName: Fuel.entityName())
     }
     
-    func historicFuelAtDate(_ date: Date) -> Fuel? {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Fuel.entityName())
+    func update(proxy: FuelProxy) {
+        self.publishedAt = proxy.publishedAt
+        self.type = proxy.type
+        self.price = proxy.price
+        self.delta = proxy.delta
+    }
+
+    func historicFuel(at date: Date) -> Fuel? {
+        let request = NSFetchRequest<Fuel>(entityName: Fuel.entityName())
         request.fetchLimit = 1
         request.predicate = NSPredicate(format: "(publishedAt >= %@ AND publishedAt < %@) AND type = %@", argumentArray: [date.beginningOfDay, date.tomorrow.beginningOfDay, self.type])
         request.sortDescriptors = [NSSortDescriptor(key: "publishedAt", ascending: false)]
-        return (try? self.managedObjectContext?.fetch(request))??.first as? Fuel
+        return (try? self.managedObjectContext?.fetch(request))??.first
     }
 }

@@ -12,7 +12,6 @@ class FuelTableViewCellFactory: NSObject {
     
     lazy var deltaAssetsManager = DeltaAssetsManager()
     lazy var fuelFactory = FuelViewModelFactory()
-    
 
     func configureCell(_ cell: FuelTableViewCell, forFuel fuel: Fuel)  {
         let fuelViewModel = fuelFactory.mapToViewModel(fuel)

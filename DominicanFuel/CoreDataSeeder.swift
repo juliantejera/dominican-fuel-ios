@@ -18,7 +18,8 @@ class CoreDataSeeder {
     
     func seed() {
         let context = document.managedObjectContext
-        FuelSeeder.seed(context)
+        let fuelSynchronizer = FuelPersistenceSynchronizer(context: context)
+        fuelSynchronizer.seed()
         FuelFilterSeeder.seed(context)
     }
 }

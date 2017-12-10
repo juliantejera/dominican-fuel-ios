@@ -30,20 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         Fabric.with([Crashlytics.self])
-        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .badge, .alert], categories: nil))
-        application.registerForRemoteNotifications()
-        
-        
-        if let _ = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
-            application.applicationIconBadgeNumber = 0
-            
-        }
-        
         setupAppirater()
         
-        let coordinator = DominicanFuelManagedDocumentCoordinator()
+        let coordinator = ManagedDocumentCoordinator()
         coordinator.delegate = self
-        coordinator.setupDocument()
+        coordinator.setupDocument("DominicanFuel")
         return true
     }
 
@@ -54,13 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
     // MARK: Remote Notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         var token = deviceToken.description.trimmingCharacters(in: CharacterSet(charactersIn: "<>"))
-        token = token.replacingOccurrences(of: " ", with: "")
-        
-        let mobileDevice = MobileDevice(pushNotificationToken: token)
-        MobileDeviceRepository().create(mobileDevice, callback: { (response) -> Void in
-            // NO ACTION
-        })
-        
+        token = token.replacingOccurrences(of: " ", with: "")        
         print("Device Token: \(token)")
     }
     
