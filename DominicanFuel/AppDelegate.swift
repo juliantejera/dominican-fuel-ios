@@ -81,6 +81,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
         
         let seeder = CoreDataSeeder(document: document)
         seeder.seed()
+        
+        // Migrations
+        RemoveGasoilOptimoCoreDataMigration(context: document.managedObjectContext).perform()
     }
     
     func managedDocumentCoordinator(_ coordinator: ManagedDocumentCoordinator, didFailWithError error: NSError) {

@@ -91,6 +91,8 @@
 		B999C56F1FDCCBFF006BCD4B /* FuelCoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C56E1FDCCBFF006BCD4B /* FuelCoreDataStore.swift */; };
 		B999C5721FDCD234006BCD4B /* FuelPersistenceSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C5711FDCD234006BCD4B /* FuelPersistenceSynchronizer.swift */; };
 		B999C5731FDCDB8E006BCD4B /* FuelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C56B1FDCCA80006BCD4B /* FuelProxy.swift */; };
+		B999C57B1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C57A1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift */; };
+		B999C57D1FDF6EBD006BCD4B /* CoreDataMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C57C1FDF6EBD006BCD4B /* CoreDataMigration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +187,8 @@
 		B999C56B1FDCCA80006BCD4B /* FuelProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelProxy.swift; sourceTree = "<group>"; };
 		B999C56E1FDCCBFF006BCD4B /* FuelCoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelCoreDataStore.swift; sourceTree = "<group>"; };
 		B999C5711FDCD234006BCD4B /* FuelPersistenceSynchronizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelPersistenceSynchronizer.swift; sourceTree = "<group>"; };
+		B999C57A1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveGasoilOptimoCoreDataMigration.swift; sourceTree = "<group>"; };
+		B999C57C1FDF6EBD006BCD4B /* CoreDataMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMigration.swift; sourceTree = "<group>"; };
 		BEE9B81CD160F482367850A1 /* Pods-DominicanFuelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C90E4531F9993C447E596310 /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
 		E863179124E12B428385C5A0 /* Pods-DominicanFuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 			children = (
 				9057CA721ABA657C007740B0 /* AppDelegate.swift */,
 				90A7FF911AE20A1900A8597C /* Cells */,
+				B999C5791FDF6E2B006BCD4B /* Core Data Migration */,
 				906CE7C91ABDDE6000B45CCF /* Controllers */,
 				902EF58B1AD0270800661600 /* Core Data Seeders */,
 				B999C56D1FDCCBDE006BCD4B /* Core Data Stores */,
@@ -443,6 +448,15 @@
 				B999C5711FDCD234006BCD4B /* FuelPersistenceSynchronizer.swift */,
 			);
 			name = "Persistance Synchronizer";
+			sourceTree = "<group>";
+		};
+		B999C5791FDF6E2B006BCD4B /* Core Data Migration */ = {
+			isa = PBXGroup;
+			children = (
+				B999C57A1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift */,
+				B999C57C1FDF6EBD006BCD4B /* CoreDataMigration.swift */,
+			);
+			name = "Core Data Migration";
 			sourceTree = "<group>";
 		};
 		E152F87E5070B29D99557FC0 /* Frameworks */ = {
@@ -728,6 +742,7 @@
 				902EF5961AD0B09700661600 /* DateFormatter.swift in Sources */,
 				905B0A1F1B16BBA900EABB6F /* FuelTableViewCellFactory.swift in Sources */,
 				90AD3B3C1AD61B1D00785573 /* ViewController.swift in Sources */,
+				B999C57D1FDF6EBD006BCD4B /* CoreDataMigration.swift in Sources */,
 				905E52701B5B1FF70019E419 /* SettingsViewController.swift in Sources */,
 				903DC21B1AC2CA690006EE71 /* FuelViewModel.swift in Sources */,
 				905B0A251B16BD7F00EABB6F /* FuelDetailsTableViewHeaderImageView.swift in Sources */,
@@ -760,6 +775,7 @@
 				90E12E0A1B18901D00AF3A52 /* TableViewCellViewModel.swift in Sources */,
 				B999C5581FDCC4EB006BCD4B /* NetworkClient.swift in Sources */,
 				B999C5541FDCC4EB006BCD4B /* ImageNetworkManager.swift in Sources */,
+				B999C57B1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift in Sources */,
 				902EF5771ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
 				90AD3B3F1AD69F2800785573 /* Date.swift in Sources */,
 				902EF58D1AD0273E00661600 /* FuelFilterSeeder.swift in Sources */,

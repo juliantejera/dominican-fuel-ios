@@ -19,7 +19,6 @@ class FuelFilterSeeder {
                 let types = [
                     "Gasolina Premium",
                     "Gasolina Regular",
-                    "Gasoil Óptimo",
                     "Gasoil Premium",
                     "Gasoil Regular",
                     "Gas Licuado de Petróleo (GLP)",
