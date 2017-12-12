@@ -37,13 +37,17 @@ class FuelDetailsTableViewController: UITableViewController {
     lazy var viewModelFactory = FuelViewModelFactory()
     lazy var cellFactory = FuelTableViewCellFactory()
     var interstitial: GADInterstitial!
+    let interstitialTracker = InterstitialAdEvent.fuelDetails.tracker
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
         
-        if InterstitialAdEvent.fuelDetails.manager.shouldShowAd {
+        if interstitialTracker.shouldShowAd {
             self.interstitial = createAndLoadInterstitial()
+        } else {
+            interstitialTracker.increaseCounter()
         }
     }
     
@@ -111,7 +115,6 @@ class FuelDetailsTableViewController: UITableViewController {
 
 extension FuelDetailsTableViewController: GADInterstitialDelegate {
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        InterstitialAdEvent.fuelDetails.manager.increaseCounter()
         ad.present(fromRootViewController: self)
     }
     

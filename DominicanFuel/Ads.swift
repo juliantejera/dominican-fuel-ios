@@ -12,15 +12,15 @@ enum Ads: String {
     case admob = "ca-app-pub-3743373903826064/5760698435"
 }
 
-enum InterstitialAdEvent {
-    case fuelDetails
+enum InterstitialAdEvent: String {
+    case fuelDetails = "fuel_details_interstitial"
     
-    var manager: InterstitialAdManager {
-        return InterstitialAdManager(key: "fuel_details_interstitial", attemptCount: 5)
+    var tracker: InterstitialAdTracker {
+        return InterstitialAdTracker(key: rawValue, attemptCount: 5)
     }
 }
 
-struct InterstitialAdManager {
+struct InterstitialAdTracker {
     
     let key: String
     let attemptCount: Int
