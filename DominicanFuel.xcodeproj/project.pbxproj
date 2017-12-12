@@ -93,6 +93,7 @@
 		B999C5731FDCDB8E006BCD4B /* FuelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C56B1FDCCA80006BCD4B /* FuelProxy.swift */; };
 		B999C57B1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C57A1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift */; };
 		B999C57D1FDF6EBD006BCD4B /* CoreDataMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C57C1FDF6EBD006BCD4B /* CoreDataMigration.swift */; };
+		B999C57F1FDF7430006BCD4B /* Ads.swift in Sources */ = {isa = PBXBuildFile; fileRef = B999C57E1FDF7430006BCD4B /* Ads.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +190,7 @@
 		B999C5711FDCD234006BCD4B /* FuelPersistenceSynchronizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelPersistenceSynchronizer.swift; sourceTree = "<group>"; };
 		B999C57A1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveGasoilOptimoCoreDataMigration.swift; sourceTree = "<group>"; };
 		B999C57C1FDF6EBD006BCD4B /* CoreDataMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMigration.swift; sourceTree = "<group>"; };
+		B999C57E1FDF7430006BCD4B /* Ads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ads.swift; sourceTree = "<group>"; };
 		BEE9B81CD160F482367850A1 /* Pods-DominicanFuelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuelTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuelTests/Pods-DominicanFuelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C90E4531F9993C447E596310 /* Pods-DominicanFuel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.release.xcconfig"; sourceTree = "<group>"; };
 		E863179124E12B428385C5A0 /* Pods-DominicanFuel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominicanFuel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominicanFuel/Pods-DominicanFuel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				B999C56B1FDCCA80006BCD4B /* FuelProxy.swift */,
 				905B0A1E1B16BBA900EABB6F /* FuelTableViewCellFactory.swift */,
 				905B0A2B1B16C4FF00EABB6F /* DeltaAssetsManager.swift */,
+				B999C57E1FDF7430006BCD4B /* Ads.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				B999C5541FDCC4EB006BCD4B /* ImageNetworkManager.swift in Sources */,
 				B999C57B1FDF6E67006BCD4B /* RemoveGasoilOptimoCoreDataMigration.swift in Sources */,
 				902EF5771ACB97E300661600 /* FuelFilterExtension.swift in Sources */,
+				B999C57F1FDF7430006BCD4B /* Ads.swift in Sources */,
 				90AD3B3F1AD69F2800785573 /* Date.swift in Sources */,
 				902EF58D1AD0273E00661600 /* FuelFilterSeeder.swift in Sources */,
 			);

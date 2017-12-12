@@ -16,7 +16,7 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
         didSet {
             googleAdView?.delegate = self
             googleAdView?.rootViewController = self
-            googleAdView?.adUnitID = "ca-app-pub-3743373903826064/5760698435"
+            googleAdView?.adUnitID = Ads.admob.rawValue
         }
     }
     

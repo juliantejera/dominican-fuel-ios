@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import GoogleMobileAds
 
 class FuelDetailsTableViewController: UITableViewController {
 
@@ -20,6 +21,7 @@ class FuelDetailsTableViewController: UITableViewController {
     @IBOutlet weak var historySixMonthsAgoLabel: UILabel!
     @IBOutlet weak var historyOneYearAgoLabel: UILabel!
 
+    
     weak var fuel: Fuel? {
         didSet {
             if let fuel = self.fuel {
@@ -34,10 +36,15 @@ class FuelDetailsTableViewController: UITableViewController {
 
     lazy var viewModelFactory = FuelViewModelFactory()
     lazy var cellFactory = FuelTableViewCellFactory()
+    var interstitial: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        
+        if InterstitialAdEvent.fuelDetails.manager.shouldShowAd {
+            self.interstitial = createAndLoadInterstitial()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +52,13 @@ class FuelDetailsTableViewController: UITableViewController {
         self.tableViewHeaderImageView?.layer.masksToBounds = true
         self.tableViewHeaderImageView?.layer.cornerRadius = tableViewHeaderImageView.frame.height / 2.0
         self.tableViewHeaderImageView?.layer.borderWidth = 4.0
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: Ads.admob.rawValue)
+        interstitial.delegate = self
+        interstitial.load(GADRequest())
+        return interstitial
     }
     
     @IBAction func share(_ sender: UIBarButtonItem) {
@@ -91,5 +105,25 @@ class FuelDetailsTableViewController: UITableViewController {
                 historyOneYearAgoLabel.text = viewModelFactory.mapToViewModel(historicFuel).price
             }
         }
+    }
+    
+}
+
+extension FuelDetailsTableViewController: GADInterstitialDelegate {
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        InterstitialAdEvent.fuelDetails.manager.increaseCounter()
+        ad.present(fromRootViewController: self)
+    }
+    
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+        
+    }
+    
+    func interstitialDidFail(toPresentScreen ad: GADInterstitial) {
+        
+    }
+    
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print(error)
     }
 }
