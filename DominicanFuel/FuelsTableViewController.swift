@@ -40,6 +40,9 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: view)
+        }
         
         let request = GADRequest()
         request.testDevices = [kGADSimulatorID]
@@ -183,4 +186,28 @@ class FuelsTableViewController: CoreDataTableViewController, UIPopoverPresentati
     func adViewWillLeaveApplication(_ adView: GADBannerView) {
         
     }
+}
+
+
+extension FuelsTableViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = tableView.indexPathForRow(at: location),
+              let cell = tableView.cellForRow(at: indexPath),
+              let fuel = self.fetchedResultsController.object(at: indexPath) as? Fuel else {
+            return nil
+        }
+        
+        let controller =         self.storyboard?.instantiateViewController(withIdentifier: "FuelDetailsTableViewController") as? FuelDetailsTableViewController
+        controller?.fuel = fuel
+        controller?.preferredContentSize = CGSize(width: 0, height: 500)
+        previewingContext.sourceRect = cell.frame
+        return controller
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        self.navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
+    
 }

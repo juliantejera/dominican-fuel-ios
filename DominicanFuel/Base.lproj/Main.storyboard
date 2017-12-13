@@ -50,7 +50,7 @@
         <!--Fuel Details Table View Controller-->
         <scene sceneID="bgM-2r-Yo7">
             <objects>
-                <tableViewController id="kd4-12-eg7" customClass="FuelDetailsTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FuelDetailsTableViewController" id="kd4-12-eg7" customClass="FuelDetailsTableViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Wus-mY-7ci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -651,7 +651,7 @@
         <image name="wallpaper" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Osj-HV-bEn"/>
+        <segue reference="6tP-CZ-DZd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
