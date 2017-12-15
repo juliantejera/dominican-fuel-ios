@@ -197,7 +197,15 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, colorForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> UIColor! {
-        return self.view.tintColor
+        return view.tintColor
+    }
+    
+    func lineChartView(_ lineChartView: JBLineChartView!, verticalSelectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {
+        return view.tintColor
+    }
+    
+    func verticalSelectionWidth(for lineChartView: JBLineChartView!) -> CGFloat {
+        return 4.0
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, lineStyleForLineAtLineIndex lineIndex: UInt) -> JBLineChartViewLineStyle {
