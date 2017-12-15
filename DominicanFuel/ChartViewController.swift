@@ -21,7 +21,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     @IBOutlet weak var priceLabel: UILabel! {
         didSet {
-            priceLabel.textColor = UIColor.white
+            priceLabel.textColor = .black
         }
     }
     @IBOutlet weak var deltaLabel: UILabel!
@@ -33,7 +33,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
             lineChart.dataSource = self
             lineChart.headerPadding = 20.0
             lineChart.footerPadding = 10.0
-            lineChart.backgroundColor = UIColor.black
+            lineChart.backgroundColor = .white
         }
     }
     
@@ -65,7 +65,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = .white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -173,19 +173,19 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     
     func lineChartView(_ lineChartView: JBLineChartView!, didSelectLineAt lineIndex: UInt, horizontalIndex: UInt, touch touchPoint: CGPoint) {
         let indexPath = IndexPath(row: Int(horizontalIndex), section: Int(lineIndex))
-        if let fuel = self.fetchedResultsController?.object(at: indexPath) as? Fuel {
-            let viewModel = fuelViewModelFactory.mapToViewModel(fuel)
-            self.priceLabel.text = viewModel.price
-            self.deltaLabel.text = viewModel.delta
-            self.deltaLabel.textColor = self.assetsManager.colorForDelta(fuel.delta)
-            
-            self.setTooltipVisible(true, animated: true, atTouch: touchPoint)
-            self.tooltipView.textLabel.backgroundColor = self.view.tintColor
-            self.tooltipView.textLabel.textColor = UIColor.white
-            self.tooltipView.setText(viewModel.timespan)
+        guard let fuel = self.fetchedResultsController?.object(at: indexPath) as? Fuel else {
+            return
         }
+        
+        let viewModel = fuelViewModelFactory.mapToViewModel(fuel)
+        priceLabel.text = viewModel.price
+        deltaLabel.text = viewModel.delta
+        deltaLabel.textColor = self.assetsManager.colorForDelta(fuel.delta)
+        setTooltipVisible(true, animated: true, atTouch: touchPoint)
+        tooltipView.textLabel.backgroundColor = view.tintColor
+        tooltipView.textLabel.textColor = .white
+        tooltipView.setText(viewModel.timespan)
     }
-    
     
     func didDeselectLine(in lineChartView: JBLineChartView!) {
         self.setTooltipVisible(false, animated: true)
@@ -201,7 +201,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, lineStyleForLineAtLineIndex lineIndex: UInt) -> JBLineChartViewLineStyle {
-        return JBLineChartViewLineStyle.solid
+        return .solid
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, dotRadiusForDotAtHorizontalIndex horizontalIndex: UInt, atLineIndex lineIndex: UInt) -> CGFloat {
@@ -209,7 +209,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, widthForLineAtLineIndex lineIndex: UInt) -> CGFloat {
-        return 2.0
+        return 4.0
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, showsDotsForLineAtLineIndex lineIndex: UInt) -> Bool {
@@ -217,7 +217,7 @@ class ChartViewController: JBBaseChartViewController, JBLineChartViewDataSource,
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, smoothLineAtLineIndex lineIndex: UInt) -> Bool {
-        return false
+        return true
     }
     
     func lineChartView(_ lineChartView: JBLineChartView!, selectionColorForLineAtLineIndex lineIndex: UInt) -> UIColor! {

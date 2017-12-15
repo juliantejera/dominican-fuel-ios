@@ -25,18 +25,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     let defaultHeaderImageViewHeight: CGFloat = 200.0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
 //        let offsetY = -scrollView.contentOffset.y
