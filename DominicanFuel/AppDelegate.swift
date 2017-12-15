@@ -41,6 +41,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ManagedDocumentCoordinato
     func applicationWillEnterForeground(_ application: UIApplication) {
         Appirater.appEnteredForeground(true)
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        guard let context = document?.managedObjectContext else {
+            return
+        }
+        let fuelSynchronizer = FuelPersistenceSynchronizer(context: context)
+        fuelSynchronizer.synchronize()
+    }
 
     // MARK: Remote Notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
