@@ -36,6 +36,7 @@ struct FuelPersistenceSynchronizer {
                 let proxies = try decoder.decode([FuelProxy].self, from: data)
                 try store.persist(proxies: proxies)
                 try self.store.context.save()
+                synchronize()
             } catch let error {
                 print(error)
             }
