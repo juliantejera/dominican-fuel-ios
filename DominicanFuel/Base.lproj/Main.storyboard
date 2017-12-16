@@ -372,7 +372,7 @@
             </objects>
             <point key="canvasLocation" x="1819" y="-481"/>
         </scene>
-        <!--Gasolina Premium-->
+        <!--Chart View Controller-->
         <scene sceneID="kmf-Bp-xCo">
             <objects>
                 <viewController id="5AZ-ze-bqC" customClass="ChartViewController" customModule="DominicanFuel" customModuleProvider="target" sceneMemberID="viewController">
@@ -385,17 +385,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hL-hS-F0U" customClass="JBLineChartView">
-                                <rect key="frame" x="-4" y="140.5" width="383" height="436.5"/>
+                                <rect key="frame" x="-4" y="109" width="383" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gks-fI-v5x">
-                                <rect key="frame" x="152" y="72" width="71" height="31.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gks-fI-v5x">
+                                <rect key="frame" x="187.5" y="72" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-1.27 (0.33%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aE-C3-oao">
-                                <rect key="frame" x="141.5" y="111.5" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aE-C3-oao">
+                                <rect key="frame" x="187.5" y="80" width="0.0" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="yN9-TC-lGr"/>
                                 </constraints>
@@ -433,7 +433,7 @@
                             <constraint firstItem="73V-q0-fbl" firstAttribute="top" secondItem="7hL-hS-F0U" secondAttribute="bottom" constant="5" id="mKs-yR-Tow"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Gasolina Premium" id="2Yh-Ok-OV1"/>
+                    <navigationItem key="navigationItem" id="2Yh-Ok-OV1"/>
                     <connections>
                         <outlet property="deltaLabel" destination="9aE-C3-oao" id="wvP-QX-vXu"/>
                         <outlet property="lineChart" destination="7hL-hS-F0U" id="HVX-px-ra1"/>
